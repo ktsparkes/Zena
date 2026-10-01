@@ -1,0 +1,471 @@
+<title>Study Quest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Nunito:wght@400;600;800&display=swap">
+<style>
+  /* Layout: a single-column quest path. Each lesson is a trail of 5 stops, each stop unlocks a badge. */
+  :root {
+    --bg: #eef6f4; --surface: #ffffff; --ink: #14302c; --muted: #557a74; --line: #cfe3df;
+    --accent: #0f7c6e; --accent-ink: #ffffff; --accent-soft: #d5efe9;
+    --sun: #ffbf2e; --sun-soft: #fff1cc;
+    --good: #1c8a4e; --good-soft: #dcf3e5; --bad: #c8432f; --bad-soft: #fbe2dd;
+    --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Nunito", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1f1c; --surface: #15302b; --ink: #e8f5f2; --muted: #93b9b2; --line: #24463f;
+      --accent: #3cc2ae; --accent-ink: #082420; --accent-soft: #1b4139;
+      --sun: #ffcc4d; --sun-soft: #3d3317;
+      --good: #4fd18a; --good-soft: #173a29; --bad: #ff8a75; --bad-soft: #43231d;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1f1c; --surface: #15302b; --ink: #e8f5f2; --muted: #93b9b2; --line: #24463f;
+    --accent: #3cc2ae; --accent-ink: #082420; --accent-soft: #1b4139;
+    --sun: #ffcc4d; --sun-soft: #3d3317;
+    --good: #4fd18a; --good-soft: #173a29; --bad: #ff8a75; --bad-soft: #43231d;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 var(--body); }
+  main { max-width: 680px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 72px; display: grid; gap: 18px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0; text-wrap: balance; }
+  h1 { font-size: 2.1rem; font-weight: 800; }
+  h2 { font-size: 1.45rem; font-weight: 800; }
+  h3 { font-size: 1.15rem; font-weight: 600; }
+  p { margin: 0; }
+  .muted { color: var(--muted); }
+  .eyebrow { font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 14px; }
+  button, a.btn { font: inherit; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    border: 0; border-radius: 12px; padding: 12px 18px; font-weight: 800; cursor: pointer;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+  }
+  .btn.soft { background: var(--accent-soft); color: var(--ink); }
+  .btn:disabled { opacity: .45; cursor: default; }
+  :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .bar { height: 10px; background: var(--accent-soft); border-radius: 99px; overflow: hidden; }
+  .bar > div { height: 100%; background: var(--accent); border-radius: 99px; transition: width .4s; }
+
+  /* Home */
+  .hero { display: grid; gap: 6px; }
+  .score { display: flex; justify-content: space-between; align-items: baseline; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .lesson-card {
+    display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; text-align: left; width: 100%;
+    background: var(--surface); border: 2px solid var(--line); border-radius: 16px; padding: 16px; cursor: pointer; color: inherit;
+  }
+  .lesson-card:hover { border-color: var(--accent); }
+  .lesson-num {
+    width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center;
+    font: 800 1.5rem var(--display); background: var(--sun); color: #3a2a00;
+  }
+  .lesson-card > div { min-width: 0; display: grid; gap: 6px; }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; }
+  .badge {
+    font-size: .75rem; font-weight: 800; padding: 2px 9px; border-radius: 99px;
+    background: var(--bg); color: var(--muted); border: 1px solid var(--line);
+  }
+  .badge.on { background: var(--sun-soft); color: var(--ink); border-color: var(--sun); }
+
+  /* Trail */
+  .trail { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .stop {
+    border: 2px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px;
+    padding: 8px 4px; cursor: pointer; display: grid; gap: 2px; justify-items: center; font-size: .78rem; font-weight: 800;
+  }
+  .stop .dot {
+    width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--bg); border: 2px solid var(--line); font-family: var(--display);
+  }
+  .stop.done .dot { background: var(--sun); border-color: var(--sun); color: #3a2a00; }
+  .stop.active { border-color: var(--accent); }
+
+  /* Flip cards */
+  .flips { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .flip { perspective: 900px; border: 0; padding: 0; background: none; cursor: pointer; min-height: 150px; color: inherit; text-align: left; }
+  .flip-inner { position: relative; width: 100%; height: 100%; min-height: 150px; transition: transform .5s; transform-style: preserve-3d; }
+  .flip.turned .flip-inner { transform: rotateY(180deg); }
+  .face {
+    position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; padding: 14px;
+    display: grid; align-content: space-between; gap: 8px; border: 2px solid var(--line);
+  }
+  .face.front { background: var(--surface); }
+  .face.back { background: var(--accent-soft); border-color: var(--accent); transform: rotateY(180deg); }
+  .face small { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .face strong { font-family: var(--display); font-size: 1.05rem; }
+
+  /* Match */
+  .match { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .match .col { display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .chip {
+    border: 2px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px;
+    padding: 10px 12px; text-align: left; cursor: pointer; font-weight: 600; min-height: 56px;
+  }
+  .chip.verse { font-family: var(--display); font-weight: 800; }
+  .chip.picked { border-color: var(--accent); background: var(--accent-soft); }
+  .chip.matched { border-color: var(--good); background: var(--good-soft); cursor: default; }
+  .chip.shake { animation: shake .35s; border-color: var(--bad); }
+  @keyframes shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+
+  /* Quiz */
+  .opt {
+    display: block; width: 100%; text-align: left; padding: 12px 14px; border: 2px solid var(--line);
+    border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font-weight: 600;
+  }
+  .opt:hover:not(:disabled) { border-color: var(--accent); }
+  .opt.right { border-color: var(--good); background: var(--good-soft); }
+  .opt.wrong { border-color: var(--bad); background: var(--bad-soft); }
+  .opt:disabled { cursor: default; }
+  .tf { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tf .opt { text-align: center; font-family: var(--display); font-size: 1.2rem; }
+  .feedback { font-weight: 800; padding: 10px 14px; border-radius: 12px; }
+  .feedback.good { background: var(--good-soft); color: var(--ink); }
+  .feedback.bad { background: var(--bad-soft); color: var(--ink); }
+  .streak { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .stars { font-size: 2.4rem; letter-spacing: 6px; }
+  .stars .on { color: var(--sun); } .stars .off { color: var(--line); }
+
+  textarea {
+    width: 100%; min-height: 120px; font: inherit; padding: 12px; border-radius: 12px;
+    border: 2px solid var(--line); background: var(--bg); color: var(--ink); resize: vertical;
+  }
+  .verse-tag { display: inline-block; background: var(--accent-soft); border-radius: 99px; padding: 3px 12px; font-weight: 800; font-size: .88rem; }
+
+  #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 10; width: 100%; height: 100%; }
+  @media (max-width: 420px) {
+    .stop { font-size: .68rem; }
+    .match { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flip-inner, .bar > div { transition: none; }
+    .chip.shake { animation: none; }
+  }
+</style>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<main id="app"></main>
+
+<script>
+// All wording here is our own. The full lessons are on jw.org.
+const LESSONS = [
+  {
+    id: 1,
+    title: "How Can the Bible Help You?",
+    url: "https://www.jw.org/en/library/books/enjoy-life-forever/section-1/lesson-01/",
+    bigIdea: "The Bible answers life's biggest questions and gives useful advice for everyday life.",
+    cards: [
+      ["When you have a choice to make, what is the Bible like?", "A lamp that lights up your path so you can see where to go."],
+      ["Name a big question the Bible answers.", "Why bad things happen, what happens when we die, or what the future holds."],
+      ["What everyday things can it help with?", "Family life, worry and stress, and being happy at work or school."],
+      ["How can it help when you feel down?", "It gives comfort and hope for the future."],
+      ["What's a good way to understand it better?", "Talk about it with someone who can help, like the Ethiopian official did."]
+    ],
+    pairs: [
+      ["Psalm 119:105", "God's word is like a lamp for your feet"],
+      ["2 Timothy 3:16", "All Scripture is useful for teaching"],
+      ["Romans 15:4", "Scripture was written to give us hope"],
+      ["Acts 8:30, 31", "The Ethiopian asked for someone to guide him"]
+    ],
+    quiz: [
+      { q: "Psalm 119:105 compares God's word to what?", o: ["A map", "A lamp", "A shield"], a: 1, why: "A lamp lights the path, so you can make good choices." },
+      { tf: true, q: "The Bible only helps with big questions, not everyday life.", a: false, why: "It helps with both: deep questions and things like family and stress." },
+      { q: "2 Timothy 3:16 says all Scripture is...", o: ["Hard to understand", "Only for adults", "Useful (beneficial)"], a: 2, why: "All of it is useful for teaching us." },
+      { q: "According to Romans 15:4, why were the scriptures written?", o: ["To give us comfort and hope", "To make rules for fun", "To tell stories only"], a: 0, why: "They were written so we can have hope." },
+      { q: "What helped the Ethiopian official understand what he was reading?", o: ["He read it faster", "Philip explained it to him", "He skipped the hard parts"], a: 1, why: "Philip talked it through with him." },
+      { tf: true, q: "Talking about the Bible with someone else can help you understand it.", a: true, why: "That's why studying with someone helps so much." }
+    ],
+    reflect: "Which big question would you most like the Bible to answer for you? Why?"
+  },
+  {
+    id: 2,
+    title: "The Bible Gives Hope",
+    url: "https://www.jw.org/en/library/books/enjoy-life-forever/section-1/lesson-02/",
+    bigIdea: "Today's problems won't last forever. The Bible promises a much better future.",
+    cards: [
+      ["Will today's problems last forever?", "No. The Bible says they are only temporary."],
+      ["What will the future earth be like?", "A paradise with peace, plenty of food and homes for everyone."],
+      ["What will disappear in the future?", "Sickness, pain, death and unfairness."],
+      ["How can you trust these promises?", "Check them carefully in the Bible for yourself."],
+      ["How does hope help right now?", "It helps you cope with hard times and stay positive."]
+    ],
+    pairs: [
+      ["Revelation 21:4", "No more tears, death or pain"],
+      ["Isaiah 33:24", "No one will say \"I am sick\""],
+      ["Psalm 37:29", "Good people will live forever on the earth"],
+      ["Acts 17:11", "They checked carefully what they were taught"]
+    ],
+    quiz: [
+      { q: "Revelation 21:4 says God will take away what?", o: ["Every tear, death and pain", "All rules", "All animals"], a: 0, why: "No more sadness, death or pain." },
+      { tf: true, q: "The Bible says today's problems will last forever.", a: false, why: "It promises they will come to an end." },
+      { q: "Isaiah 33:24 says no one will say...", o: ["\"I am bored\"", "\"I am sick\"", "\"I am hungry\""], a: 1, why: "In the future, nobody will be ill." },
+      { q: "Psalm 37:29 says good people will live forever where?", o: ["In the sky", "Under the sea", "On the earth"], a: 2, why: "The earth will be their home forever." },
+      { q: "What did the people in Acts 17:11 do with what they were taught?", o: ["Ignored it", "Checked it carefully in the scriptures", "Believed it without looking"], a: 1, why: "They checked it. You can check Bible promises too." },
+      { tf: true, q: "Hope for the future can help you face hard times today.", a: true, why: "Hope doesn't remove problems straight away, but it helps you cope." }
+    ],
+    reflect: "Which promise about the future are you most looking forward to? Why?"
+  }
+];
+
+const STEPS = ["Read", "Flip", "Match", "Quiz", "Think"];
+
+// ---------- storage (per device) ----------
+const KEY = "zena-quest-v2";
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} }
+let state = load();
+function rec(id) { return (state[id] ||= { done: {}, stars: 0, note: "" }); }
+
+// ---------- helpers ----------
+const app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const starsHtml = n => [0, 1, 2].map(i => `<span class="${i < n ? "on" : "off"}">★</span>`).join("");
+function points(id) { const r = rec(id); return Object.keys(r.done).length + r.stars; } // 5 badges + 3 stars
+function complete(id, step) {
+  const r = rec(id);
+  if (!r.done[step]) { r.done[step] = true; save(); }
+}
+
+// ---------- confetti ----------
+const cv = document.getElementById("confetti"), cx = cv.getContext("2d");
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function confetti() {
+  if (calm) return;
+  cv.width = innerWidth; cv.height = innerHeight;
+  const colors = ["#ffbf2e", "#0f7c6e", "#3cc2ae", "#ff8a75", "#7cc9ff"];
+  const bits = Array.from({ length: 120 }, () => ({
+    x: Math.random() * cv.width, y: -20 - Math.random() * cv.height * .4,
+    vx: (Math.random() - .5) * 3, vy: 2 + Math.random() * 3, r: Math.random() * 6.3,
+    s: 6 + Math.random() * 6, c: colors[Math.floor(Math.random() * colors.length)]
+  }));
+  let t = 0;
+  (function frame() {
+    cx.clearRect(0, 0, cv.width, cv.height);
+    bits.forEach(b => {
+      b.x += b.vx; b.y += b.vy; b.r += .1;
+      cx.save(); cx.translate(b.x, b.y); cx.rotate(b.r); cx.fillStyle = b.c;
+      cx.fillRect(-b.s / 2, -b.s / 4, b.s, b.s / 2); cx.restore();
+    });
+    if (++t < 180) requestAnimationFrame(frame); else cx.clearRect(0, 0, cv.width, cv.height);
+  })();
+}
+
+// ---------- home ----------
+function home() {
+  const total = LESSONS.reduce((s, l) => s + points(l.id), 0), max = LESSONS.length * 8;
+  app.innerHTML = `
+    <header class="hero">
+      <span class="eyebrow">Enjoy Life Forever! · Section 1</span>
+      <h1>Study Quest</h1>
+      <p class="muted">Each lesson has 5 stops. Finish a stop to earn its badge, and score stars in the quiz.</p>
+    </header>
+    <section class="panel">
+      <div class="score"><span>Your points</span><span>${total} / ${max}</span></div>
+      <div class="bar"><div style="width:${(total / max) * 100}%"></div></div>
+    </section>
+    ${LESSONS.map(l => {
+      const r = rec(l.id);
+      return `<button class="lesson-card" data-id="${l.id}">
+        <span class="lesson-num">${l.id}</span>
+        <div>
+          <h3>${esc(l.title)}</h3>
+          <div class="badges">${STEPS.map(s => `<span class="badge ${r.done[s] ? "on" : ""}">${s}</span>`).join("")}</div>
+          <div class="stars" style="font-size:1.1rem;letter-spacing:2px">${starsHtml(r.stars)}</div>
+        </div>
+      </button>`;
+    }).join("")}`;
+  app.querySelectorAll(".lesson-card").forEach(b => b.onclick = () => lesson(+b.dataset.id, firstOpen(+b.dataset.id)));
+  scrollTo(0, 0);
+}
+function firstOpen(id) { const r = rec(id); const i = STEPS.findIndex(s => !r.done[s]); return i < 0 ? 0 : i; }
+
+// ---------- lesson shell ----------
+function lesson(id, stepIndex) {
+  const l = LESSONS.find(x => x.id === id), r = rec(id);
+  app.innerHTML = `
+    <div class="row"><button class="btn soft" id="back">← All lessons</button></div>
+    <header class="hero">
+      <span class="eyebrow">Lesson ${l.id}</span>
+      <h1>${esc(l.title)}</h1>
+      <p class="muted">${esc(l.bigIdea)}</p>
+    </header>
+    <nav class="trail" aria-label="Lesson stops">
+      ${STEPS.map((s, i) => `<button class="stop ${r.done[s] ? "done" : ""} ${i === stepIndex ? "active" : ""}" data-i="${i}">
+        <span class="dot">${r.done[s] ? "✓" : i + 1}</span>${s}</button>`).join("")}
+    </nav>
+    <section class="panel" id="stage"></section>`;
+  document.getElementById("back").onclick = home;
+  app.querySelectorAll(".stop").forEach(b => b.onclick = () => lesson(id, +b.dataset.i));
+  const stage = document.getElementById("stage");
+  const next = () => lesson(id, Math.min(stepIndex + 1, STEPS.length - 1));
+  [readStep, flipStep, matchStep, quizStep, thinkStep][stepIndex](l, stage, next);
+  scrollTo(0, 0);
+}
+function nextButton(label = "Next stop →") { return `<div class="row"><button class="btn" id="go" disabled>${label}</button></div>`; }
+function unlock(stage, next, label) {
+  const go = stage.querySelector("#go"); go.disabled = false; if (label) go.textContent = label; go.onclick = next;
+}
+
+// ---------- 1. Read ----------
+function readStep(l, stage, next) {
+  const done = rec(l.id).done.Read;
+  stage.innerHTML = `
+    <h2>Read the lesson</h2>
+    <p>Open the lesson on jw.org and read it, ideally with your study partner. Come back here when you're done.</p>
+    <div class="row">
+      <a class="btn soft" href="${l.url}" target="_blank" rel="noopener">Open Lesson ${l.id} ↗</a>
+      <button class="btn" id="readDone">${done ? "Read ✓" : "I've read it"}</button>
+    </div>
+    ${nextButton()}`;
+  if (done) unlock(stage, next);
+  stage.querySelector("#readDone").onclick = e => {
+    complete(l.id, "Read"); e.target.textContent = "Read ✓"; unlock(stage, next);
+  };
+}
+
+// ---------- 2. Flip cards ----------
+function flipStep(l, stage, next) {
+  const seen = new Set();
+  stage.innerHTML = `
+    <h2>Flip the cards</h2>
+    <p class="muted">Try to answer in your head first, then tap to check. <span id="flipCount">0</span> / ${l.cards.length} flipped.</p>
+    <div class="flips">
+      ${l.cards.map(([q, a], i) => `<button class="flip" data-i="${i}" aria-label="Flip card ${i + 1}">
+        <div class="flip-inner">
+          <div class="face front"><small>Question</small><strong>${esc(q)}</strong><small>Tap to flip</small></div>
+          <div class="face back"><small>Answer</small><strong>${esc(a)}</strong><small>Tap to flip back</small></div>
+        </div></button>`).join("")}
+    </div>
+    ${nextButton()}`;
+  if (rec(l.id).done.Flip) unlock(stage, next);
+  stage.querySelectorAll(".flip").forEach(b => b.onclick = () => {
+    b.classList.toggle("turned"); seen.add(b.dataset.i);
+    stage.querySelector("#flipCount").textContent = seen.size;
+    if (seen.size === l.cards.length) { complete(l.id, "Flip"); unlock(stage, next, "All flipped! Next stop →"); }
+  });
+}
+
+// ---------- 3. Match ----------
+function matchStep(l, stage, next) {
+  const left = shuffle(l.pairs.map((p, i) => ({ i, t: p[0] })));
+  const right = shuffle(l.pairs.map((p, i) => ({ i, t: p[1] })));
+  let picked = null, matched = 0, tries = 0;
+  stage.innerHTML = `
+    <h2>Match the verses</h2>
+    <p class="muted">Tap a verse, then tap what it says. Look them up in your Bible if you get stuck.</p>
+    <div class="match">
+      <div class="col">${left.map(x => `<button class="chip verse" data-i="${x.i}" data-side="L">${esc(x.t)}</button>`).join("")}</div>
+      <div class="col">${right.map(x => `<button class="chip" data-i="${x.i}" data-side="R">${esc(x.t)}</button>`).join("")}</div>
+    </div>
+    <p id="matchMsg" class="muted" aria-live="polite"></p>
+    ${nextButton()}`;
+  if (rec(l.id).done.Match) unlock(stage, next);
+  const msg = stage.querySelector("#matchMsg");
+  stage.querySelectorAll(".chip").forEach(c => c.onclick = () => {
+    if (c.classList.contains("matched")) return;
+    if (!picked || picked.dataset.side === c.dataset.side) {
+      if (picked) picked.classList.remove("picked");
+      picked = c; c.classList.add("picked"); return;
+    }
+    tries++;
+    if (picked.dataset.i === c.dataset.i) {
+      [picked, c].forEach(x => { x.classList.remove("picked"); x.classList.add("matched"); x.disabled = true; });
+      matched++; msg.textContent = matched < l.pairs.length ? "Nice match!" : "";
+      if (matched === l.pairs.length) {
+        msg.textContent = tries === l.pairs.length ? "Perfect, no mistakes!" : `All matched in ${tries} tries.`;
+        complete(l.id, "Match"); confetti(); unlock(stage, next, "Matched! Next stop →");
+      }
+    } else {
+      [picked, c].forEach(x => { x.classList.remove("picked"); x.classList.add("shake"); setTimeout(() => x.classList.remove("shake"), 400); });
+      msg.textContent = "Not a match. Try again!";
+    }
+    picked = null;
+  });
+}
+
+// ---------- 4. Quiz ----------
+function quizStep(l, stage, next) {
+  const qs = shuffle(l.quiz);
+  let i = 0, score = 0, streak = 0;
+  function show() {
+    const item = qs[i];
+    const opts = item.tf ? null : shuffle(item.o.map((t, n) => ({ t, n })));
+    stage.innerHTML = `
+      <div class="row" style="justify-content:space-between">
+        <span class="eyebrow">Question ${i + 1} of ${qs.length}</span>
+        <span class="streak">${streak > 1 ? `🔥 ${streak} in a row` : ""}</span>
+      </div>
+      <div class="bar"><div style="width:${(i / qs.length) * 100}%"></div></div>
+      ${item.tf ? `<span class="verse-tag">True or false?</span>` : ""}
+      <h2>${esc(item.q)}</h2>
+      ${item.tf
+        ? `<div class="tf"><button class="opt" data-v="true">True</button><button class="opt" data-v="false">False</button></div>`
+        : `<div style="display:grid;gap:10px">${opts.map(o => `<button class="opt" data-v="${o.n}">${esc(o.t)}</button>`).join("")}</div>`}
+      <p class="feedback" id="fb" hidden aria-live="polite"></p>
+      <div class="row"><button class="btn" id="qnext" hidden>${i + 1 < qs.length ? "Next question →" : "See my stars"}</button></div>`;
+    const btns = stage.querySelectorAll(".opt");
+    btns.forEach(b => b.onclick = () => {
+      const right = String(item.a);
+      const ok = b.dataset.v === right;
+      btns.forEach(x => { x.disabled = true; if (x.dataset.v === right) x.classList.add("right"); });
+      if (!ok) b.classList.add("wrong");
+      score += ok; streak = ok ? streak + 1 : 0;
+      const fb = stage.querySelector("#fb");
+      fb.hidden = false; fb.className = "feedback " + (ok ? "good" : "bad");
+      fb.textContent = (ok ? "Correct! " : "Not quite. ") + item.why;
+      const n = stage.querySelector("#qnext"); n.hidden = false; n.focus();
+      n.onclick = () => (++i < qs.length ? show() : finish());
+    });
+  }
+  function finish() {
+    const stars = score === qs.length ? 3 : score >= qs.length - 2 ? 2 : score >= 2 ? 1 : 0;
+    const r = rec(l.id); r.stars = Math.max(r.stars, stars); complete(l.id, "Quiz"); save();
+    if (stars === 3) confetti();
+    const msg = stars === 3 ? "Perfect score!" : stars === 2 ? "Great job!" : "Good try! Have another go.";
+    stage.innerHTML = `
+      <div style="text-align:center;display:grid;gap:10px">
+        <h2>${msg}</h2>
+        <p class="muted">You got ${score} out of ${qs.length} right.</p>
+        <div class="stars">${starsHtml(stars)}</div>
+        ${r.stars > stars ? `<p class="muted">Your best is still ${r.stars} stars.</p>` : ""}
+      </div>
+      <div class="row" style="justify-content:center">
+        <button class="btn soft" id="again">Try again</button>
+        <button class="btn" id="go">Next stop →</button>
+      </div>`;
+    stage.querySelector("#again").onclick = () => quizStep(l, stage, next);
+    stage.querySelector("#go").onclick = next;
+  }
+  show();
+}
+
+// ---------- 5. Think ----------
+function thinkStep(l, stage) {
+  const r = rec(l.id);
+  stage.innerHTML = `
+    <h2>Think about it</h2>
+    <p>${esc(l.reflect)}</p>
+    <label for="note-${l.id}" class="muted">Your answer (only saved on this device)</label>
+    <textarea id="note-${l.id}" placeholder="Write a few words or a sentence…">${esc(r.note || "")}</textarea>
+    <p class="muted">Share your answer with your study partner next time.</p>
+    <div class="row">
+      <button class="btn" id="saveNote">Save my answer</button>
+      <span id="saved" class="muted" aria-live="polite"></span>
+    </div>
+    <div class="row"><button class="btn soft" id="home2">Back to all lessons</button></div>`;
+  const ta = stage.querySelector("textarea");
+  stage.querySelector("#saveNote").onclick = () => {
+    if (!ta.value.trim()) { stage.querySelector("#saved").textContent = "Write something first."; return; }
+    r.note = ta.value.trim(); const first = !r.done.Think; complete(l.id, "Think"); save();
+    stage.querySelector("#saved").textContent = "Saved ✓";
+    if (first && STEPS.every(s => r.done[s])) confetti();
+  };
+  stage.querySelector("#home2").onclick = home;
+}
+
+home();
+</script>
