@@ -67,13 +67,18 @@
   .hidden { display: none; }
   .party { text-align: center; font-size: 3rem; }
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
       --bg: #17142a; --card: #241f3d; --ink: #f0ecff; --muted: #a9a2c4;
       --accent: #9b85ff; --accent-soft: #332b5c; --good: #4fd19a; --good-soft: #1d3a30;
       --bad: #ff7b72; --bad-soft: #42221f;
     }
     .option { background: var(--card); border-color: #3a335e; }
     .star-off { color: #3f3863; }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17142a; --card: #241f3d; --ink: #f0ecff; --muted: #a9a2c4;
+    --accent: #9b85ff; --accent-soft: #332b5c; --good: #4fd19a; --good-soft: #1d3a30;
+    --bad: #ff7b72; --bad-soft: #42221f;
   }
 </style>
 </head>
