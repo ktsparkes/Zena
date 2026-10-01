@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zena Study Quest</title>
+<style>
+  :root {
+    --bg: #f4f1ff; --card: #ffffff; --ink: #2a2440; --muted: #6b6485;
+    --accent: #6c4cf5; --accent-soft: #e7e0ff; --good: #1f9d6b; --good-soft: #dff5ea;
+    --bad: #d2453d; --bad-soft: #fde3e1; --star: #f5b400;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 680px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 1.8rem; margin: 0 0 4px; }
+  h2 { font-size: 1.3rem; margin: 0 0 12px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); }
+  .card {
+    background: var(--card); border-radius: 18px; padding: 20px;
+    margin: 16px 0; box-shadow: 0 2px 10px rgba(60, 40, 140, .08);
+  }
+  .tiles { display: grid; gap: 14px; }
+  .tile {
+    display: flex; align-items: center; gap: 16px; width: 100%; text-align: left;
+    background: var(--card); border: 3px solid transparent; border-radius: 18px;
+    padding: 18px; font: inherit; color: inherit; cursor: pointer;
+    box-shadow: 0 2px 10px rgba(60, 40, 140, .08);
+  }
+  .tile:hover, .tile:focus-visible { border-color: var(--accent); outline: none; }
+  .num {
+    flex: none; width: 52px; height: 52px; border-radius: 14px;
+    display: grid; place-items: center; font-weight: 700; font-size: 1.3rem;
+    background: var(--accent-soft); color: var(--accent);
+  }
+  .tile .stars { margin-left: auto; font-size: 1.3rem; white-space: nowrap; }
+  .star-on { color: var(--star); } .star-off { color: #d6d1e6; }
+  .btn {
+    display: inline-block; border: 0; border-radius: 12px; padding: 12px 18px;
+    font: inherit; font-weight: 600; cursor: pointer; text-decoration: none;
+    background: var(--accent); color: #fff;
+  }
+  .btn.ghost { background: var(--accent-soft); color: var(--accent); }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; }
+  ul.points { padding-left: 1.2em; margin: 0; }
+  ul.points li { margin-bottom: 8px; }
+  .verse {
+    display: inline-block; background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; padding: 4px 12px; margin: 4px 4px 0 0; font-size: .9rem; font-weight: 600;
+  }
+  .option {
+    display: block; width: 100%; text-align: left; margin: 8px 0; padding: 12px 14px;
+    border: 2px solid #e2ddf2; border-radius: 12px; background: #fff;
+    font: inherit; color: inherit; cursor: pointer;
+  }
+  .option:hover:not(:disabled) { border-color: var(--accent); }
+  .option.right { border-color: var(--good); background: var(--good-soft); }
+  .option.wrong { border-color: var(--bad); background: var(--bad-soft); }
+  .option:disabled { cursor: default; }
+  .feedback { font-weight: 600; min-height: 1.5em; }
+  .progress { height: 10px; background: var(--accent-soft); border-radius: 999px; overflow: hidden; margin: 8px 0 0; }
+  .progress > div { height: 100%; background: var(--accent); transition: width .3s; }
+  .hidden { display: none; }
+  .party { text-align: center; font-size: 3rem; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17142a; --card: #241f3d; --ink: #f0ecff; --muted: #a9a2c4;
+      --accent: #9b85ff; --accent-soft: #332b5c; --good: #4fd19a; --good-soft: #1d3a30;
+      --bad: #ff7b72; --bad-soft: #42221f;
+    }
+    .option { background: var(--card); border-color: #3a335e; }
+    .star-off { color: #3f3863; }
+  }
+</style>
+</head>
+<body>
+<main id="app"></main>
+
+<script>
+// Lesson content is written in our own words. Each lesson links to the
+// real lesson on jw.org for the full reading.
+const LESSONS = [
+  {
+    id: 1,
+    title: "How Can the Bible Help You?",
+    url: "https://www.jw.org/en/library/books/enjoy-life-forever/section-1/lesson-01/",
+    bigIdea: "The Bible answers life's biggest questions and gives useful advice for everyday life.",
+    points: [
+      "🔦 It's like a torch that helps you see which way to go when making choices.",
+      "❓ It answers big questions, like why bad things happen and what happens when we die.",
+      "🏠 It has practical tips for family life, stress and work.",
+      "💛 It gives comfort and hope when life feels hard.",
+      "🗣️ Talking about it with someone helps you understand it better."
+    ],
+    verses: ["2 Timothy 3:16", "Psalm 119:105", "Romans 15:4", "Acts 8:26-31"],
+    quiz: [
+      {
+        q: "Psalm 119:105 compares God's word to what?",
+        options: ["A map", "A lamp or light", "A shield"],
+        answer: 1,
+        why: "A light helps you see where you're going, so you make good choices."
+      },
+      {
+        q: "Which of these does the Bible help with?",
+        options: ["Only history facts", "Only big questions", "Big questions AND everyday life"],
+        answer: 2,
+        why: "It covers deep questions and practical things like family and stress."
+      },
+      {
+        q: "In Acts 8, what helped the Ethiopian official understand the scriptures?",
+        options: ["Someone explained them to him", "He read them faster", "He skipped the hard parts"],
+        answer: 0,
+        why: "Philip talked it through with him. Discussing the Bible helps!"
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "The Bible Gives Hope",
+    url: "https://www.jw.org/en/library/books/enjoy-life-forever/section-1/lesson-02/",
+    bigIdea: "Today's problems won't last forever. The Bible promises a much better future.",
+    points: [
+      "🌍 It describes a future paradise on earth.",
+      "🚫 No more sickness, pain, death or unfairness.",
+      "🍎 Plenty of food, homes for everyone, and peace.",
+      "🔍 You can check these promises for yourself by studying carefully.",
+      "😊 Having hope helps you cope and stay positive right now."
+    ],
+    verses: ["Jeremiah 29:11", "Revelation 21:4", "Isaiah 33:24", "Psalm 37:29", "Acts 17:11", "Romans 12:12"],
+    quiz: [
+      {
+        q: "Revelation 21:4 says God will wipe out what?",
+        options: ["Every tear, death and pain", "All rules", "All animals"],
+        answer: 0,
+        why: "It promises no more death, sadness or pain."
+      },
+      {
+        q: "What did the people in Acts 17:11 do with what they were taught?",
+        options: ["Ignored it", "Checked it carefully in the scriptures", "Believed it without looking"],
+        answer: 1,
+        why: "They checked it carefully. You can check Bible promises too!"
+      },
+      {
+        q: "How can hope for the future help you today?",
+        options: ["It doesn't help at all", "It helps you cope and stay positive", "It makes problems disappear now"],
+        answer: 1,
+        why: "Hope doesn't remove problems straight away, but it helps you face them."
+      }
+    ]
+  }
+];
+
+const STORE_KEY = "zena-progress";
+function loadProgress() {
+  try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; }
+}
+function saveProgress(p) {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(p)); } catch {}
+}
+let progress = loadProgress();
+
+const app = document.getElementById("app");
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function starsHtml(n, total = 3) {
+  let out = "";
+  for (let i = 0; i < total; i++) out += `<span class="${i < n ? "star-on" : "star-off"}">★</span>`;
+  return out;
+}
+
+function showHome() {
+  const earned = LESSONS.reduce((s, l) => s + (progress[l.id] || 0), 0);
+  const max = LESSONS.length * 3;
+  app.innerHTML = `
+    <h1>🌟 Study Quest</h1>
+    <p class="muted">Enjoy Life Forever! · Section 1</p>
+    <div class="card">
+      <strong>Your stars: ${earned} / ${max}</strong>
+      <div class="progress"><div style="width:${(earned / max) * 100}%"></div></div>
+    </div>
+    <div class="tiles">
+      ${LESSONS.map(l => `
+        <button class="tile" data-id="${l.id}">
+          <span class="num">${l.id}</span>
+          <span><strong>${esc(l.title)}</strong></span>
+          <span class="stars">${starsHtml(progress[l.id] || 0)}</span>
+        </button>`).join("")}
+    </div>`;
+  app.querySelectorAll(".tile").forEach(b =>
+    b.addEventListener("click", () => showLesson(+b.dataset.id)));
+  window.scrollTo(0, 0);
+}
+
+function showLesson(id) {
+  const l = LESSONS.find(x => x.id === id);
+  app.innerHTML = `
+    <button class="btn ghost" id="back">← All lessons</button>
+    <h1 style="margin-top:16px">Lesson ${l.id}</h1>
+    <h2>${esc(l.title)}</h2>
+
+    <div class="card">
+      <h2>💡 Big idea</h2>
+      <p>${esc(l.bigIdea)}</p>
+    </div>
+
+    <div class="card">
+      <h2>📖 Step 1: Read it</h2>
+      <p>Open the lesson and read it, ideally with your study partner.</p>
+      <a class="btn" href="${l.url}" target="_blank" rel="noopener">Open Lesson ${l.id} ↗</a>
+    </div>
+
+    <div class="card">
+      <h2>🧠 Step 2: Key points</h2>
+      <ul class="points">${l.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+    </div>
+
+    <div class="card">
+      <h2>🔎 Step 3: Look these up</h2>
+      <div>${l.verses.map(v => `<span class="verse">${esc(v)}</span>`).join("")}</div>
+    </div>
+
+    <div class="card">
+      <h2>❓ Step 4: Quick quiz</h2>
+      <p class="muted">Get a star for each right answer.</p>
+      <button class="btn" id="startQuiz">Start quiz</button>
+    </div>`;
+  document.getElementById("back").addEventListener("click", showHome);
+  document.getElementById("startQuiz").addEventListener("click", () => runQuiz(l));
+  window.scrollTo(0, 0);
+}
+
+function runQuiz(l) {
+  let i = 0, score = 0;
+
+  function render() {
+    const item = l.quiz[i];
+    app.innerHTML = `
+      <button class="btn ghost" id="back">← Back to lesson</button>
+      <div class="card">
+        <p class="muted">Question ${i + 1} of ${l.quiz.length}</p>
+        <div class="progress"><div style="width:${(i / l.quiz.length) * 100}%"></div></div>
+        <h2 style="margin-top:16px">${esc(item.q)}</h2>
+        ${item.options.map((o, n) => `<button class="option" data-n="${n}">${esc(o)}</button>`).join("")}
+        <p class="feedback" id="fb"></p>
+        <button class="btn hidden" id="next">${i + 1 < l.quiz.length ? "Next →" : "See my stars"}</button>
+      </div>`;
+    document.getElementById("back").addEventListener("click", () => showLesson(l.id));
+    const buttons = app.querySelectorAll(".option");
+    buttons.forEach(b => b.addEventListener("click", () => {
+      const pick = +b.dataset.n;
+      buttons.forEach(x => (x.disabled = true));
+      buttons[item.answer].classList.add("right");
+      const fb = document.getElementById("fb");
+      if (pick === item.answer) {
+        score++;
+        fb.textContent = "✅ Yes! " + item.why;
+      } else {
+        b.classList.add("wrong");
+        fb.textContent = "Not quite. " + item.why;
+      }
+      document.getElementById("next").classList.remove("hidden");
+    }));
+    document.getElementById("next").addEventListener("click", () => {
+      i++;
+      i < l.quiz.length ? render() : finish();
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function finish() {
+    progress[l.id] = Math.max(progress[l.id] || 0, score);
+    saveProgress(progress);
+    const msg = score === 3 ? "Perfect score! 🎉" : score === 2 ? "Great job! 👏" : "Good try! Have another go 💪";
+    app.innerHTML = `
+      <div class="card" style="text-align:center">
+        <div class="party">${score === 3 ? "🎉" : "⭐"}</div>
+        <h2>${msg}</h2>
+        <p style="font-size:2rem">${starsHtml(score)}</p>
+        <div class="row" style="justify-content:center">
+          <button class="btn ghost" id="retry">Try again</button>
+          <button class="btn" id="home">All lessons</button>
+        </div>
+      </div>`;
+    document.getElementById("retry").addEventListener("click", () => runQuiz(l));
+    document.getElementById("home").addEventListener("click", showHome);
+  }
+
+  render();
+}
+
+showHome();
+</script>
+</body>
+</html>
