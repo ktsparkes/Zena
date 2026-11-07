@@ -96,6 +96,14 @@
   .badge { font-size: .75rem; font-weight: 800; padding: 3px 10px; border-radius: 99px; border: 2px solid color-mix(in srgb, var(--s, var(--line)) 45%, transparent); color: var(--muted); }
   .badge.on { background: var(--s, var(--sun)); border-color: var(--s, var(--sun)); color: var(--on-color); }
 
+  .card-title { font-size: .92rem; line-height: 1.35; }
+  .dots { display: inline-flex; gap: 5px; }
+  .dots span { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--s); }
+  .dots span.on { background: var(--s); }
+  .stars.mini { font-size: 1.05rem; letter-spacing: 1px; text-align: left; }
+  .char-card { padding: 14px; }
+  .char-card .avatar { width: 58px; height: 58px; font-size: 1.8rem; }
+
   /* Trail */
   .trail { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
   .stop {
@@ -315,7 +323,6 @@ const CHARACTERS = [
     ]
   }
 ];
-const COMING = ["Abraham", "Ruth", "Hannah", "Samuel", "Abigail", "Elijah"];
 const PAL = ["var(--c1)", "var(--c2)", "var(--c3)", "var(--c4)", "var(--c5)", "var(--c6)"];
 const col = i => PAL[i % PAL.length];
 const STEPS = ["Meet", "Story", "Facts", "Match", "Quiz", "Think"];
@@ -360,15 +367,20 @@ function confetti() {
 // ---------- home ----------
 function home() {
   const total = CHARACTERS.reduce((s, c) => s + points(c.id), 0), max = CHARACTERS.length * 9;
+  const finished = c => STEPS.every(s => rec(c.id).done[s]);
+  const doneCount = CHARACTERS.filter(finished).length;
+  const nextUp = CHARACTERS.find(c => !finished(c));
   app.innerHTML = `
     <header class="hero">
       <span class="eyebrow">Imitate Their Faith</span>
       <h1 class="rainbow">Faith Explorers</h1>
-      <p class="muted">Meet Bible people who had strong faith. Each one has 6 stops to explore.</p>
+      <p class="muted">Meet Bible people who had strong faith. Each chapter has 6 stops to explore.</p>
     </header>
     <section class="panel">
       <div class="score"><span>Your points</span><span>${total} / ${max}</span></div>
       <div class="bar"><div style="width:${(total / max) * 100}%"></div></div>
+      <p class="muted"><b>${doneCount}</b> of ${CHARACTERS.length} chapters finished</p>
+      ${nextUp ? `<button class="btn" id="carryOn" style="--step:${nextUp.hue}">Carry on: ${esc(nextUp.name)}, chapter ${nextUp.chapter} →</button>` : `<p><b>You finished every chapter. Amazing!</b></p>`}
     </section>
     ${CHARACTERS.map(c => {
       const r = rec(c.id);
@@ -377,20 +389,22 @@ function home() {
         <div>
           <span class="eyebrow">Chapter ${c.chapter}</span>
           <h3>${esc(c.name)}</h3>
-          <div class="badges">${STEPS.map((s, i) => `<span class="badge ${r.done[s] ? "on" : ""}" style="--s:${col(i)}">${s}</span>`).join("")}</div>
-          <div class="stars" style="font-size:1.1rem;letter-spacing:2px;text-align:left">${starsHtml(r.stars)}</div>
+          <p class="muted card-title">${esc(c.title)}</p>
+          <div class="row" style="gap:6px">
+            <span class="dots">${STEPS.map((s, i) => `<span class="${r.done[s] ? "on" : ""}" style="--s:${col(i)}" title="${s}"></span>`).join("")}</span>
+            <span class="stars mini">${starsHtml(r.stars)}</span>
+          </div>
         </div>
       </button>`;
-    }).join("")}
-    <section class="panel">
-      <h3>Coming next</h3>
-      <div class="badges">${COMING.map((n, i) => `<span class="badge on" style="--s:${col(i)}">${n}</span>`).join("")}</div>
-    </section>`;
-  app.querySelectorAll(".char-card").forEach(b => b.onclick = () => {
-    const r = rec(b.dataset.id), i = STEPS.findIndex(s => !r.done[s]);
-    character(b.dataset.id, i < 0 ? 0 : i);
-  });
+    }).join("")}`;
+  const go = document.getElementById("carryOn");
+  if (go) go.onclick = () => openChar(nextUp.id);
+  app.querySelectorAll(".char-card").forEach(b => b.onclick = () => openChar(b.dataset.id));
   scrollTo(0, 0);
+}
+function openChar(id) {
+  const r = rec(id), i = STEPS.findIndex(s => !r.done[s]);
+  character(id, i < 0 ? 0 : i);
 }
 
 // ---------- character shell ----------
