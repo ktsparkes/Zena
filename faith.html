@@ -1,0 +1,586 @@
+<title>Faith Explorers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap">
+<style>
+  /* Layout: one column. Home = a shelf of character cards. Each character = a 6-stop trail, one stop on screen at a time. */
+  :root {
+    --bg: #f2f6fb; --surface: #ffffff; --ink: #1b2a41; --muted: #5a6b85; --line: #d5dfec;
+    --accent: #2d5fd3; --accent-ink: #ffffff; --accent-soft: #dfe8fb;
+    --gold: #ffb703; --gold-ink: #3b2a00; --gold-soft: #fff1c9;
+    --good: #1d8a4f; --good-soft: #ddf3e6; --bad: #c7432f; --bad-soft: #fbe3de;
+    --abel: #4f9a3a; --noah: #1f8fb3;
+    --display: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Nunito", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1726; --surface: #18233a; --ink: #eef3fb; --muted: #9fb0cb; --line: #2a3a5a;
+      --accent: #7fa4ff; --accent-ink: #0d1a38; --accent-soft: #233663;
+      --gold: #ffc533; --gold-ink: #2c1f00; --gold-soft: #3c3214;
+      --good: #57d28f; --good-soft: #173a29; --bad: #ff8a75; --bad-soft: #43231d;
+      --abel: #7cc866; --noah: #4cc0e4;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1726; --surface: #18233a; --ink: #eef3fb; --muted: #9fb0cb; --line: #2a3a5a;
+    --accent: #7fa4ff; --accent-ink: #0d1a38; --accent-soft: #233663;
+    --gold: #ffc533; --gold-ink: #2c1f00; --gold-soft: #3c3214;
+    --good: #57d28f; --good-soft: #173a29; --bad: #ff8a75; --bad-soft: #43231d;
+    --abel: #7cc866; --noah: #4cc0e4;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.6 var(--body); }
+  main { max-width: 700px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 80px; display: grid; gap: 18px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; margin: 0; text-wrap: balance; }
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.2rem; font-weight: 600; }
+  p { margin: 0; }
+  .muted { color: var(--muted); }
+  .eyebrow { font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: grid; gap: 16px; }
+  button, a.btn { font: inherit; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px;
+    border: 0; border-radius: 14px; padding: 12px 20px; font-weight: 800; cursor: pointer;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+  }
+  .btn.soft { background: var(--accent-soft); color: var(--ink); }
+  .btn.small { min-height: 40px; padding: 6px 14px; font-size: .9rem; }
+  .btn:disabled { opacity: .45; cursor: default; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .between { justify-content: space-between; }
+  .bar { height: 12px; background: var(--accent-soft); border-radius: 99px; overflow: hidden; }
+  .bar > div { height: 100%; background: var(--accent); border-radius: 99px; transition: width .4s; }
+
+  /* Home */
+  .hero { display: grid; gap: 8px; }
+  .score { display: flex; justify-content: space-between; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .char-card {
+    display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; width: 100%; text-align: left;
+    background: var(--surface); border: 2px solid var(--line); border-radius: 18px; padding: 16px; cursor: pointer; color: inherit;
+  }
+  .char-card:hover { border-color: var(--hue); }
+  .char-card > div { min-width: 0; display: grid; gap: 6px; }
+  .avatar {
+    width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-size: 2rem;
+    background: var(--hue); color: #fff;
+  }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge { font-size: .75rem; font-weight: 800; padding: 2px 10px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
+  .badge.on { background: var(--gold-soft); border-color: var(--gold); color: var(--ink); }
+  .coming { opacity: .6; cursor: default; }
+
+  /* Trail */
+  .trail { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .stop {
+    border: 2px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px;
+    padding: 8px 2px; cursor: pointer; display: grid; justify-items: center; gap: 2px; font-size: .75rem; font-weight: 800; min-width: 0;
+  }
+  .stop .dot { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--line); font-family: var(--display); }
+  .stop.done .dot { background: var(--gold); border-color: var(--gold); color: var(--gold-ink); }
+  .stop.active { border-color: var(--hue); }
+
+  /* Meet */
+  .facts { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .fact { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--line); }
+  .fact:first-child { border-top: 0; }
+  .fact b { color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; padding-top: 2px; }
+  .fact span { min-width: 0; }
+  .big-idea { background: var(--gold-soft); border-radius: 14px; padding: 14px 16px; font-weight: 700; display: grid; gap: 8px; }
+
+  /* Story order */
+  .slots { display: grid; gap: 8px; counter-reset: s; }
+  .slot { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; background: var(--good-soft); font-weight: 700; }
+  .slot i { font-style: normal; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--good); color: var(--surface); font-family: var(--display); }
+  .slot.empty { background: transparent; border: 2px dashed var(--line); color: var(--muted); }
+  .slot.empty i { background: var(--line); color: var(--muted); }
+  .pile { display: grid; gap: 8px; }
+
+  /* Chips, flips, quiz */
+  .chip {
+    border: 2px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px;
+    padding: 12px 14px; text-align: left; cursor: pointer; font-weight: 700; min-height: 54px; width: 100%;
+  }
+  .chip:hover:not(:disabled) { border-color: var(--accent); }
+  .chip.verse { font-family: var(--display); font-weight: 600; }
+  .chip.picked { border-color: var(--accent); background: var(--accent-soft); }
+  .chip.matched { border-color: var(--good); background: var(--good-soft); cursor: default; }
+  .chip.shake { animation: shake .35s; border-color: var(--bad); }
+  @keyframes shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+  .match { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .match .col { display: grid; gap: 10px; align-content: start; min-width: 0; }
+
+  .flips { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .flip { perspective: 900px; border: 0; padding: 0; background: none; cursor: pointer; color: inherit; text-align: left; min-height: 170px; }
+  .flip-inner { position: relative; width: 100%; height: 100%; min-height: 170px; transition: transform .5s; transform-style: preserve-3d; }
+  .flip.turned .flip-inner { transform: rotateY(180deg); }
+  .face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; padding: 14px; display: grid; align-content: space-between; gap: 6px; border: 2px solid var(--line); }
+  .face.front { background: var(--surface); }
+  .face.back { background: var(--accent-soft); border-color: var(--accent); transform: rotateY(180deg); }
+  .face small { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .face strong { font-family: var(--display); font-weight: 600; font-size: 1.08rem; line-height: 1.3; }
+
+  .opts { display: grid; gap: 10px; }
+  .chip.right { border-color: var(--good); background: var(--good-soft); }
+  .chip.wrong { border-color: var(--bad); background: var(--bad-soft); }
+  .tf { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tf .chip { text-align: center; font-family: var(--display); font-size: 1.25rem; }
+  .feedback { font-weight: 800; padding: 12px 14px; border-radius: 12px; }
+  .feedback.good { background: var(--good-soft); }
+  .feedback.bad { background: var(--bad-soft); }
+  .tag { display: inline-block; background: var(--accent-soft); border-radius: 99px; padding: 3px 12px; font-weight: 800; font-size: .85rem; width: fit-content; }
+  .stars { font-size: 2.6rem; letter-spacing: 6px; text-align: center; }
+  .stars .on { color: var(--gold); } .stars .off { color: var(--line); }
+
+  /* Think */
+  .checks { display: grid; gap: 8px; }
+  .check { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: center; padding: 10px 12px; border: 2px solid var(--line); border-radius: 12px; cursor: pointer; }
+  .check input { width: 22px; height: 22px; accent-color: var(--good); }
+  .check:has(input:checked) { border-color: var(--good); background: var(--good-soft); }
+  textarea { width: 100%; min-height: 110px; font: inherit; padding: 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); resize: vertical; }
+  label.q { font-weight: 800; }
+
+  #confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+  @media (max-width: 460px) {
+    .trail { grid-template-columns: repeat(3, 1fr); }
+    .match { grid-template-columns: 1fr; }
+    .fact { grid-template-columns: 1fr; gap: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flip-inner, .bar > div { transition: none; }
+    .chip.shake { animation: none; }
+  }
+</style>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<main id="app"></main>
+
+<script>
+// Everything here is written in our own simple words for a 10-year-old.
+// The full chapters are on jw.org (Imitate Their Faith).
+const CHARACTERS = [
+  {
+    id: "abel", name: "Abel", icon: "🐑", hue: "var(--abel)", chapter: 1,
+    title: "He, Although He Died, Yet Speaks",
+    url: "https://www.jw.org/en/library/books/true-faith/abel-in-the-bible/",
+    bigIdea: "Abel loved Jehovah and gave him his very best. Even though he lived thousands of years ago, his faith still teaches us today.",
+    facts: [
+      ["Job", "Shepherd: he looked after sheep"],
+      ["Family", "Son of Adam and Eve. His big brother was Cain, a farmer."],
+      ["When", "Very near the beginning of human history, about 6,000 years ago"],
+      ["Famous for", "Being the first person in the Bible to show real faith in God"],
+      ["Key verse", "Hebrews 11:4"]
+    ],
+    story: [
+      "Adam and Eve disobey God and have to leave the garden of Eden.",
+      "Cain and Abel are born.",
+      "Cain becomes a farmer and Abel becomes a shepherd.",
+      "Both brothers bring an offering to God.",
+      "God is pleased with Abel's offering, but not with Cain's.",
+      "God warns Cain to control his anger.",
+      "Cain attacks Abel in the field, and God punishes Cain."
+    ],
+    cards: [
+      ["Who guarded the way back into Eden?", "Cherubs (powerful angels) with a flaming, turning sword."],
+      ["What 3 things helped Abel's faith grow?", "God's creation, God's promises, and seeing the cherubs faithfully guarding Eden."],
+      ["What did God promise in Genesis 3:15?", "A special \"seed\" would come to fix what went wrong in Eden."],
+      ["What made Abel's offering special?", "He gave his best: the firstborn of his sheep. And he gave it with a loving heart."],
+      ["What was wrong with Cain's offering?", "His heart wasn't right. He didn't have real faith or love for God."],
+      ["What did Abel's sacrifice point forward to?", "Jesus, who is called \"the Lamb of God\" (John 1:29)."],
+      ["Why does the Bible say Abel \"still speaks\"?", "His example of faith still teaches us today, even though he died."],
+      ["Has Jehovah forgotten Abel?", "No! Jehovah remembers him and will bring him back to life (John 5:28, 29)."]
+    ],
+    pairs: [
+      ["Genesis 3:15", "God promises a \"seed\" to fix things"],
+      ["Genesis 4:4", "God is pleased with Abel and his offering"],
+      ["Genesis 4:6, 7", "God warns Cain about his anger"],
+      ["Romans 1:20", "We can see God's qualities in creation"],
+      ["John 1:29", "Jesus is called the Lamb of God"],
+      ["Hebrews 11:4", "Abel's faith still speaks"]
+    ],
+    quiz: [
+      { q: "What job did Abel do?", o: ["Shepherd", "Farmer", "Fisherman"], a: 0, why: "Abel looked after sheep." },
+      { q: "What job did Cain do?", o: ["Builder", "Farmer", "Shepherd"], a: 1, why: "Cain grew crops from the ground." },
+      { q: "Who were Abel's parents?", o: ["Noah and his wife", "Adam and Eve", "Abraham and Sarah"], a: 1, why: "Adam and Eve were the first humans." },
+      { q: "What did Abel give to God?", o: ["Some fruit", "The firstborn of his sheep", "Nothing at all"], a: 1, why: "He gave God the very best he had." },
+      { tf: true, q: "God was pleased with both Cain's and Abel's offerings.", a: false, why: "God was pleased with Abel's, but not with Cain's." },
+      { q: "Why wasn't God pleased with Cain's offering?", o: ["His crops were too small", "His heart wasn't right", "He was late"], a: 1, why: "God looks at the heart, not just the gift." },
+      { q: "What did God do before Cain hurt Abel?", o: ["Nothing", "Warned Cain to control his anger", "Sent Cain away"], a: 1, why: "Jehovah lovingly warned Cain, but Cain didn't listen." },
+      { q: "Who guarded the way into Eden?", o: ["Lions", "Cherubs with a flaming sword", "Soldiers"], a: 1, why: "The cherubs stayed faithfully at their post for years." },
+      { tf: true, q: "Looking at creation helped Abel's faith grow.", a: true, why: "Romans 1:20 says creation shows us what God is like." },
+      { q: "Hebrews 11:4 says Abel \"still speaks.\" What does that mean?", o: ["He is still alive", "His faith still teaches us", "He wrote a book"], a: 1, why: "His example speaks to us when we read about him." }
+    ],
+    think: [
+      "How does Abel's example still \"speak\" to you?",
+      "What things in creation make you think about Jehovah?",
+      "What is one way you can give Jehovah your best this week?"
+    ],
+    goals: [
+      "Look at something in creation and thank Jehovah for it",
+      "Say a prayer from my heart",
+      "Calm down and talk kindly when I feel angry",
+      "Do my best when I prepare for meetings or study"
+    ]
+  },
+  {
+    id: "noah", name: "Noah", icon: "🚢", hue: "var(--noah)", chapter: 2,
+    title: "He \"Walked With the True God\"",
+    url: "https://www.jw.org/en/library/books/true-faith/noah-bible/",
+    bigIdea: "Noah was a close friend of Jehovah. He obeyed God, built the ark, and kept warning people, even when they laughed at him.",
+    facts: [
+      ["Name", "Probably means \"Rest\" or \"Comfort\""],
+      ["Family", "His wife, and sons Shem, Ham and Japheth, with their wives. 8 people in all."],
+      ["Relatives", "Father Lamech. Grandfather Methuselah. Great-grandfather Enoch."],
+      ["Famous for", "Building the ark and surviving the Flood"],
+      ["Key verse", "Genesis 6:9"]
+    ],
+    story: [
+      "Bad angels come to earth, and the world fills with violence.",
+      "God tells Noah to build a huge ark.",
+      "Noah's family builds the ark for many years while Noah warns people.",
+      "Methuselah dies, and God tells Noah to bring the animals in.",
+      "Jehovah shuts the door of the ark.",
+      "It rains for 40 days and 40 nights and floods the whole earth.",
+      "After more than a year, Noah's family comes out safely."
+    ],
+    cards: [
+      ["What does it mean that Noah \"walked with God\"?", "He was so close to Jehovah, it was like walking side by side with a friend."],
+      ["Why was the world so violent?", "Bad angels came to earth as men. Their giant bully sons, the Nephilim, filled the world with violence."],
+      ["How big was the ark?", "About 133 metres long, 22 m wide and 13 m tall, with 3 floors. Longer than a football pitch!"],
+      ["What shape was the ark?", "Like a giant wooden box. It didn't need to steer, just float."],
+      ["What was it made of?", "Wood full of resin, covered with tar inside and out to keep water out."],
+      ["How long did building take?", "Maybe 40 to 50 years! And they had no power tools."],
+      ["Which animals went in by sevens?", "The \"clean\" animals. Most others went in two by two."],
+      ["What did Jesus say about Noah's day?", "Our days would be like Noah's days (Matthew 24:37-39)."]
+    ],
+    pairs: [
+      ["Genesis 6:9", "Noah walked with the true God"],
+      ["Genesis 6:22", "Noah did just as God told him"],
+      ["2 Peter 2:5", "Noah was a preacher of righteousness"],
+      ["Genesis 5:27", "Methuselah lived 969 years"],
+      ["Genesis 7:16", "Jehovah shut the door"],
+      ["Matthew 24:37", "Our days are like Noah's days"]
+    ],
+    quiz: [
+      { q: "What were the names of Noah's sons?", o: ["Cain, Abel and Seth", "Shem, Ham and Japheth", "Peter, James and John"], a: 1, why: "Shem, Ham and Japheth helped build the ark." },
+      { q: "How many people were saved in the ark?", o: ["2", "8", "12"], a: 1, why: "Noah, his wife, their 3 sons and their 3 wives." },
+      { q: "What shape was the ark?", o: ["Like a speedboat", "Like a giant box", "Round like a ball"], a: 1, why: "It was a huge box that just needed to float." },
+      { q: "About how long was the ark?", o: ["As long as a bus", "As long as a house", "Longer than a football pitch"], a: 2, why: "About 133 metres long!" },
+      { q: "How long did it probably take to build?", o: ["About a week", "About a year", "About 40 to 50 years"], a: 2, why: "It was a huge job, and they kept going." },
+      { tf: true, q: "Noah built the ark but never told anyone about the Flood.", a: false, why: "Noah was a preacher. He warned people, even though they didn't listen." },
+      { q: "Who shut the door of the ark?", o: ["Noah", "Shem", "Jehovah"], a: 2, why: "Genesis 7:16 says Jehovah shut the door." },
+      { q: "How long did it rain?", o: ["7 days", "40 days and 40 nights", "1 year"], a: 1, why: "It rained 40 days and nights, and they stayed in the ark more than a year." },
+      { q: "Who lived 969 years, the longest life in the Bible?", o: ["Noah", "Methuselah", "Enoch"], a: 1, why: "Methuselah was Noah's grandfather." },
+      { tf: true, q: "Genesis 6:22 says Noah did just as God told him.", a: true, why: "He obeyed every detail, even when it was hard." }
+    ],
+    think: [
+      "Why was it hard for Noah's family to serve Jehovah in such a bad world?",
+      "How did building the ark show that Noah had faith?",
+      "Why do you think it was hard to preach in Noah's day?"
+    ],
+    goals: [
+      "Do what Jehovah says, even if others laugh",
+      "Talk to someone about Jehovah",
+      "Join in with family worship and help out",
+      "Keep going with a job, even when it takes a long time"
+    ]
+  }
+];
+const COMING = ["Abraham", "Ruth", "Hannah", "Samuel", "Abigail", "Elijah"];
+const STEPS = ["Meet", "Story", "Facts", "Match", "Quiz", "Think"];
+
+// ---------- storage (per device) ----------
+const KEY = "zena-faith-v1";
+let state; try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { state = {}; }
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
+const rec = id => (state[id] ||= { done: {}, stars: 0, notes: {}, goals: {} });
+const complete = (id, step) => { const r = rec(id); if (!r.done[step]) { r.done[step] = true; save(); } };
+
+// ---------- helpers ----------
+const app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const starsHtml = n => [0, 1, 2].map(i => `<span class="${i < n ? "on" : "off"}">★</span>`).join("");
+const points = id => { const r = rec(id); return Object.keys(r.done).length + r.stars; }; // 6 badges + 3 stars
+
+// Read aloud, if the device supports it
+const canSpeak = "speechSynthesis" in window;
+function speak(text) {
+  if (!canSpeak) return;
+  try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.rate = .95; speechSynthesis.speak(u); } catch {}
+}
+const speakBtn = text => canSpeak ? `<button class="btn soft small" data-say="${esc(text)}">🔊 Read to me</button>` : "";
+document.addEventListener("click", e => { const b = e.target.closest("[data-say]"); if (b) speak(b.dataset.say); });
+
+// ---------- confetti ----------
+const cv = document.getElementById("confetti"), cx = cv.getContext("2d");
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function confetti() {
+  if (calm) return;
+  cv.width = innerWidth; cv.height = innerHeight;
+  const colors = ["#ffb703", "#2d5fd3", "#4f9a3a", "#1f8fb3", "#ff8a75"];
+  const bits = Array.from({ length: 130 }, () => ({
+    x: Math.random() * cv.width, y: -20 - Math.random() * cv.height * .4, vx: (Math.random() - .5) * 3,
+    vy: 2 + Math.random() * 3, r: Math.random() * 6.3, s: 6 + Math.random() * 7, c: colors[Math.floor(Math.random() * colors.length)]
+  }));
+  let t = 0;
+  (function frame() {
+    cx.clearRect(0, 0, cv.width, cv.height);
+    for (const b of bits) {
+      b.x += b.vx; b.y += b.vy; b.r += .1;
+      cx.save(); cx.translate(b.x, b.y); cx.rotate(b.r); cx.fillStyle = b.c; cx.fillRect(-b.s / 2, -b.s / 4, b.s, b.s / 2); cx.restore();
+    }
+    if (++t < 180) requestAnimationFrame(frame); else cx.clearRect(0, 0, cv.width, cv.height);
+  })();
+}
+
+// ---------- home ----------
+function home() {
+  const total = CHARACTERS.reduce((s, c) => s + points(c.id), 0), max = CHARACTERS.length * 9;
+  app.innerHTML = `
+    <header class="hero">
+      <span class="eyebrow">Imitate Their Faith</span>
+      <h1>Faith Explorers</h1>
+      <p class="muted">Meet Bible people who had strong faith. Each one has 6 stops to explore.</p>
+    </header>
+    <section class="panel">
+      <div class="score"><span>Your points</span><span>${total} / ${max}</span></div>
+      <div class="bar"><div style="width:${(total / max) * 100}%"></div></div>
+    </section>
+    ${CHARACTERS.map(c => {
+      const r = rec(c.id);
+      return `<button class="char-card" data-id="${c.id}" style="--hue:${c.hue}">
+        <span class="avatar">${c.icon}</span>
+        <div>
+          <span class="eyebrow">Chapter ${c.chapter}</span>
+          <h3>${esc(c.name)}</h3>
+          <div class="badges">${STEPS.map(s => `<span class="badge ${r.done[s] ? "on" : ""}">${s}</span>`).join("")}</div>
+          <div class="stars" style="font-size:1.1rem;letter-spacing:2px;text-align:left">${starsHtml(r.stars)}</div>
+        </div>
+      </button>`;
+    }).join("")}
+    <section class="panel">
+      <h3>Coming next</h3>
+      <div class="badges">${COMING.map(n => `<span class="badge">${n}</span>`).join("")}</div>
+    </section>`;
+  app.querySelectorAll(".char-card").forEach(b => b.onclick = () => {
+    const r = rec(b.dataset.id), i = STEPS.findIndex(s => !r.done[s]);
+    character(b.dataset.id, i < 0 ? 0 : i);
+  });
+  scrollTo(0, 0);
+}
+
+// ---------- character shell ----------
+function character(id, step) {
+  const c = CHARACTERS.find(x => x.id === id), r = rec(id);
+  if (canSpeak) speechSynthesis.cancel();
+  app.innerHTML = `
+    <div class="row"><button class="btn soft small" id="back">← All characters</button></div>
+    <header class="hero" style="--hue:${c.hue}">
+      <div class="row"><span class="avatar" style="width:52px;height:52px;font-size:1.6rem">${c.icon}</span>
+      <div><span class="eyebrow">Chapter ${c.chapter}</span><h1>${esc(c.name)}</h1></div></div>
+      <p class="muted">${esc(c.title)}</p>
+    </header>
+    <nav class="trail" style="--hue:${c.hue}" aria-label="Stops">
+      ${STEPS.map((s, i) => `<button class="stop ${r.done[s] ? "done" : ""} ${i === step ? "active" : ""}" data-i="${i}">
+        <span class="dot">${r.done[s] ? "✓" : i + 1}</span>${s}</button>`).join("")}
+    </nav>
+    <section class="panel" id="stage"></section>`;
+  document.getElementById("back").onclick = home;
+  app.querySelectorAll(".stop").forEach(b => b.onclick = () => character(id, +b.dataset.i));
+  const stage = document.getElementById("stage");
+  const next = () => character(id, Math.min(step + 1, STEPS.length - 1));
+  [meet, story, facts, match, quiz, think][step](c, stage, next);
+  scrollTo(0, 0);
+}
+const nextBtn = () => `<div class="row"><button class="btn" id="go" disabled>Next stop →</button></div>`;
+function unlock(stage, next, label) { const g = stage.querySelector("#go"); g.disabled = false; if (label) g.textContent = label; g.onclick = next; }
+
+// ---------- 1. Meet ----------
+function meet(c, stage, next) {
+  stage.innerHTML = `
+    <h2>Meet ${esc(c.name)}</h2>
+    <div class="big-idea"><span>${esc(c.bigIdea)}</span>${speakBtn(c.bigIdea)}</div>
+    <div class="facts">${c.facts.map(([k, v]) => `<div class="fact"><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join("")}</div>
+    <p>Now read the chapter together. Take turns reading the paragraphs out loud.</p>
+    <div class="row">
+      <a class="btn soft" href="${c.url}" target="_blank" rel="noopener">Open the chapter ↗</a>
+      <button class="btn" id="readDone">${rec(c.id).done.Meet ? "Read ✓" : "We've read it"}</button>
+    </div>
+    ${nextBtn()}`;
+  if (rec(c.id).done.Meet) unlock(stage, next);
+  stage.querySelector("#readDone").onclick = e => { complete(c.id, "Meet"); e.target.textContent = "Read ✓"; unlock(stage, next); };
+}
+
+// ---------- 2. Story order ----------
+function story(c, stage, next) {
+  let placed = 0, mistakes = 0;
+  const pile = shuffle(c.story.map((t, i) => ({ t, i })));
+  stage.innerHTML = `
+    <h2>Put the story in order</h2>
+    <p class="muted">Tap what happened <b>first</b>, then what happened next, and so on.</p>
+    <div class="slots">${c.story.map((_, i) => `<div class="slot empty" data-slot="${i}"><i>${i + 1}</i><span>?</span></div>`).join("")}</div>
+    <div class="pile">${pile.map(p => `<button class="chip" data-i="${p.i}">${esc(p.t)}</button>`).join("")}</div>
+    <p id="msg" class="muted" aria-live="polite"></p>
+    ${nextBtn()}`;
+  if (rec(c.id).done.Story) unlock(stage, next);
+  const msg = stage.querySelector("#msg");
+  stage.querySelectorAll(".pile .chip").forEach(b => b.onclick = () => {
+    if (+b.dataset.i === placed) {
+      const slot = stage.querySelector(`[data-slot="${placed}"]`);
+      slot.classList.remove("empty"); slot.querySelector("span").textContent = c.story[placed];
+      b.remove(); placed++;
+      msg.textContent = placed < c.story.length ? "Yes! What happened next?" : "";
+      if (placed === c.story.length) {
+        msg.textContent = mistakes === 0 ? "Perfect! You know this story well." : `Story complete! (${mistakes} wrong tries)`;
+        complete(c.id, "Story"); confetti(); unlock(stage, next, "Story done! Next stop →");
+      }
+    } else {
+      mistakes++; b.classList.add("shake"); setTimeout(() => b.classList.remove("shake"), 400);
+      msg.textContent = "Not yet. Something else happened before that.";
+    }
+  });
+}
+
+// ---------- 3. Fact cards ----------
+function facts(c, stage, next) {
+  const seen = new Set();
+  stage.innerHTML = `
+    <h2>Did you know?</h2>
+    <p class="muted">Guess the answer, then tap to flip. <b id="n">0</b> of ${c.cards.length} flipped.</p>
+    <div class="flips">${c.cards.map(([q, a], i) => `
+      <button class="flip" data-i="${i}" aria-label="Flip card ${i + 1}">
+        <div class="flip-inner">
+          <div class="face front"><small>Question ${i + 1}</small><strong>${esc(q)}</strong><small>Tap to flip</small></div>
+          <div class="face back"><small>Answer</small><strong>${esc(a)}</strong><small>Tap to flip back</small></div>
+        </div>
+      </button>`).join("")}</div>
+    ${nextBtn()}`;
+  if (rec(c.id).done.Facts) unlock(stage, next);
+  stage.querySelectorAll(".flip").forEach(b => b.onclick = () => {
+    b.classList.toggle("turned"); seen.add(b.dataset.i);
+    if (b.classList.contains("turned")) speak(c.cards[b.dataset.i][1]);
+    stage.querySelector("#n").textContent = seen.size;
+    if (seen.size === c.cards.length) { complete(c.id, "Facts"); unlock(stage, next, "All flipped! Next stop →"); }
+  });
+}
+
+// ---------- 4. Verse match ----------
+function match(c, stage, next) {
+  const L = shuffle(c.pairs.map((p, i) => ({ i, t: p[0] }))), R = shuffle(c.pairs.map((p, i) => ({ i, t: p[1] })));
+  let picked = null, matched = 0, tries = 0;
+  stage.innerHTML = `
+    <h2>Match the verses</h2>
+    <p class="muted">Tap a verse, then tap what it says. Look them up in your Bible to check!</p>
+    <div class="match">
+      <div class="col">${L.map(x => `<button class="chip verse" data-i="${x.i}" data-side="L">${esc(x.t)}</button>`).join("")}</div>
+      <div class="col">${R.map(x => `<button class="chip" data-i="${x.i}" data-side="R">${esc(x.t)}</button>`).join("")}</div>
+    </div>
+    <p id="msg" class="muted" aria-live="polite"></p>
+    ${nextBtn()}`;
+  if (rec(c.id).done.Match) unlock(stage, next);
+  const msg = stage.querySelector("#msg");
+  stage.querySelectorAll(".chip").forEach(b => b.onclick = () => {
+    if (b.classList.contains("matched")) return;
+    if (!picked || picked.dataset.side === b.dataset.side) {
+      if (picked) picked.classList.remove("picked");
+      picked = b; b.classList.add("picked"); return;
+    }
+    tries++;
+    if (picked.dataset.i === b.dataset.i) {
+      [picked, b].forEach(x => { x.classList.remove("picked"); x.classList.add("matched"); x.disabled = true; });
+      matched++; msg.textContent = "Nice match!";
+      if (matched === c.pairs.length) {
+        msg.textContent = tries === matched ? "Perfect, no mistakes!" : `All matched in ${tries} tries.`;
+        complete(c.id, "Match"); confetti(); unlock(stage, next, "Matched! Next stop →");
+      }
+    } else {
+      [picked, b].forEach(x => { x.classList.remove("picked"); x.classList.add("shake"); setTimeout(() => x.classList.remove("shake"), 400); });
+      msg.textContent = "Not a match. Try again!";
+    }
+    picked = null;
+  });
+}
+
+// ---------- 5. Quiz ----------
+function quiz(c, stage, next) {
+  const qs = shuffle(c.quiz);
+  let i = 0, score = 0, streak = 0;
+  function show() {
+    const it = qs[i], opts = it.tf ? null : shuffle(it.o.map((t, n) => ({ t, n })));
+    stage.innerHTML = `
+      <div class="row between"><span class="eyebrow">Question ${i + 1} of ${qs.length}</span>
+        <b style="color:var(--accent)">${streak > 1 ? `🔥 ${streak} in a row` : ""}</b></div>
+      <div class="bar"><div style="width:${(i / qs.length) * 100}%"></div></div>
+      ${it.tf ? `<span class="tag">True or false?</span>` : ""}
+      <h2>${esc(it.q)}</h2>
+      ${speakBtn(it.q + (it.tf ? " True or false?" : " " + opts.map(o => o.t).join(", or ")))}
+      ${it.tf ? `<div class="tf"><button class="chip" data-v="true">True</button><button class="chip" data-v="false">False</button></div>`
+              : `<div class="opts">${opts.map(o => `<button class="chip" data-v="${o.n}">${esc(o.t)}</button>`).join("")}</div>`}
+      <p class="feedback" id="fb" hidden aria-live="polite"></p>
+      <div class="row"><button class="btn" id="qn" hidden>${i + 1 < qs.length ? "Next question →" : "See my stars"}</button></div>`;
+    const btns = stage.querySelectorAll(".chip"), right = String(it.a);
+    btns.forEach(b => b.onclick = () => {
+      const ok = b.dataset.v === right;
+      btns.forEach(x => { x.disabled = true; if (x.dataset.v === right) x.classList.add("right"); });
+      if (!ok) b.classList.add("wrong");
+      score += ok; streak = ok ? streak + 1 : 0;
+      const fb = stage.querySelector("#fb"); fb.hidden = false; fb.className = "feedback " + (ok ? "good" : "bad");
+      fb.textContent = (ok ? "Correct! " : "Not quite. ") + it.why;
+      const n = stage.querySelector("#qn"); n.hidden = false; n.focus();
+      n.onclick = () => (++i < qs.length ? show() : finish());
+    });
+  }
+  function finish() {
+    const stars = score >= qs.length ? 3 : score >= qs.length - 2 ? 2 : score >= qs.length / 2 ? 1 : 0;
+    const r = rec(c.id); r.stars = Math.max(r.stars, stars); complete(c.id, "Quiz"); save();
+    if (stars === 3) confetti();
+    stage.innerHTML = `
+      <h2 style="text-align:center">${stars === 3 ? "Perfect score!" : stars === 2 ? "Great job!" : "Good try! Have another go."}</h2>
+      <p class="muted" style="text-align:center">You got ${score} out of ${qs.length} right.</p>
+      <div class="stars">${starsHtml(stars)}</div>
+      ${r.stars > stars ? `<p class="muted" style="text-align:center">Your best is still ${r.stars} stars.</p>` : ""}
+      <div class="row" style="justify-content:center">
+        <button class="btn soft" id="again">Try again</button><button class="btn" id="go">Next stop →</button>
+      </div>`;
+    stage.querySelector("#again").onclick = () => quiz(c, stage, next);
+    stage.querySelector("#go").onclick = next;
+  }
+  show();
+}
+
+// ---------- 6. Think ----------
+function think(c, stage) {
+  const r = rec(c.id);
+  stage.innerHTML = `
+    <h2>Think about it</h2>
+    <p class="muted">Write a few words for each one, then talk about them together.</p>
+    ${c.think.map((q, i) => `
+      <div style="display:grid;gap:6px">
+        <label class="q" for="${c.id}-t${i}">${esc(q)}</label>
+        <textarea id="${c.id}-t${i}" data-i="${i}" placeholder="My answer…">${esc(r.notes[i] || "")}</textarea>
+      </div>`).join("")}
+    <h2>Be like ${esc(c.name)}</h2>
+    <p class="muted">Pick at least one thing to try this week. Tick it when you've done it!</p>
+    <div class="checks">${c.goals.map((g, i) => `
+      <label class="check" for="${c.id}-g${i}"><input type="checkbox" id="${c.id}-g${i}" data-g="${i}" ${r.goals[i] ? "checked" : ""}><span>${esc(g)}</span></label>`).join("")}</div>
+    <div class="row"><button class="btn" id="saveT">Save</button><span id="saved" class="muted" aria-live="polite"></span></div>
+    <div class="row"><button class="btn soft" id="home2">Back to all characters</button></div>`;
+  stage.querySelector("#saveT").onclick = () => {
+    stage.querySelectorAll("textarea").forEach(t => r.notes[t.dataset.i] = t.value.trim());
+    stage.querySelectorAll("[data-g]").forEach(x => r.goals[x.dataset.g] = x.checked);
+    const wrote = Object.values(r.notes).some(Boolean);
+    if (!wrote) { stage.querySelector("#saved").textContent = "Write an answer to at least one question first."; save(); return; }
+    const first = !r.done.Think; complete(c.id, "Think"); save();
+    stage.querySelector("#saved").textContent = "Saved ✓";
+    if (first && STEPS.every(s => r.done[s])) confetti();
+  };
+  stage.querySelector("#home2").onclick = home;
+}
+
+home();
+</script>
