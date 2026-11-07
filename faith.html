@@ -197,18 +197,37 @@
 // The full chapters are on jw.org (Imitate Their Faith).
 const CHARACTERS = [
   {
-    id: "abel", name: "Abel", icon: "🐑", hue: "var(--abel)", chapter: 1,
-    title: "He, Although He Died, Yet Speaks",
-    url: "https://www.jw.org/en/library/books/true-faith/abel-in-the-bible/",
-    bigIdea: "Abel loved Jehovah and gave him his very best. Even though he lived thousands of years ago, his faith still teaches us today.",
-    facts: [
-      ["Job", "Shepherd: he looked after sheep"],
-      ["Family", "Son of Adam and Eve. His big brother was Cain, a farmer."],
-      ["When", "Very near the beginning of human history, about 6,000 years ago"],
-      ["Famous for", "Being the first person in the Bible to show real faith in God"],
-      ["Key verse", "Hebrews 11:4"]
+    "id": "abel",
+    "name": "Abel",
+    "icon": "🐑",
+    "hue": "var(--abel)",
+    "chapter": 1,
+    "title": "He, Although He Died, Yet Speaks",
+    "url": "https://www.jw.org/en/library/books/true-faith/abel-in-the-bible/",
+    "bigIdea": "Abel loved Jehovah and gave him his very best. Even though he lived thousands of years ago, his faith still teaches us today.",
+    "facts": [
+      [
+        "Job",
+        "Shepherd: he looked after sheep"
+      ],
+      [
+        "Family",
+        "Son of Adam and Eve. His big brother was Cain, a farmer."
+      ],
+      [
+        "When",
+        "Very near the beginning of human history, about 6,000 years ago"
+      ],
+      [
+        "Famous for",
+        "Being the first person in the Bible to show real faith in God"
+      ],
+      [
+        "Key verse",
+        "Hebrews 11:4"
+      ]
     ],
-    story: [
+    "story": [
       "Adam and Eve disobey God and have to leave the garden of Eden.",
       "Cain and Abel are born.",
       "Cain becomes a farmer and Abel becomes a shepherd.",
@@ -217,42 +236,166 @@ const CHARACTERS = [
       "God warns Cain to control his anger.",
       "Cain attacks Abel in the field, and God punishes Cain."
     ],
-    cards: [
-      ["Who guarded the way back into Eden?", "Cherubs (powerful angels) with a flaming, turning sword."],
-      ["What 3 things helped Abel's faith grow?", "God's creation, God's promises, and seeing the cherubs faithfully guarding Eden."],
-      ["What did God promise in Genesis 3:15?", "A special \"seed\" would come to fix what went wrong in Eden."],
-      ["What made Abel's offering special?", "He gave his best: the firstborn of his sheep. And he gave it with a loving heart."],
-      ["What was wrong with Cain's offering?", "His heart wasn't right. He didn't have real faith or love for God."],
-      ["What did Abel's sacrifice point forward to?", "Jesus, who is called \"the Lamb of God\" (John 1:29)."],
-      ["Why does the Bible say Abel \"still speaks\"?", "His example of faith still teaches us today, even though he died."],
-      ["Has Jehovah forgotten Abel?", "No! Jehovah remembers him and will bring him back to life (John 5:28, 29)."]
+    "cards": [
+      [
+        "Who guarded the way back into Eden?",
+        "Cherubs (powerful angels) with a flaming, turning sword."
+      ],
+      [
+        "What 3 things helped Abel's faith grow?",
+        "God's creation, God's promises, and seeing the cherubs faithfully guarding Eden."
+      ],
+      [
+        "What did God promise in Genesis 3:15?",
+        "A special \"seed\" would come to fix what went wrong in Eden."
+      ],
+      [
+        "What made Abel's offering special?",
+        "He gave his best: the firstborn of his sheep. And he gave it with a loving heart."
+      ],
+      [
+        "What was wrong with Cain's offering?",
+        "His heart wasn't right. He didn't have real faith or love for God."
+      ],
+      [
+        "What did Abel's sacrifice point forward to?",
+        "Jesus, who is called \"the Lamb of God\" (John 1:29)."
+      ],
+      [
+        "Why does the Bible say Abel \"still speaks\"?",
+        "His example of faith still teaches us today, even though he died."
+      ],
+      [
+        "Has Jehovah forgotten Abel?",
+        "No! Jehovah remembers him and will bring him back to life (John 5:28, 29)."
+      ]
     ],
-    pairs: [
-      ["Genesis 3:15", "God promises a \"seed\" to fix things"],
-      ["Genesis 4:4", "God is pleased with Abel and his offering"],
-      ["Genesis 4:6, 7", "God warns Cain about his anger"],
-      ["Romans 1:20", "We can see God's qualities in creation"],
-      ["John 1:29", "Jesus is called the Lamb of God"],
-      ["Hebrews 11:4", "Abel's faith still speaks"]
+    "pairs": [
+      [
+        "Genesis 3:15",
+        "God promises a \"seed\" to fix things"
+      ],
+      [
+        "Genesis 4:4",
+        "God is pleased with Abel and his offering"
+      ],
+      [
+        "Genesis 4:6, 7",
+        "God warns Cain about his anger"
+      ],
+      [
+        "Romans 1:20",
+        "We can see God's qualities in creation"
+      ],
+      [
+        "John 1:29",
+        "Jesus is called the Lamb of God"
+      ],
+      [
+        "Hebrews 11:4",
+        "Abel's faith still speaks"
+      ]
     ],
-    quiz: [
-      { q: "What job did Abel do?", o: ["Shepherd", "Farmer", "Fisherman"], a: 0, why: "Abel looked after sheep." },
-      { q: "What job did Cain do?", o: ["Builder", "Farmer", "Shepherd"], a: 1, why: "Cain grew crops from the ground." },
-      { q: "Who were Abel's parents?", o: ["Noah and his wife", "Adam and Eve", "Abraham and Sarah"], a: 1, why: "Adam and Eve were the first humans." },
-      { q: "What did Abel give to God?", o: ["Some fruit", "The firstborn of his sheep", "Nothing at all"], a: 1, why: "He gave God the very best he had." },
-      { tf: true, q: "God was pleased with both Cain's and Abel's offerings.", a: false, why: "God was pleased with Abel's, but not with Cain's." },
-      { q: "Why wasn't God pleased with Cain's offering?", o: ["His crops were too small", "His heart wasn't right", "He was late"], a: 1, why: "God looks at the heart, not just the gift." },
-      { q: "What did God do before Cain hurt Abel?", o: ["Nothing", "Warned Cain to control his anger", "Sent Cain away"], a: 1, why: "Jehovah lovingly warned Cain, but Cain didn't listen." },
-      { q: "Who guarded the way into Eden?", o: ["Lions", "Cherubs with a flaming sword", "Soldiers"], a: 1, why: "The cherubs stayed faithfully at their post for years." },
-      { tf: true, q: "Looking at creation helped Abel's faith grow.", a: true, why: "Romans 1:20 says creation shows us what God is like." },
-      { q: "Hebrews 11:4 says Abel \"still speaks.\" What does that mean?", o: ["He is still alive", "His faith still teaches us", "He wrote a book"], a: 1, why: "His example speaks to us when we read about him." }
+    "quiz": [
+      {
+        "q": "What job did Abel do?",
+        "o": [
+          "Shepherd",
+          "Farmer",
+          "Fisherman"
+        ],
+        "a": 0,
+        "why": "Abel looked after sheep."
+      },
+      {
+        "q": "What job did Cain do?",
+        "o": [
+          "Builder",
+          "Farmer",
+          "Shepherd"
+        ],
+        "a": 1,
+        "why": "Cain grew crops from the ground."
+      },
+      {
+        "q": "Who were Abel's parents?",
+        "o": [
+          "Noah and his wife",
+          "Adam and Eve",
+          "Abraham and Sarah"
+        ],
+        "a": 1,
+        "why": "Adam and Eve were the first humans."
+      },
+      {
+        "q": "What did Abel give to God?",
+        "o": [
+          "Some fruit",
+          "The firstborn of his sheep",
+          "Nothing at all"
+        ],
+        "a": 1,
+        "why": "He gave God the very best he had."
+      },
+      {
+        "tf": true,
+        "q": "God was pleased with both Cain's and Abel's offerings.",
+        "a": false,
+        "why": "God was pleased with Abel's, but not with Cain's."
+      },
+      {
+        "q": "Why wasn't God pleased with Cain's offering?",
+        "o": [
+          "His crops were too small",
+          "His heart wasn't right",
+          "He was late"
+        ],
+        "a": 1,
+        "why": "God looks at the heart, not just the gift."
+      },
+      {
+        "q": "What did God do before Cain hurt Abel?",
+        "o": [
+          "Nothing",
+          "Warned Cain to control his anger",
+          "Sent Cain away"
+        ],
+        "a": 1,
+        "why": "Jehovah lovingly warned Cain, but Cain didn't listen."
+      },
+      {
+        "q": "Who guarded the way into Eden?",
+        "o": [
+          "Lions",
+          "Cherubs with a flaming sword",
+          "Soldiers"
+        ],
+        "a": 1,
+        "why": "The cherubs stayed faithfully at their post for years."
+      },
+      {
+        "tf": true,
+        "q": "Looking at creation helped Abel's faith grow.",
+        "a": true,
+        "why": "Romans 1:20 says creation shows us what God is like."
+      },
+      {
+        "q": "Hebrews 11:4 says Abel \"still speaks.\" What does that mean?",
+        "o": [
+          "He is still alive",
+          "His faith still teaches us",
+          "He wrote a book"
+        ],
+        "a": 1,
+        "why": "His example speaks to us when we read about him."
+      }
     ],
-    think: [
+    "think": [
       "How does Abel's example still \"speak\" to you?",
       "What things in creation make you think about Jehovah?",
       "What is one way you can give Jehovah your best this week?"
     ],
-    goals: [
+    "goals": [
       "Look at something in creation and thank Jehovah for it",
       "Say a prayer from my heart",
       "Calm down and talk kindly when I feel angry",
@@ -260,18 +403,37 @@ const CHARACTERS = [
     ]
   },
   {
-    id: "noah", name: "Noah", icon: "🚢", hue: "var(--noah)", chapter: 2,
-    title: "He \"Walked With the True God\"",
-    url: "https://www.jw.org/en/library/books/true-faith/noah-bible/",
-    bigIdea: "Noah was a close friend of Jehovah. He obeyed God, built the ark, and kept warning people, even when they laughed at him.",
-    facts: [
-      ["Name", "Probably means \"Rest\" or \"Comfort\""],
-      ["Family", "His wife, and sons Shem, Ham and Japheth, with their wives. 8 people in all."],
-      ["Relatives", "Father Lamech. Grandfather Methuselah. Great-grandfather Enoch."],
-      ["Famous for", "Building the ark and surviving the Flood"],
-      ["Key verse", "Genesis 6:9"]
+    "id": "noah",
+    "name": "Noah",
+    "icon": "🚢",
+    "hue": "var(--noah)",
+    "chapter": 2,
+    "title": "He \"Walked With the True God\"",
+    "url": "https://www.jw.org/en/library/books/true-faith/noah-bible/",
+    "bigIdea": "Noah was a close friend of Jehovah. He obeyed God, built the ark, and kept warning people, even when they laughed at him.",
+    "facts": [
+      [
+        "Name",
+        "Probably means \"Rest\" or \"Comfort\""
+      ],
+      [
+        "Family",
+        "His wife, and sons Shem, Ham and Japheth, with their wives. 8 people in all."
+      ],
+      [
+        "Relatives",
+        "Father Lamech. Grandfather Methuselah. Great-grandfather Enoch."
+      ],
+      [
+        "Famous for",
+        "Building the ark and surviving the Flood"
+      ],
+      [
+        "Key verse",
+        "Genesis 6:9"
+      ]
     ],
-    story: [
+    "story": [
       "Bad angels come to earth, and the world fills with violence.",
       "God tells Noah to build a huge ark.",
       "Noah's family builds the ark for many years while Noah warns people.",
@@ -280,46 +442,4488 @@ const CHARACTERS = [
       "It rains for 40 days and 40 nights and floods the whole earth.",
       "After more than a year, Noah's family comes out safely."
     ],
-    cards: [
-      ["What does it mean that Noah \"walked with God\"?", "He was so close to Jehovah, it was like walking side by side with a friend."],
-      ["Why was the world so violent?", "Bad angels came to earth as men. Their giant bully sons, the Nephilim, filled the world with violence."],
-      ["How big was the ark?", "About 133 metres long, 22 m wide and 13 m tall, with 3 floors. Longer than a football pitch!"],
-      ["What shape was the ark?", "Like a giant wooden box. It didn't need to steer, just float."],
-      ["What was it made of?", "Wood full of resin, covered with tar inside and out to keep water out."],
-      ["How long did building take?", "Maybe 40 to 50 years! And they had no power tools."],
-      ["Which animals went in by sevens?", "The \"clean\" animals. Most others went in two by two."],
-      ["What did Jesus say about Noah's day?", "Our days would be like Noah's days (Matthew 24:37-39)."]
+    "cards": [
+      [
+        "What does it mean that Noah \"walked with God\"?",
+        "He was so close to Jehovah, it was like walking side by side with a friend."
+      ],
+      [
+        "Why was the world so violent?",
+        "Bad angels came to earth as men. Their giant bully sons, the Nephilim, filled the world with violence."
+      ],
+      [
+        "How big was the ark?",
+        "About 133 metres long, 22 m wide and 13 m tall, with 3 floors. Longer than a football pitch!"
+      ],
+      [
+        "What shape was the ark?",
+        "Like a giant wooden box. It didn't need to steer, just float."
+      ],
+      [
+        "What was it made of?",
+        "Wood full of resin, covered with tar inside and out to keep water out."
+      ],
+      [
+        "How long did building take?",
+        "Maybe 40 to 50 years! And they had no power tools."
+      ],
+      [
+        "Which animals went in by sevens?",
+        "The \"clean\" animals. Most others went in two by two."
+      ],
+      [
+        "What did Jesus say about Noah's day?",
+        "Our days would be like Noah's days (Matthew 24:37-39)."
+      ]
     ],
-    pairs: [
-      ["Genesis 6:9", "Noah walked with the true God"],
-      ["Genesis 6:22", "Noah did just as God told him"],
-      ["2 Peter 2:5", "Noah was a preacher of righteousness"],
-      ["Genesis 5:27", "Methuselah lived 969 years"],
-      ["Genesis 7:16", "Jehovah shut the door"],
-      ["Matthew 24:37", "Our days are like Noah's days"]
+    "pairs": [
+      [
+        "Genesis 6:9",
+        "Noah walked with the true God"
+      ],
+      [
+        "Genesis 6:22",
+        "Noah did just as God told him"
+      ],
+      [
+        "2 Peter 2:5",
+        "Noah was a preacher of righteousness"
+      ],
+      [
+        "Genesis 5:27",
+        "Methuselah lived 969 years"
+      ],
+      [
+        "Genesis 7:16",
+        "Jehovah shut the door"
+      ],
+      [
+        "Matthew 24:37",
+        "Our days are like Noah's days"
+      ]
     ],
-    quiz: [
-      { q: "What were the names of Noah's sons?", o: ["Cain, Abel and Seth", "Shem, Ham and Japheth", "Peter, James and John"], a: 1, why: "Shem, Ham and Japheth helped build the ark." },
-      { q: "How many people were saved in the ark?", o: ["2", "8", "12"], a: 1, why: "Noah, his wife, their 3 sons and their 3 wives." },
-      { q: "What shape was the ark?", o: ["Like a speedboat", "Like a giant box", "Round like a ball"], a: 1, why: "It was a huge box that just needed to float." },
-      { q: "About how long was the ark?", o: ["As long as a bus", "As long as a house", "Longer than a football pitch"], a: 2, why: "About 133 metres long!" },
-      { q: "How long did it probably take to build?", o: ["About a week", "About a year", "About 40 to 50 years"], a: 2, why: "It was a huge job, and they kept going." },
-      { tf: true, q: "Noah built the ark but never told anyone about the Flood.", a: false, why: "Noah was a preacher. He warned people, even though they didn't listen." },
-      { q: "Who shut the door of the ark?", o: ["Noah", "Shem", "Jehovah"], a: 2, why: "Genesis 7:16 says Jehovah shut the door." },
-      { q: "How long did it rain?", o: ["7 days", "40 days and 40 nights", "1 year"], a: 1, why: "It rained 40 days and nights, and they stayed in the ark more than a year." },
-      { q: "Who lived 969 years, the longest life in the Bible?", o: ["Noah", "Methuselah", "Enoch"], a: 1, why: "Methuselah was Noah's grandfather." },
-      { tf: true, q: "Genesis 6:22 says Noah did just as God told him.", a: true, why: "He obeyed every detail, even when it was hard." }
+    "quiz": [
+      {
+        "q": "What were the names of Noah's sons?",
+        "o": [
+          "Cain, Abel and Seth",
+          "Shem, Ham and Japheth",
+          "Peter, James and John"
+        ],
+        "a": 1,
+        "why": "Shem, Ham and Japheth helped build the ark."
+      },
+      {
+        "q": "How many people were saved in the ark?",
+        "o": [
+          "2",
+          "8",
+          "12"
+        ],
+        "a": 1,
+        "why": "Noah, his wife, their 3 sons and their 3 wives."
+      },
+      {
+        "q": "What shape was the ark?",
+        "o": [
+          "Like a speedboat",
+          "Like a giant box",
+          "Round like a ball"
+        ],
+        "a": 1,
+        "why": "It was a huge box that just needed to float."
+      },
+      {
+        "q": "About how long was the ark?",
+        "o": [
+          "As long as a bus",
+          "As long as a house",
+          "Longer than a football pitch"
+        ],
+        "a": 2,
+        "why": "About 133 metres long!"
+      },
+      {
+        "q": "How long did it probably take to build?",
+        "o": [
+          "About a week",
+          "About a year",
+          "About 40 to 50 years"
+        ],
+        "a": 2,
+        "why": "It was a huge job, and they kept going."
+      },
+      {
+        "tf": true,
+        "q": "Noah built the ark but never told anyone about the Flood.",
+        "a": false,
+        "why": "Noah was a preacher. He warned people, even though they didn't listen."
+      },
+      {
+        "q": "Who shut the door of the ark?",
+        "o": [
+          "Noah",
+          "Shem",
+          "Jehovah"
+        ],
+        "a": 2,
+        "why": "Genesis 7:16 says Jehovah shut the door."
+      },
+      {
+        "q": "How long did it rain?",
+        "o": [
+          "7 days",
+          "40 days and 40 nights",
+          "1 year"
+        ],
+        "a": 1,
+        "why": "It rained 40 days and nights, and they stayed in the ark more than a year."
+      },
+      {
+        "q": "Who lived 969 years, the longest life in the Bible?",
+        "o": [
+          "Noah",
+          "Methuselah",
+          "Enoch"
+        ],
+        "a": 1,
+        "why": "Methuselah was Noah's grandfather."
+      },
+      {
+        "tf": true,
+        "q": "Genesis 6:22 says Noah did just as God told him.",
+        "a": true,
+        "why": "He obeyed every detail, even when it was hard."
+      }
     ],
-    think: [
+    "think": [
       "Why was it hard for Noah's family to serve Jehovah in such a bad world?",
       "How did building the ark show that Noah had faith?",
       "Why do you think it was hard to preach in Noah's day?"
     ],
-    goals: [
+    "goals": [
       "Do what Jehovah says, even if others laugh",
       "Talk to someone about Jehovah",
       "Join in with family worship and help out",
       "Keep going with a job, even when it takes a long time"
+    ]
+  },
+  {
+    "id": "abram",
+    "name": "Abram",
+    "icon": "🐪",
+    "hue": "var(--c3)",
+    "chapter": 3,
+    "title": "\"The Father of All Those Having Faith\"",
+    "url": "https://www.jw.org/en/library/books/true-faith/abraham-father-of-faith/",
+    "bigIdea": "Abram refused to worship idols and left his comfortable home in Ur when Jehovah told him to. His faith was so strong that he is called the father of all who have faith.",
+    "facts": [
+      [
+        "Home city",
+        "Ur, a rich, busy city by the Euphrates River where people worshipped the moon god"
+      ],
+      [
+        "Family",
+        "Wife Sarai, father Terah, and his nephew Lot, whom they took in as an orphan"
+      ],
+      [
+        "Later name",
+        "God changed his name to Abraham, meaning \"Father of a Multitude\""
+      ],
+      [
+        "Famous for",
+        "Leaving his home and family to go to the land Jehovah would show him"
+      ],
+      [
+        "Key verse",
+        "Romans 4:11"
+      ]
+    ],
+    "story": [
+      "Abram grows up in Ur, a city full of idols, but he chooses to worship only Jehovah.",
+      "Abram marries Sarai, and they take care of his orphaned nephew, Lot.",
+      "Jehovah, \"the God of glory\", tells Abram to leave his land and his relatives.",
+      "The family packs up, says goodbye to Ur and sets off with Terah and Lot.",
+      "After about 960 kilometres, they stop and live in the city of Haran.",
+      "Terah dies, and Jehovah promises to make Abram a great nation.",
+      "Abram crosses the Euphrates River and builds altars to Jehovah in the Promised Land."
+    ],
+    "cards": [
+      [
+        "What was the big tower in Ur?",
+        "A ziggurat, a huge stepped tower where priests offered sacrifices to the moon god."
+      ],
+      [
+        "Did Abram's father worship idols?",
+        "Yes, Terah was involved with idols, and he may even have made them. But later he left Ur with Abram."
+      ],
+      [
+        "Who might have taught Abram about Jehovah?",
+        "Perhaps Shem, Noah's son. He had lived through the Flood and was still alive for most of Abram's life."
+      ],
+      [
+        "How close were Noah and Abram in time?",
+        "Noah died just 2 years before Abram was born!"
+      ],
+      [
+        "Were homes in Ur nice?",
+        "Some were very comfy, with a dozen or more rooms around a courtyard, and even water fountains and toilets."
+      ],
+      [
+        "How old were Abram and Sarai when they left?",
+        "Abram was probably in his 70s and Sarai in her 60s. Not young at all!"
+      ],
+      [
+        "What does the name Sarah mean?",
+        "God later changed Sarai's name to Sarah, which means \"Princess\"."
+      ],
+      [
+        "Why is Nisan 14 a special date?",
+        "Abram crossed the Euphrates on Nisan 14. Later, Israel left Egypt on that date, and Jesus started the Lord's Evening Meal on it too."
+      ]
+    ],
+    "pairs": [
+      [
+        "Romans 4:11",
+        "Abram is the father of all who have faith"
+      ],
+      [
+        "Acts 7:2, 3",
+        "The God of glory told Abram to leave his land"
+      ],
+      [
+        "Genesis 12:2, 3",
+        "Abram would become a great nation and bless all families"
+      ],
+      [
+        "John 15:19",
+        "Jesus' followers are no part of the world"
+      ],
+      [
+        "Genesis 11:32",
+        "Terah died in Haran aged 205"
+      ],
+      [
+        "Hebrews 11:10",
+        "Abram waited for the city God builds"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "What city did Abram grow up in?",
+        "o": [
+          "Ur",
+          "Babylon",
+          "Jerusalem"
+        ],
+        "a": 0,
+        "why": "Ur was a rich city by the Euphrates River, full of idol worship."
+      },
+      {
+        "q": "Which false god did the priests in Ur worship?",
+        "o": [
+          "The sun god",
+          "The moon god",
+          "The river god"
+        ],
+        "a": 1,
+        "why": "The ziggurat in Ur was for the moon god."
+      },
+      {
+        "q": "Who was Lot?",
+        "o": [
+          "Abram's brother",
+          "Abram's servant",
+          "Abram's nephew"
+        ],
+        "a": 2,
+        "why": "Lot was Abram's orphaned nephew, and Abram and Sarai took care of him."
+      },
+      {
+        "tf": true,
+        "q": "Jehovah told Abram exactly which land he was going to before he left Ur.",
+        "a": false,
+        "why": "Jehovah only said he would show Abram the land. Abram went without knowing where!"
+      },
+      {
+        "q": "Why was it hard to leave Ur?",
+        "o": [
+          "They had to leave a comfortable home and their relatives",
+          "Ur was a poor, empty city",
+          "They had to cross the sea in a boat"
+        ],
+        "a": 0,
+        "why": "Ur was wealthy and comfy, and leaving family was a big deal back then."
+      },
+      {
+        "q": "Who did Abram and Sarai take with them to care for on the journey?",
+        "o": [
+          "Abram's old father, Terah",
+          "Noah's son, Shem",
+          "The priests of Ur"
+        ],
+        "a": 0,
+        "why": "They looked after old Terah along the way."
+      },
+      {
+        "q": "About how far was it from Ur to Haran?",
+        "o": [
+          "About 10 kilometres",
+          "About 960 kilometres",
+          "About 10,000 kilometres"
+        ],
+        "a": 1,
+        "why": "About 960 km, which took weeks of travel with camels and donkeys."
+      },
+      {
+        "q": "What did Jehovah promise Abram in Haran?",
+        "o": [
+          "That he would become a king of Ur",
+          "That he would never grow old",
+          "That he would become a great nation and bless all families"
+        ],
+        "a": 2,
+        "why": "Genesis 12:2, 3 tells of this promise, or covenant."
+      },
+      {
+        "tf": true,
+        "q": "Abram built altars to Jehovah in the land of Canaan.",
+        "a": true,
+        "why": "He built altars near the big trees of Moreh and near Bethel, and called on Jehovah's name."
+      },
+      {
+        "q": "Which river did Abram cross to go into the Promised Land?",
+        "o": [
+          "The Nile",
+          "The Jordan",
+          "The Euphrates"
+        ],
+        "a": 2,
+        "why": "He probably crossed the Euphrates at Carchemish, on Nisan 14."
+      }
+    ],
+    "think": [
+      "How did Abram show faith when everyone around him worshipped idols?",
+      "What do you like about how Abram was willing to leave Ur?",
+      "How would you like to be like Abram?"
+    ],
+    "goals": [
+      "Be brave about being different when others do things Jehovah doesn't like",
+      "Give up something you like, such as some screen time, to do something for Jehovah",
+      "Say thank you to Jehovah in prayer for a blessing you have",
+      "Ask a grandparent or older friend what they have learned about Jehovah"
+    ]
+  },
+  {
+    "id": "ruth1",
+    "name": "Ruth",
+    "icon": "🛤️",
+    "hue": "var(--c4)",
+    "chapter": 4,
+    "title": "\"Where You Go I Shall Go\"",
+    "url": "https://www.jw.org/en/library/books/true-faith/ruth-and-naomi/",
+    "bigIdea": "Ruth showed loyal love. She stuck with her mother-in-law, Naomi, chose Jehovah as her God, and worked hard to look after Naomi in Bethlehem.",
+    "facts": [
+      [
+        "From",
+        "Moab, a small country east of the Dead Sea"
+      ],
+      [
+        "Family",
+        "Husband Mahlon, mother-in-law Naomi, sister-in-law Orpah"
+      ],
+      [
+        "Moved to",
+        "Bethlehem in Israel, about 10 km south of Jerusalem"
+      ],
+      [
+        "Famous for",
+        "Loyal love, the kind that holds on and won't let go"
+      ],
+      [
+        "Key verse",
+        "Ruth 1:16"
+      ]
+    ],
+    "story": [
+      "Because of a famine in Israel, Naomi's family moves to Moab.",
+      "Naomi's sons marry two Moabite women, Ruth and Orpah.",
+      "Naomi's husband and both her sons die, so the three women are left as widows.",
+      "Naomi hears the famine is over and sets off home with Ruth and Orpah.",
+      "Orpah goes back to Moab, but Ruth says, \"Your God will be my God.\"",
+      "Ruth and Naomi reach Bethlehem, and the town is buzzing with the news.",
+      "Ruth gleans barley in the field of Boaz, who is very kind to her."
+    ],
+    "cards": [
+      [
+        "Why did Naomi's family go to Moab?",
+        "There was a famine in Israel, and the fields of Moab often still grew food."
+      ],
+      [
+        "What were the names of Naomi's husband and sons?",
+        "Her husband was Elimelech. Her sons were Mahlon and Chilion."
+      ],
+      [
+        "What was the main god of Moab?",
+        "Chemosh. The Moabites worshipped many gods, and their religion could be very cruel. Jehovah rules through love instead."
+      ],
+      [
+        "What does the name Bethlehem mean?",
+        "\"House of Bread\". Now that the famine was over, there was food there again."
+      ],
+      [
+        "What did Naomi want to be called?",
+        "Mara, which means \"Bitter\", instead of Naomi, which means \"My Pleasantness\". She was very sad."
+      ],
+      [
+        "What is gleaning?",
+        "Jehovah's Law let poor people pick up the grain left behind by the harvesters and at the edges of fields."
+      ],
+      [
+        "Did Ruth just march into the field?",
+        "No. Even though the Law allowed her to glean, she politely asked permission first."
+      ],
+      [
+        "Who wrote the book of Ruth?",
+        "Probably the prophet Samuel. It is called a \"masterpiece in miniature\" because it is short but full of lessons."
+      ]
+    ],
+    "pairs": [
+      [
+        "Ruth 1:16",
+        "Your people will be my people, and your God my God"
+      ],
+      [
+        "Ruth 2:12",
+        "Ruth took refuge under Jehovah's wings"
+      ],
+      [
+        "Deuteronomy 6:5",
+        "Love Jehovah with all your heart"
+      ],
+      [
+        "Proverbs 17:17",
+        "A true friend loves at all times"
+      ],
+      [
+        "Leviticus 19:9, 10",
+        "Leave some of the harvest for the poor"
+      ],
+      [
+        "2 Timothy 3:1",
+        "We live in critical times hard to deal with"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Which country did Ruth come from?",
+        "o": [
+          "Egypt",
+          "Moab",
+          "Israel"
+        ],
+        "a": 1,
+        "why": "Ruth was a Moabitess. Moab was east of the Dead Sea."
+      },
+      {
+        "q": "Who was Ruth's husband?",
+        "o": [
+          "Mahlon",
+          "Boaz",
+          "Elimelech"
+        ],
+        "a": 0,
+        "why": "Ruth was married to Mahlon, Naomi's son. Sadly, he died."
+      },
+      {
+        "q": "Why did Naomi decide to go back to Bethlehem?",
+        "o": [
+          "She wanted to find gold",
+          "Her house in Moab burnt down",
+          "She heard the famine in Israel was over"
+        ],
+        "a": 2,
+        "why": "Jehovah had given his people food again."
+      },
+      {
+        "tf": true,
+        "q": "Orpah and Ruth both went back to Moab in the end.",
+        "a": false,
+        "why": "Only Orpah went back to her people and her gods. Ruth stuck with Naomi."
+      },
+      {
+        "q": "What did Ruth promise Naomi?",
+        "o": [
+          "To visit her once a year",
+          "To go wherever she went and worship her God",
+          "To find her a new house in Moab"
+        ],
+        "a": 1,
+        "why": "\"Where you go I shall go... your God my God\" (Ruth 1:16)."
+      },
+      {
+        "q": "What quality did Ruth show by sticking with Naomi?",
+        "o": [
+          "Loyal love",
+          "Pride",
+          "Fear"
+        ],
+        "a": 0,
+        "why": "Loyal love holds on and refuses to let go."
+      },
+      {
+        "q": "How long might the walk to Bethlehem have taken?",
+        "o": [
+          "About an hour",
+          "As long as a week",
+          "About a year"
+        ],
+        "a": 1,
+        "why": "It may have taken up to a week, but they comforted each other."
+      },
+      {
+        "q": "What was being harvested when Ruth went to glean?",
+        "o": [
+          "Grapes",
+          "Olives",
+          "Barley"
+        ],
+        "a": 2,
+        "why": "It was the barley harvest, probably around April."
+      },
+      {
+        "q": "How did Boaz greet his workers?",
+        "o": [
+          "\"Work faster!\"",
+          "\"Jehovah be with you\"",
+          "\"Good luck today\""
+        ],
+        "a": 1,
+        "why": "Boaz was a man of faith, and his workers answered him kindly too."
+      },
+      {
+        "tf": true,
+        "q": "Boaz had heard about all the good things Ruth had done for Naomi.",
+        "a": true,
+        "why": "Ruth had a good name. Boaz prayed that Jehovah would reward her."
+      }
+    ],
+    "think": [
+      "How did Ruth show that she had faith in Jehovah?",
+      "In what ways did Ruth show loyal love to Naomi?",
+      "Why do you think Jehovah loved Ruth so much?"
+    ],
+    "goals": [
+      "Stick by a friend or family member who is sad, and do something kind for them",
+      "Do a helpful job at home without being asked, even if it is tiring",
+      "Say thank you when someone helps you or gives you something",
+      "Ask politely before using something, even if you think it is allowed"
+    ]
+  },
+  {
+    "id": "ruth2",
+    "name": "Ruth",
+    "icon": "🌾",
+    "hue": "var(--c5)",
+    "chapter": 5,
+    "title": "\"An Excellent Woman\"",
+    "url": "https://www.jw.org/en/library/books/true-faith/ruth-and-boaz/",
+    "bigIdea": "Ruth listened to Naomi's advice and kept showing loyal love, so everyone knew she was an excellent woman. Jehovah blessed her: she married Boaz and became an ancestor of King David and of Jesus.",
+    "facts": [
+      [
+        "Known as",
+        "\"An excellent woman\", said Boaz (Ruth 3:11)"
+      ],
+      [
+        "Husband",
+        "Boaz, a rich older man who was a relative of Naomi's late husband, Elimelech"
+      ],
+      [
+        "Work",
+        "Gleaning in Boaz' fields from the barley harvest in April to the wheat harvest in June"
+      ],
+      [
+        "Famous for",
+        "Loyal love and humbly taking good advice"
+      ],
+      [
+        "Descendants",
+        "Her son became an ancestor of King David and of Jesus Christ"
+      ]
+    ],
+    "story": [
+      "After her first day of gleaning, Ruth carries home about 14 kg of barley to Naomi.",
+      "Ruth keeps gleaning in Boaz' fields through the barley and wheat harvests.",
+      "Naomi tells Ruth her plan, and Ruth says she will do all that Naomi says.",
+      "At night on the threshing floor, Ruth asks Boaz to be her repurchaser.",
+      "Boaz fills Ruth's cloak with barley, and she goes home before it gets light.",
+      "At the city gate, the closer relative says no, so Boaz says he will marry Ruth.",
+      "Ruth and Boaz have a son, and Naomi helps to bring him up."
+    ],
+    "cards": [
+      [
+        "How much barley did Ruth glean on her first day?",
+        "About 22 litres, which may have weighed some 14 kg. That's like carrying a big bag of dog food on your head!"
+      ],
+      [
+        "Who did Naomi say the kindness of Boaz came from?",
+        "From Jehovah, who moves his servants to be generous."
+      ],
+      [
+        "Can a small family be a real family?",
+        "Yes! Ruth and Naomi were just two people, but they filled their family with warmth and love."
+      ],
+      [
+        "What was a repurchaser?",
+        "A close relative who, under God's Law, could marry a widow with no children so her late husband's name would carry on."
+      ],
+      [
+        "What was a threshing floor?",
+        "A flat, hard area, often on a hill. Workers tossed grain into the wind so the light chaff blew away."
+      ],
+      [
+        "Why did Boaz sleep by the grain heap?",
+        "Probably to guard the precious harvest from thieves."
+      ],
+      [
+        "Why didn't Boaz marry Ruth straight away?",
+        "There was another man who was a closer relative. Boaz was fair and gave him the first chance."
+      ],
+      [
+        "Who else is in Jesus' family line with Ruth?",
+        "Ruth is one of five women listed in Jesus' family line. Rahab, Boaz' mother, is another. Neither Ruth nor Rahab was an Israelite."
+      ]
+    ],
+    "pairs": [
+      [
+        "Ruth 3:11",
+        "Everyone knew Ruth was an excellent woman"
+      ],
+      [
+        "Ruth 3:5",
+        "Ruth said she would do all Naomi told her"
+      ],
+      [
+        "Proverbs 19:17",
+        "Jehovah repays those who are kind to the poor"
+      ],
+      [
+        "Mark 10:29, 30",
+        "The congregation can be a family to us"
+      ],
+      [
+        "Deuteronomy 25:5-7",
+        "A relative could marry a widow to carry on her husband's name"
+      ],
+      [
+        "Psalm 71:17, 18",
+        "God has taught me since I was young"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "What did Ruth bring home to Naomi after her first day?",
+        "o": [
+          "A bag of gold coins",
+          "A heavy load of barley and some leftover food",
+          "A new cloak from the market"
+        ],
+        "a": 1,
+        "why": "She brought about 14 kg of barley and food left over from the workers' meal."
+      },
+      {
+        "q": "Where did Ruth keep living during the harvest?",
+        "o": [
+          "With her mother-in-law, Naomi",
+          "Back home in Moab",
+          "In Boaz' house"
+        ],
+        "a": 0,
+        "why": "She \"kept on dwelling with her mother-in-law\". That shows loyal love."
+      },
+      {
+        "q": "What did Ruth say when Naomi told her the plan?",
+        "o": [
+          "\"I'd rather not\"",
+          "\"Let me think about it for a year\"",
+          "\"All that you say to me I shall do\""
+        ],
+        "a": 2,
+        "why": "Ruth humbly listened to Naomi, who was older and loved her."
+      },
+      {
+        "tf": true,
+        "q": "On a threshing floor, the wind blows away the light chaff and the heavy grain falls back down.",
+        "a": true,
+        "why": "That is why threshing floors were often on hills, where the breeze was strong."
+      },
+      {
+        "q": "When did Boaz wake up and find Ruth at his feet?",
+        "o": [
+          "Around midnight",
+          "At lunchtime",
+          "At sunset"
+        ],
+        "a": 0,
+        "why": "He woke around midnight, feeling cold, and found her there."
+      },
+      {
+        "q": "Why did Boaz praise Ruth at the threshing floor?",
+        "o": [
+          "Because she was very rich",
+          "Because she was a fast runner",
+          "Because she was unselfish and didn't go after the young men"
+        ],
+        "a": 2,
+        "why": "She wanted to help Naomi's family, not just please herself."
+      },
+      {
+        "q": "What did Boaz give Ruth before she went home?",
+        "o": [
+          "A ring",
+          "Six measures of barley",
+          "A donkey"
+        ],
+        "a": 1,
+        "why": "He filled her cloak with barley, partly as a gift for Naomi."
+      },
+      {
+        "q": "Where did Boaz go to sort things out with the closer relative?",
+        "o": [
+          "The temple",
+          "The city gate",
+          "The river"
+        ],
+        "a": 1,
+        "why": "The city elders met at the gate, so there were witnesses."
+      },
+      {
+        "tf": true,
+        "q": "The closer relative happily agreed to marry Ruth.",
+        "a": false,
+        "why": "He said no, because he thought it would spoil his own inheritance. So Boaz married her."
+      },
+      {
+        "q": "Which famous king came from Ruth's family line?",
+        "o": [
+          "King Saul",
+          "King Herod",
+          "King David"
+        ],
+        "a": 2,
+        "why": "Ruth's son was an ancestor of David, and David was an ancestor of Jesus."
+      }
+    ],
+    "think": [
+      "How did Ruth show loyal love to Naomi?",
+      "How did Naomi show loyal love to Ruth?",
+      "Why does Jehovah love people like Boaz, Naomi and Ruth?"
+    ],
+    "goals": [
+      "Listen carefully to advice from Mum or an older friend and try it out",
+      "Do something kind for someone in your family to show you love them",
+      "Be polite and respectful to someone whose ways are different from yours",
+      "Thank Jehovah for your family and for your congregation family"
+    ]
+  },
+  {
+    "id": "hannah",
+    "name": "Hannah",
+    "icon": "🙏",
+    "hue": "var(--c6)",
+    "chapter": 6,
+    "title": "She Opened Her Heart to God in Prayer",
+    "url": "https://www.jw.org/en/library/books/true-faith/hannah-prayer/",
+    "bigIdea": "Hannah was very sad and was teased unkindly, but she poured out her heart to Jehovah in prayer. Jehovah gave her peace, and then a son, Samuel, whom she gave to serve Jehovah.",
+    "facts": [
+      [
+        "Family",
+        "Husband Elkanah, who loved her very much. He also had another wife, Peninnah."
+      ],
+      [
+        "Her problems",
+        "For years she could not have a baby, and Peninnah was cruel to her about it"
+      ],
+      [
+        "Where she prayed",
+        "At Jehovah's tabernacle in Shiloh"
+      ],
+      [
+        "Famous for",
+        "Pouring out her heart to Jehovah in prayer"
+      ],
+      [
+        "Key verse",
+        "1 Samuel 1:18"
+      ]
+    ],
+    "story": [
+      "Every year, Peninnah teases Hannah until she cries and can't eat.",
+      "Hannah's family walks a day or two to the tabernacle in Shiloh.",
+      "Hannah prays and promises to give her son to Jehovah's service if she has one.",
+      "Eli the high priest thinks she is drunk, but she explains kindly and he blesses her.",
+      "Hannah stops being sad, and later she has a baby boy called Samuel.",
+      "When Samuel is about 3, Hannah brings him to Eli at Shiloh to serve Jehovah.",
+      "Every year, Hannah visits Samuel and brings him a new sleeveless coat she has made."
+    ],
+    "cards": [
+      [
+        "Why was Peninnah so unkind?",
+        "She was jealous because Elkanah loved Hannah most. She had lots of children and kept reminding Hannah that she had none."
+      ],
+      [
+        "What did Elkanah say to comfort Hannah?",
+        "\"Am I not better to you than ten sons?\" He loved her very much."
+      ],
+      [
+        "Did Hannah tell Elkanah how mean Peninnah was?",
+        "The Bible doesn't say she did. Perhaps she thought it would make things worse. But Jehovah saw it all."
+      ],
+      [
+        "Did Hannah stay at home to avoid Peninnah?",
+        "No! She still went to worship at Shiloh, more than 32 km away. She didn't let others stop her worshipping Jehovah."
+      ],
+      [
+        "What does the name Samuel mean?",
+        "\"Name of God\". It reminded Hannah that she had called on Jehovah's name."
+      ],
+      [
+        "What happened to Peninnah?",
+        "Her teasing no longer worked on Hannah, and the Bible never mentions her name again!"
+      ],
+      [
+        "Did Hannah have more children?",
+        "Yes, Jehovah blessed her with five more children."
+      ],
+      [
+        "What special title did Hannah use for God?",
+        "\"Jehovah of armies\". She is the first person in the Bible quoted using it. It appears 285 times in the Bible!"
+      ]
+    ],
+    "pairs": [
+      [
+        "1 Samuel 1:18",
+        "Hannah's face was sad no more"
+      ],
+      [
+        "1 Peter 5:7",
+        "Throw all your worries on Jehovah, because he cares for you"
+      ],
+      [
+        "Psalm 62:8",
+        "Pour out your heart to God"
+      ],
+      [
+        "Psalm 55:22",
+        "Throw your burden on Jehovah"
+      ],
+      [
+        "1 Samuel 2:1-10",
+        "Hannah's prayer: there is no rock like our God"
+      ],
+      [
+        "1 Samuel 2:19",
+        "Hannah made Samuel a little coat every year"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Who was Hannah's husband?",
+        "o": [
+          "Eli",
+          "Elkanah",
+          "Samuel"
+        ],
+        "a": 1,
+        "why": "Elkanah loved Hannah very much."
+      },
+      {
+        "q": "Where did Hannah's family go every year to worship?",
+        "o": [
+          "The tabernacle in Shiloh",
+          "The temple in Jerusalem",
+          "Mount Sinai"
+        ],
+        "a": 0,
+        "why": "The tabernacle was in Shiloh, in the hill country of Ephraim."
+      },
+      {
+        "tf": true,
+        "q": "Hannah stayed at home so she wouldn't have to see Peninnah.",
+        "a": false,
+        "why": "She still went to worship. She didn't let anyone stop her serving Jehovah."
+      },
+      {
+        "q": "What did Hannah promise Jehovah in her prayer?",
+        "o": [
+          "To build a new tabernacle",
+          "To move far away from Peninnah",
+          "To give her son to a life serving Jehovah"
+        ],
+        "a": 2,
+        "why": "She wanted to give something back to Jehovah, not just ask."
+      },
+      {
+        "q": "What did Eli think when he saw Hannah praying?",
+        "o": [
+          "That she was singing",
+          "That she was drunk",
+          "That she was asleep"
+        ],
+        "a": 1,
+        "why": "Her lips moved but no sound came out. She explained respectfully, and he blessed her."
+      },
+      {
+        "q": "How did Hannah feel after praying?",
+        "o": [
+          "Still very sad",
+          "Angry with Eli",
+          "Calm, and she wasn't sad any more"
+        ],
+        "a": 2,
+        "why": "She had handed her worries to Jehovah, and she began to eat again."
+      },
+      {
+        "q": "What does the name Samuel mean?",
+        "o": [
+          "\"Name of God\"",
+          "\"Little lamb\"",
+          "\"Strong king\""
+        ],
+        "a": 0,
+        "why": "It reminded everyone that Hannah had called on God's name."
+      },
+      {
+        "tf": true,
+        "q": "Elkanah supported Hannah's promise to Jehovah.",
+        "a": true,
+        "why": "He could have cancelled her vow, but he didn't. They worshipped together."
+      },
+      {
+        "q": "What did Hannah bring Samuel each year?",
+        "o": [
+          "A toy donkey",
+          "A sleeveless coat she had made",
+          "A new pair of sandals"
+        ],
+        "a": 1,
+        "why": "Every stitch showed how much she loved him (1 Samuel 2:19)."
+      },
+      {
+        "q": "About how many years later did Jesus' mother, Mary, use words like Hannah's in her praise?",
+        "o": [
+          "About 10 years",
+          "About 100 years",
+          "About 1,000 years"
+        ],
+        "a": 2,
+        "why": "About 1,000 years later, Mary praised Jehovah with some of the same ideas."
+      }
+    ],
+    "think": [
+      "How did Hannah keep showing faith even when someone was unkind to her?",
+      "What do Hannah's prayers show about her faith?",
+      "Why does Jehovah love people like Hannah?"
+    ],
+    "goals": [
+      "When something makes you sad or worried, tell Jehovah all about it in prayer",
+      "Keep going to meetings and family worship even if someone is unkind to you",
+      "If someone gets the wrong idea about you, explain calmly and kindly",
+      "Thank Jehovah when he answers one of your prayers"
+    ]
+  },
+  {
+    "id": "samuel1",
+    "name": "Samuel",
+    "icon": "🕯️",
+    "hue": "var(--c1)",
+    "chapter": 7,
+    "title": "He \"Continued Growing Up With Jehovah\"",
+    "url": "https://www.jw.org/en/library/books/true-faith/young-samuel-at-the-tabernacle/",
+    "bigIdea": "Even as a small boy, Samuel stayed close to Jehovah, though the people around him did bad things. He listened to God, and his faith kept growing all his life.",
+    "facts": [
+      [
+        "Job",
+        "Helper at the tabernacle as a boy, then prophet and judge of Israel"
+      ],
+      [
+        "Family",
+        "Father Elkanah and mother Hannah. Samuel was their firstborn son."
+      ],
+      [
+        "Where",
+        "Grew up at the tabernacle in Shiloh, over 32 kilometres from his home in Ramah"
+      ],
+      [
+        "Famous for",
+        "Answering God with \"Speak, for your servant is listening\""
+      ],
+      [
+        "Key verse",
+        "1 Samuel 2:21"
+      ]
+    ],
+    "story": [
+      "Hannah prays for a son and promises to give him to Jehovah's service.",
+      "When he is about 3 years old, Samuel goes to live and serve at the tabernacle in Shiloh.",
+      "Samuel sees Eli's sons, Hophni and Phinehas, doing very bad things at the tabernacle.",
+      "A man of God warns Eli that his family will be punished.",
+      "One night, Jehovah calls Samuel, and Samuel says, \"Speak, for your servant is listening.\"",
+      "Hophni and Phinehas die in a battle, and Eli dies when he hears the Ark has been captured.",
+      "Years later, old Samuel prays at Gilgal and Jehovah sends a thunderstorm in the dry season."
+    ],
+    "cards": [
+      [
+        "Was Samuel unloved because he lived away from home?",
+        "No! His parents visited every year, and his mum Hannah made him a new sleeveless coat each time."
+      ],
+      [
+        "What is a Nazirite?",
+        "Someone who promised not to drink alcohol or cut their hair. Samuel was one for his whole life, like Samson and John the Baptist."
+      ],
+      [
+        "What was the tabernacle like?",
+        "A huge tent on a wooden frame, made of sealskins, embroidered cloth and wood covered with silver and gold."
+      ],
+      [
+        "How old was the tabernacle?",
+        "Nearly 400 years old! It was built when Moses was leader."
+      ],
+      [
+        "What jobs did young Samuel do?",
+        "He opened the doors to the courtyard in the morning and helped old Eli."
+      ],
+      [
+        "How did Eli's sons steal from the sacrifices?",
+        "A helper stuck a big fork into the pot of meat and took whatever came out, or bullied people for raw meat."
+      ],
+      [
+        "Where did Samuel sleep?",
+        "Probably in a side room built next to the tabernacle for the priests."
+      ],
+      [
+        "How can we hear God's voice today?",
+        "By reading his Word, the Bible. The more we listen to it and obey, the more our faith grows."
+      ]
+    ],
+    "pairs": [
+      [
+        "1 Samuel 2:18",
+        "Samuel served Jehovah as a boy"
+      ],
+      [
+        "1 Samuel 2:21",
+        "Samuel kept growing up with Jehovah"
+      ],
+      [
+        "1 Samuel 2:26",
+        "Both God and people liked Samuel more and more"
+      ],
+      [
+        "1 Samuel 2:12",
+        "Eli's sons did not know Jehovah"
+      ],
+      [
+        "1 Samuel 3:19",
+        "Jehovah was with Samuel and let none of his words fail"
+      ],
+      [
+        "Proverbs 22:6",
+        "Train a child in the way he should go"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "What were the names of Samuel's parents?",
+        "o": [
+          "Elkanah and Hannah",
+          "Abraham and Sarah",
+          "Eli and Naomi"
+        ],
+        "a": 0,
+        "why": "Hannah had prayed to Jehovah for a son, and Samuel was the answer."
+      },
+      {
+        "q": "About how old was Samuel when he started serving at the tabernacle?",
+        "o": [
+          "About 12",
+          "About 20",
+          "About 3"
+        ],
+        "a": 2,
+        "why": "He went soon after he stopped drinking his mother's milk, at maybe 3 years old."
+      },
+      {
+        "q": "What did Hannah bring Samuel each year?",
+        "o": [
+          "A new pair of sandals",
+          "A new sleeveless coat she had made",
+          "A toy lamb"
+        ],
+        "a": 1,
+        "why": "She made him a little coat to wear for his work at the tabernacle."
+      },
+      {
+        "tf": true,
+        "q": "Because Eli's sons were bad, Samuel decided it was fine for him to be bad too.",
+        "a": false,
+        "why": "Samuel kept doing what was right. Other people's bad example is never an excuse to sin."
+      },
+      {
+        "q": "What was the main problem with Hophni and Phinehas?",
+        "o": [
+          "They were lazy about cleaning",
+          "They had no respect for Jehovah",
+          "They couldn't read"
+        ],
+        "a": 1,
+        "why": "1 Samuel 2:12 says they did not know Jehovah. All their other sins came from that."
+      },
+      {
+        "q": "Who did Samuel think was calling him in the night?",
+        "o": [
+          "His father",
+          "Hophni",
+          "Eli"
+        ],
+        "a": 2,
+        "why": "He ran to Eli three times before Eli realised it was Jehovah calling."
+      },
+      {
+        "tf": true,
+        "q": "Samuel was afraid to tell Eli Jehovah's message, but he found the courage to do it.",
+        "a": true,
+        "why": "It was a hard message, but Samuel was brave and told Eli everything."
+      },
+      {
+        "q": "How did Eli die?",
+        "o": [
+          "He died when he heard the Ark had been captured",
+          "He was struck by lightning",
+          "He died fighting the Philistines"
+        ],
+        "a": 0,
+        "why": "The sad news about Jehovah's Ark was too much for the old man."
+      },
+      {
+        "q": "Why did the people gather at Gilgal?",
+        "o": [
+          "To celebrate the harvest",
+          "Samuel needed them to see how wrong it was to ask for a human king",
+          "To build a new tabernacle"
+        ],
+        "a": 1,
+        "why": "By asking for a king, they were really rejecting Jehovah as their King."
+      },
+      {
+        "tf": true,
+        "q": "The thunderstorm at Gilgal came in the dry season, when storms just did not happen.",
+        "a": true,
+        "why": "It was wheat harvest time, so everyone knew the storm came from Jehovah."
+      }
+    ],
+    "think": [
+      "What helped Samuel's faith grow while he was a boy?",
+      "How did Samuel's faith help him say no to bad examples and be brave?",
+      "How would you like to be like Samuel?"
+    ],
+    "goals": [
+      "Read a little of the Bible each day to \"listen\" to Jehovah",
+      "Keep doing what is right, even if others around you don't",
+      "Be kind and respectful to older people, like Samuel was to Eli",
+      "Find one way to help out at the meeting or in family worship"
+    ]
+  },
+  {
+    "id": "samuel2",
+    "name": "Samuel",
+    "icon": "🫒",
+    "hue": "var(--c2)",
+    "chapter": 8,
+    "title": "He Endured Despite Disappointments",
+    "url": "https://www.jw.org/en/library/books/true-faith/prophet-samuel-endured/",
+    "bigIdea": "Samuel faced many sad disappointments, but he kept serving Jehovah patiently. He learned that Jehovah can heal any disappointment and even turn it into a blessing.",
+    "facts": [
+      [
+        "Job",
+        "Prophet and judge of Israel. He travelled round three cities each year to settle problems."
+      ],
+      [
+        "Family",
+        "Two grown-up sons, Joel and Abijah"
+      ],
+      [
+        "Home",
+        "Ramah"
+      ],
+      [
+        "Famous for",
+        "Anointing Saul as king, and later finding David"
+      ],
+      [
+        "Key verse",
+        "1 Samuel 7:3"
+      ]
+    ],
+    "story": [
+      "The Philistines win a big battle, capture the Ark, and Shiloh is full of sadness.",
+      "After about 20 years, Samuel tells the people to throw away their idols and serve Jehovah alone.",
+      "Jehovah thunders against the Philistines at Mizpah, and Israel wins.",
+      "The older men of Israel complain about Samuel's sons and ask for a king.",
+      "Samuel anoints Saul as king and kisses him to welcome him.",
+      "Saul disobeys Jehovah in the war with the Amalekites, so Jehovah rejects him as king.",
+      "Samuel goes to Jesse's house in Bethlehem and finds Jehovah's choice, David."
+    ],
+    "cards": [
+      [
+        "How many soldiers did Israel lose to the Philistines?",
+        "About 4,000 in one battle and then some 30,000 in another. Shiloh was full of crying families."
+      ],
+      [
+        "What happened to Eli's daughter-in-law?",
+        "She died after having her baby, saying that glory had gone away from Israel."
+      ],
+      [
+        "How old was Eli when he died?",
+        "98 years old."
+      ],
+      [
+        "Why was the thunder at Mizpah so special?",
+        "The Philistines were tough soldiers, yet this thunder scared them so much they ran away in confusion."
+      ],
+      [
+        "How did Samuel say thank you to Jehovah after Mizpah?",
+        "He set up a monument to remember how Jehovah had helped his people."
+      ],
+      [
+        "Was Samuel a bad father like Eli?",
+        "No. Jehovah never blamed Samuel. Samuel kept being faithful, even though his sons went bad."
+      ],
+      [
+        "What was Saul like at first?",
+        "Tall, good-looking, brave and clever, and also humble. But later he became proud."
+      ],
+      [
+        "Who was Agag?",
+        "The wicked king of the Amalekites. Saul should have obeyed Jehovah's order about him, but he did not."
+      ]
+    ],
+    "pairs": [
+      [
+        "1 Samuel 7:3",
+        "Put away false gods and serve Jehovah alone"
+      ],
+      [
+        "1 Samuel 8:7",
+        "The people rejected Jehovah, not Samuel"
+      ],
+      [
+        "1 Samuel 12:23",
+        "Samuel would never stop praying for the people"
+      ],
+      [
+        "1 Samuel 16:7",
+        "Jehovah looks at the heart, not the outside"
+      ],
+      [
+        "Proverbs 14:30",
+        "Jealousy is bad for us"
+      ],
+      [
+        "Hebrews 11:32, 33",
+        "Samuel was one of those who did what was right"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "What did the Philistines capture in battle?",
+        "o": [
+          "The city of Ramah",
+          "Samuel's house",
+          "The Ark of the covenant"
+        ],
+        "a": 2,
+        "why": "Eli's sons took the Ark into battle, and the Philistines took it."
+      },
+      {
+        "q": "About how many years passed before Samuel spoke to the people at Mizpah?",
+        "o": [
+          "About 20 years",
+          "About 2 years",
+          "About 100 years"
+        ],
+        "a": 0,
+        "why": "The Bible skips about 20 years, but Samuel kept busy serving Jehovah."
+      },
+      {
+        "q": "What did the people do at Mizpah to show they were sorry?",
+        "o": [
+          "They built a palace",
+          "They gathered, went without food and repented",
+          "They crowned a king"
+        ],
+        "a": 1,
+        "why": "They threw away their idols and began serving Jehovah alone."
+      },
+      {
+        "tf": true,
+        "q": "The Philistines got scared and ran away when Jehovah thundered at them.",
+        "a": true,
+        "why": "Israel chased them a long way, and the Philistines kept losing after that."
+      },
+      {
+        "q": "What were the names of Samuel's sons?",
+        "o": [
+          "Hophni and Phinehas",
+          "Joel and Abijah",
+          "Saul and David"
+        ],
+        "a": 1,
+        "why": "Sadly, Joel and Abijah took bribes and were unfair judges."
+      },
+      {
+        "q": "When the people asked for a king, who did Jehovah say they were really rejecting?",
+        "o": [
+          "Samuel",
+          "Jehovah himself",
+          "The Philistines"
+        ],
+        "a": 1,
+        "why": "Jehovah comforted Samuel: \"It is not you whom they have rejected.\""
+      },
+      {
+        "tf": true,
+        "q": "Samuel was jealous of Saul and refused to welcome him.",
+        "a": false,
+        "why": "Samuel anointed Saul, kissed him and told the people there was nobody like him."
+      },
+      {
+        "q": "What did Samuel tell Saul after the war with the Amalekites?",
+        "o": [
+          "\"Sacrifices are all that matter\"",
+          "\"You did your best\"",
+          "\"To obey is better than a sacrifice\""
+        ],
+        "a": 2,
+        "why": "Saul made excuses, but obeying Jehovah matters most."
+      },
+      {
+        "q": "What did Jehovah tell Samuel when he kept feeling sad about Saul?",
+        "o": [
+          "To fill his horn with oil and go to Jesse",
+          "To give up being a prophet",
+          "To stay at home and rest"
+        ],
+        "a": 0,
+        "why": "Jehovah had chosen a new king from Jesse's sons."
+      },
+      {
+        "q": "Who did Samuel find was Jehovah's choice in Jesse's house?",
+        "o": [
+          "The oldest, tallest son",
+          "The youngest son, David",
+          "Jesse himself"
+        ],
+        "a": 1,
+        "why": "Jehovah looks at the heart, not at how tall or handsome someone is."
+      }
+    ],
+    "think": [
+      "How did Samuel cope when sad things happened in Shiloh?",
+      "What helped Samuel keep going, even when his sons did wrong?",
+      "How did Samuel get over feeling sad about King Saul?"
+    ],
+    "goals": [
+      "Be patient and keep going, even when something disappointing happens",
+      "Say thank you to Jehovah in prayer for one way he helped you",
+      "Be happy for someone else when they get chosen instead of you",
+      "When you are corrected, say sorry instead of making excuses"
+    ]
+  },
+  {
+    "id": "abigail",
+    "name": "Abigail",
+    "icon": "🧺",
+    "hue": "var(--c3)",
+    "chapter": 9,
+    "title": "She Acted With Discretion",
+    "url": "https://www.jw.org/en/library/books/true-faith/abigail-in-the-bible/",
+    "bigIdea": "Abigail was wise, brave and humble. When her rude husband put everyone in danger, she acted quickly and spoke kindly to David, and she stopped him from doing something very wrong.",
+    "facts": [
+      [
+        "Name",
+        "Means \"My Father Has Made Himself Joyful\""
+      ],
+      [
+        "Family",
+        "First married to Nabal, a rich but harsh man. Later she married David and had a son."
+      ],
+      [
+        "Where",
+        "Maon, near the town of Carmel, in sheep country by the southern wilderness"
+      ],
+      [
+        "Famous for",
+        "Taking food to David and calming him down so he did not take revenge"
+      ],
+      [
+        "Key verse",
+        "1 Samuel 25:3"
+      ]
+    ],
+    "story": [
+      "David and his 600 men protect Nabal's shepherds and sheep in the wilderness.",
+      "At sheep-shearing time, David sends 10 messengers to politely ask Nabal for food.",
+      "Nabal shouts insults at them, and David sets off with 400 men to take revenge.",
+      "A young servant tells Abigail, and she hurries to pack a big gift of food.",
+      "Abigail gets off her donkey, bows before David and kindly begs him not to do wrong.",
+      "The next morning, when Nabal is sober, Abigail bravely tells him everything.",
+      "After Nabal dies, David asks Abigail to marry him, and she humbly agrees."
+    ],
+    "cards": [
+      [
+        "What does the name Nabal mean?",
+        "\"Senseless\" or \"Stupid\". He acted just like his name. He was a bully and drank too much."
+      ],
+      [
+        "How many sheep did Nabal own?",
+        "3,000 sheep! He was very rich."
+      ],
+      [
+        "How did David's men help Nabal?",
+        "They were like a wall around his shepherds and sheep, keeping them safe from wild animals and robbers."
+      ],
+      [
+        "How polite was David's message?",
+        "Very polite! He even called himself \"your son David\", perhaps because Nabal was older."
+      ],
+      [
+        "What food did Abigail take to David?",
+        "Bread, wine, sheep, roasted grain, raisin cakes and fig cakes."
+      ],
+      [
+        "How many times does the account say Abigail \"hastened\"?",
+        "Four times! She was quick to act when it mattered."
+      ],
+      [
+        "Was Abigail's Carmel the same as Elijah's Mount Carmel?",
+        "No. Hers was a town near the southern wilderness. Mount Carmel, where Elijah faced the prophets of Baal, was far to the north."
+      ],
+      [
+        "Did David look after Abigail?",
+        "Yes. He valued and protected her, and once he even rescued her from kidnappers."
+      ]
+    ],
+    "pairs": [
+      [
+        "1 Samuel 25:3",
+        "Abigail was wise and beautiful"
+      ],
+      [
+        "1 Samuel 25:17",
+        "Nabal would not listen to anyone"
+      ],
+      [
+        "James 1:20",
+        "Man's anger does not do what is right in God's eyes"
+      ],
+      [
+        "Proverbs 31:10",
+        "A capable wife is very precious"
+      ],
+      [
+        "1 Samuel 25:32, 33",
+        "David thanked Jehovah for Abigail's good sense"
+      ],
+      [
+        "Luke 8:17",
+        "Nothing is hidden from Jehovah"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Who was Abigail's first husband?",
+        "o": [
+          "Saul",
+          "Nabal",
+          "Samuel"
+        ],
+        "a": 1,
+        "why": "Nabal was rich but harsh and unkind."
+      },
+      {
+        "q": "Why did David send messengers to Nabal?",
+        "o": [
+          "To ask for food for his men",
+          "To buy some of his land",
+          "To ask him to join the army"
+        ],
+        "a": 0,
+        "why": "It was hard to feed so many men in the wilderness."
+      },
+      {
+        "q": "How did Nabal answer David's messengers?",
+        "o": [
+          "He gave them a feast",
+          "He said nothing at all",
+          "He shouted insults at them"
+        ],
+        "a": 2,
+        "why": "He was mean with his food and called David a runaway servant."
+      },
+      {
+        "tf": true,
+        "q": "David was right to set off to take revenge on Nabal's household.",
+        "a": false,
+        "why": "David's anger was understandable, but James 1:20 says man's anger does not do what is right."
+      },
+      {
+        "q": "Why did the young servant go to Abigail and not to Nabal?",
+        "o": [
+          "Nabal was away on a trip",
+          "Nabal would not listen, but Abigail would",
+          "Abigail was the boss of the army"
+        ],
+        "a": 1,
+        "why": "Abigail was willing to listen. Nabal thought he was too important to listen."
+      },
+      {
+        "q": "What did Abigail do when she met David?",
+        "o": [
+          "She got off her donkey and bowed down",
+          "She shouted at him to go away",
+          "She hid behind her servants"
+        ],
+        "a": 0,
+        "why": "She was humble and asked David to forgive her."
+      },
+      {
+        "tf": true,
+        "q": "Abigail reminded David that Jehovah would make him leader over Israel.",
+        "a": true,
+        "why": "She knew Jehovah's promise and didn't want David to do anything he would feel bad about later."
+      },
+      {
+        "q": "When did Abigail tell Nabal what she had done?",
+        "o": [
+          "Straight away at the feast",
+          "She never told him",
+          "The next morning, when he was sober"
+        ],
+        "a": 2,
+        "why": "He was very drunk at the feast, so she wisely waited for the right time."
+      },
+      {
+        "q": "About how long after that did Nabal die?",
+        "o": [
+          "About 10 days",
+          "About 10 years",
+          "About 1 hour"
+        ],
+        "a": 0,
+        "why": "The Bible says Jehovah struck Nabal. Jehovah sees when people are treated badly."
+      },
+      {
+        "tf": true,
+        "q": "When David asked to marry her, Abigail offered to wash the feet of his servants.",
+        "a": true,
+        "why": "She stayed humble, even though she was going to marry the future king."
+      }
+    ],
+    "think": [
+      "What can we learn from how Abigail made the best of a hard home life?",
+      "How was Abigail brave and wise after Nabal insulted David?",
+      "How did Abigail speak to David in a kind and sensible way?"
+    ],
+    "goals": [
+      "Be a good listener, especially when someone comes to you with a problem",
+      "When someone is upset, speak calmly and kindly to help them calm down",
+      "Think about the right time to say something important",
+      "Be quick to help when you see someone needs it"
+    ]
+  },
+  {
+    "id": "elijah1",
+    "name": "Elijah",
+    "icon": "🔥",
+    "hue": "var(--c4)",
+    "chapter": 10,
+    "title": "He Stood Up for Pure Worship",
+    "url": "https://www.jw.org/en/library/books/true-faith/prophet-elijah-pure-worship/",
+    "bigIdea": "Elijah worshipped only Jehovah and bravely stood up against false worship. On Mount Carmel, Jehovah answered his prayer with fire, showing everyone who the true God is.",
+    "facts": [
+      [
+        "Job",
+        "Prophet of Jehovah in Israel"
+      ],
+      [
+        "Enemies",
+        "King Ahab, Queen Jezebel and 450 prophets of Baal"
+      ],
+      [
+        "Where",
+        "Mount Carmel, looking out to the Mediterranean Sea"
+      ],
+      [
+        "Famous for",
+        "The test of fire against the prophets of Baal"
+      ],
+      [
+        "Key verse",
+        "1 Kings 18:21"
+      ]
+    ],
+    "story": [
+      "King Ahab marries Jezebel and builds a temple and altar to Baal.",
+      "Elijah tells Ahab there will be no rain until he says so.",
+      "After three and a half years of drought, the people and the Baal prophets gather on Mount Carmel.",
+      "Elijah asks the people how long they will \"limp\" between two opinions.",
+      "The Baal prophets call out to Baal for hours, but no one answers.",
+      "Elijah rebuilds Jehovah's altar with 12 stones and soaks it with water.",
+      "Elijah prays, and fire from Jehovah burns up the offering, the stones and even the water."
+    ],
+    "cards": [
+      [
+        "What does the word \"Baal\" mean?",
+        "\"Owner\" or \"master\". Today, people can make things like money or fun their master instead of Jehovah."
+      ],
+      [
+        "Why was Baal worship so bad?",
+        "It pulled people away from the true God, and it was a cruel and disgusting religion."
+      ],
+      [
+        "Why was Mount Carmel a good place for the test?",
+        "It was usually green and rainy, and people thought Baal brought the rain. Now it was dry and bare!"
+      ],
+      [
+        "What could you see from Mount Carmel?",
+        "The Kishon valley below, the Great Sea (the Mediterranean) and the mountains of Lebanon far away."
+      ],
+      [
+        "How did Elijah tease the Baal prophets?",
+        "He joked that Baal might be busy, on the toilet or asleep and needing to be woken up!"
+      ],
+      [
+        "Why did Elijah say, \"Don't light the fire\"?",
+        "Some false worshippers used altars with a secret hole underneath to fake a fire."
+      ],
+      [
+        "Was the drought 3 years or 3 and a half?",
+        "Three and a half. The long dry season had already started about 6 months before Elijah's announcement."
+      ],
+      [
+        "What three things did Elijah's prayer show?",
+        "He wanted people to know Jehovah is God, that he was only God's servant, and that he wanted the people to come back."
+      ]
+    ],
+    "pairs": [
+      [
+        "1 Kings 18:21",
+        "How long will you limp between two opinions?"
+      ],
+      [
+        "1 Kings 18:38",
+        "The fire of Jehovah came down"
+      ],
+      [
+        "1 Kings 18:39",
+        "\"Jehovah is the true God!\""
+      ],
+      [
+        "James 5:17",
+        "Elijah had feelings like ours"
+      ],
+      [
+        "Exodus 20:5",
+        "Jehovah wants worship only for himself"
+      ],
+      [
+        "Matthew 6:24",
+        "No one can serve two masters"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Who was the queen who wanted everyone to worship Baal?",
+        "o": [
+          "Jezebel",
+          "Abigail",
+          "Esther"
+        ],
+        "a": 0,
+        "why": "Jezebel was the daughter of the king of Sidon, and Ahab followed her lead."
+      },
+      {
+        "q": "How long did the drought last?",
+        "o": [
+          "40 days",
+          "Three and a half years",
+          "Ten years"
+        ],
+        "a": 1,
+        "why": "Jesus and James both said it lasted three years and six months."
+      },
+      {
+        "q": "How many prophets of Baal came to Mount Carmel?",
+        "o": [
+          "12",
+          "40",
+          "450"
+        ],
+        "a": 2,
+        "why": "Elijah felt all alone against so many."
+      },
+      {
+        "tf": true,
+        "q": "Elijah never felt afraid, because prophets have no feelings.",
+        "a": false,
+        "why": "James 5:17 says Elijah had feelings just like ours."
+      },
+      {
+        "q": "What did Elijah mean by \"limping upon two different opinions\"?",
+        "o": [
+          "The people had hurt their legs",
+          "The people were trying to serve both Jehovah and Baal",
+          "The people couldn't decide where to sit"
+        ],
+        "a": 1,
+        "why": "You can't follow two paths at once. Jehovah wants all our worship."
+      },
+      {
+        "q": "What was the test on Mount Carmel?",
+        "o": [
+          "Who could build the biggest altar",
+          "Whose god would send rain first",
+          "The God who answered by fire was the true God"
+        ],
+        "a": 2,
+        "why": "Each side prepared a sacrifice and prayed for their god to light it."
+      },
+      {
+        "q": "How many stones did Elijah use to rebuild Jehovah's altar?",
+        "o": [
+          "12",
+          "7",
+          "3"
+        ],
+        "a": 0,
+        "why": "This may have reminded the people that God's Law was for all 12 tribes."
+      },
+      {
+        "tf": true,
+        "q": "Elijah poured water over his sacrifice and filled a trench round the altar.",
+        "a": true,
+        "why": "He made it harder on purpose, because he trusted Jehovah completely."
+      },
+      {
+        "q": "What did the people shout after the fire fell?",
+        "o": [
+          "\"Baal is great!\"",
+          "\"Jehovah is the true God!\"",
+          "\"Long live King Ahab!\""
+        ],
+        "a": 1,
+        "why": "They finally saw the truth for themselves."
+      },
+      {
+        "q": "Do Christians today fight with swords like in Elijah's day?",
+        "o": [
+          "Yes, against anyone who disagrees",
+          "Only on special days",
+          "No, Jesus told Peter to put his sword away"
+        ],
+        "a": 2,
+        "why": "Christians leave judging to Jehovah and his Son. We use the Bible to help people instead."
+      }
+    ],
+    "think": [
+      "What can we learn from Elijah about worshipping only Jehovah?",
+      "How can we be like Elijah when people disagree with the Bible?",
+      "What can we learn from Elijah's prayer on Mount Carmel?"
+    ],
+    "goals": [
+      "Put Jehovah first, before games, screens or toys",
+      "When someone disagrees with you, kindly show them what the Bible says",
+      "In your prayers, praise Jehovah's name and pray for other people too",
+      "Stand up for what you believe, even if you feel like the only one"
+    ]
+  },
+  {
+    "id": "elijah2",
+    "name": "Elijah",
+    "icon": "☁️",
+    "hue": "var(--c5)",
+    "chapter": 11,
+    "title": "He Watched, and He Waited",
+    "url": "https://www.jw.org/en/library/books/true-faith/the-prophet-elijah-prays/",
+    "bigIdea": "Elijah prayed for what Jehovah wanted and was sure Jehovah would keep his promise. He kept watching for a sign of rain and never gave up.",
+    "facts": [
+      [
+        "Where",
+        "On top of Mount Carmel, then along the road to Jezreel"
+      ],
+      [
+        "Helper",
+        "His attendant, who went up to look at the sea"
+      ],
+      [
+        "The problem",
+        "A drought: no rain in Israel for three and a half years"
+      ],
+      [
+        "Famous for",
+        "Praying, watching for rain and running ahead of a king's chariot"
+      ],
+      [
+        "Key verse",
+        "1 Kings 18:44"
+      ]
+    ],
+    "story": [
+      "On Mount Carmel, Baal fails to light a fire, but Jehovah sends fire from heaven.",
+      "Elijah tells King Ahab to go and eat and drink, because a big rainstorm is coming.",
+      "Elijah climbs to the top of Carmel and prays, bowing low with his face near his knees.",
+      "Elijah sends his attendant to look towards the sea, again and again, seven times.",
+      "On the seventh trip, the attendant sees one small cloud, the size of a man's palm.",
+      "The sky turns dark with clouds and wind, and a great downpour begins.",
+      "Jehovah gives Elijah amazing strength to run ahead of Ahab's chariot all the way to Jezreel."
+    ],
+    "cards": [
+      [
+        "How were Elijah and King Ahab different?",
+        "Ahab wore fancy royal clothes and was greedy and weak. Elijah wore a simple robe, maybe of animal skin or camel or goat hair, and was brave, honest and full of faith."
+      ],
+      [
+        "How had the false god Baal let his worshippers down?",
+        "Baal could not light a fire on Carmel, and for over three years his prophets begged him to end the drought, but he could not."
+      ],
+      [
+        "What did Elijah pray for on the mountain?",
+        "For the drought to end (James 5:18). Jehovah had already said he would send rain, so Elijah was praying for God's will to happen, just as Jesus later taught us to pray."
+      ],
+      [
+        "Why does reading the Bible help us to pray well?",
+        "God hears us when we ask for things that fit his will (1 John 5:14). We learn what his will is by studying the Bible. Our prayers can also say thank you and show we care about others."
+      ],
+      [
+        "How could Elijah say he heard rain when the sky was clear?",
+        "He was so sure Jehovah would keep his word that it was as if he could already hear the rain. Moses was like that too: it was as if he could see the invisible God (Hebrews 11:27)."
+      ],
+      [
+        "What did the rain do to the land?",
+        "The dry ground soaked it up and the river Kishon filled up. It was a chance for the people of Israel to turn away from Baal and make a fresh start."
+      ],
+      [
+        "Elijah was not young. How could he run so far?",
+        "\"The very hand of Jehovah\" was on him. He tied up his long robe at his hips and ran about 30 km on a wet road. It reminds us of the promise of perfect health in Paradise (Isaiah 35:6)."
+      ],
+      [
+        "What is like Elijah's little cloud for us today?",
+        "The sign of the last days that Jesus described (Matthew 24:3-7). It shows that Jehovah will act soon, so we keep on the watch and serve him eagerly."
+      ]
+    ],
+    "pairs": [
+      [
+        "James 5:18",
+        "Elijah prayed, and the rain came"
+      ],
+      [
+        "1 Kings 18:44",
+        "A small cloud like a man's palm"
+      ],
+      [
+        "1 Kings 18:46",
+        "The hand of Jehovah was upon Elijah"
+      ],
+      [
+        "1 John 5:14",
+        "God hears what we ask according to his will"
+      ],
+      [
+        "Matthew 24:42",
+        "Keep on the watch"
+      ],
+      [
+        "Psalm 31:5",
+        "Jehovah is the God of truth"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "On which mountain did Elijah pray for rain?",
+        "o": [
+          "Mount Carmel",
+          "Mount Sinai",
+          "Mount of Olives"
+        ],
+        "a": 0,
+        "why": "Elijah went up to the top of Carmel to pray."
+      },
+      {
+        "q": "How many times did Elijah send his attendant to look at the sea?",
+        "o": [
+          "3 times",
+          "7 times",
+          "10 times"
+        ],
+        "a": 1,
+        "why": "He kept sending him back, seven times, and did not give up."
+      },
+      {
+        "q": "How big was the first cloud the attendant saw?",
+        "o": [
+          "As big as a mountain",
+          "It covered the whole sky",
+          "As small as a man's palm"
+        ],
+        "a": 2,
+        "why": "It was tiny, but to Elijah it showed that Jehovah was about to act."
+      },
+      {
+        "tf": true,
+        "q": "After the events on Carmel, King Ahab said sorry to Jehovah.",
+        "a": false,
+        "why": "Ahab did not say sorry. He just went off to eat and drink."
+      },
+      {
+        "q": "How long had the drought lasted?",
+        "o": [
+          "Three and a half years",
+          "Forty days",
+          "Ten years"
+        ],
+        "a": 0,
+        "why": "At last, after three and a half years, rain fell on Israel."
+      },
+      {
+        "q": "Which town did Elijah run to?",
+        "o": [
+          "Bethlehem",
+          "Jezreel",
+          "Jerusalem"
+        ],
+        "a": 1,
+        "why": "Ahab rode to Jezreel, and Elijah ran ahead of him all the way."
+      },
+      {
+        "q": "About how far did Elijah run?",
+        "o": [
+          "About 300 km",
+          "About 3 km",
+          "About 30 km"
+        ],
+        "a": 2,
+        "why": "About 30 km. That is like running round a 400-metre track 75 times!"
+      },
+      {
+        "q": "How did Elijah pray on the mountain?",
+        "o": [
+          "Crouching on the ground with his face near his knees",
+          "Standing up and shouting",
+          "Lying in a comfy bed"
+        ],
+        "a": 0,
+        "why": "His humble position showed how much he wanted God's will to happen."
+      },
+      {
+        "tf": true,
+        "q": "Elijah gave up when his attendant first said, \"There is nothing at all.\"",
+        "a": false,
+        "why": "Elijah stayed watchful and kept sending him back until the cloud appeared."
+      },
+      {
+        "q": "Who later helped Elijah as his attendant?",
+        "o": [
+          "Ahab",
+          "Jezebel",
+          "Elisha"
+        ],
+        "a": 2,
+        "why": "Elisha poured water on Elijah's hands and helped the older prophet in practical ways."
+      }
+    ],
+    "think": [
+      "How did Elijah show that prayer was important to him?",
+      "How did Elijah show he was sure Jehovah would keep his promise?",
+      "How did Elijah show that he was watchful?"
+    ],
+    "goals": [
+      "Pray for things Jehovah wants, and remember to say thank you",
+      "Pray for other people who are having a hard time",
+      "Read a little of the Bible each day to learn what Jehovah wants",
+      "Keep going with something good, even when you don't see results straight away"
+    ]
+  },
+  {
+    "id": "elijah3",
+    "name": "Elijah",
+    "icon": "🍞",
+    "hue": "var(--c6)",
+    "chapter": 12,
+    "title": "He Took Comfort in His God",
+    "url": "https://www.jw.org/en/library/books/true-faith/prophet-elijah-took-comfort/",
+    "bigIdea": "Even a brave prophet can feel scared and very sad. When Elijah poured out his heart, Jehovah comforted him, fed him and gave him new work to do.",
+    "facts": [
+      [
+        "Feeling",
+        "So scared and sad that he asked to die"
+      ],
+      [
+        "Threatened by",
+        "Queen Jezebel, King Ahab's wife"
+      ],
+      [
+        "Journey",
+        "About 150 km to Beer-sheba, then nearly 320 km more to Mount Horeb"
+      ],
+      [
+        "Comforted by",
+        "An angel with food, and a \"calm, low voice\""
+      ],
+      [
+        "Key verse",
+        "1 Kings 19:12"
+      ]
+    ],
+    "story": [
+      "Elijah runs to Jezreel in the rain, hoping King Ahab will now change.",
+      "Ahab tells Jezebel what Elijah did, and she sends a message saying she will have him killed.",
+      "Elijah runs away to Beer-sheba, leaves his attendant there and walks a day into the wilderness alone.",
+      "Worn out under a broom tree, he asks Jehovah to let him die, and falls asleep.",
+      "An angel wakes him twice and gives him warm bread and water.",
+      "Strengthened by that food, Elijah walks all the way to Mount Horeb and stays in a cave.",
+      "After a wind, an earthquake and a fire, a calm, low voice comforts him and gives him new work."
+    ],
+    "cards": [
+      [
+        "What did Ahab leave out when he told Jezebel about Carmel?",
+        "Jehovah! He only talked about what Elijah had done. He still had not learned to respect God."
+      ],
+      [
+        "Who else got scared like Elijah?",
+        "The apostle Peter. While walking on water, he looked at the storm and began to sink (Matthew 14:30). The lesson: don't keep thinking about scary things; keep thinking about Jehovah."
+      ],
+      [
+        "Did other faithful people ever feel very sad?",
+        "Yes. Rebekah, Jacob, Moses and Job all felt so sad at times that they wished they could die. Elijah was \"a man with feelings like ours\" (James 5:17)."
+      ],
+      [
+        "What did the angel know about Elijah?",
+        "Where he was going, and that the journey would be too much for him on his own. Jehovah knows our limits even better than we do (Psalm 103:14)."
+      ],
+      [
+        "Who else went 40 days and 40 nights without eating?",
+        "Moses, centuries before, and Jesus, centuries after. Elijah did it too, kept going by that one meal from the angel."
+      ],
+      [
+        "Why was Mount Horeb a special place?",
+        "It was where an angel spoke to Moses from the burning bush, and where Jehovah later made the Law covenant with Israel."
+      ],
+      [
+        "What three things made Elijah feel so low?",
+        "He thought his work had been wasted, he felt he was the only one left serving Jehovah, and he was afraid of being killed."
+      ],
+      [
+        "How did Jehovah help Elijah not to feel alone?",
+        "He told Elijah to anoint Elisha, a younger man who would be his companion and helper, and one day take his place as prophet."
+      ]
+    ],
+    "pairs": [
+      [
+        "James 5:17",
+        "Elijah had feelings like ours"
+      ],
+      [
+        "2 Corinthians 1:3",
+        "Jehovah is the God of all comfort"
+      ],
+      [
+        "Psalm 103:14",
+        "Jehovah remembers that we are dust"
+      ],
+      [
+        "Psalm 118:6",
+        "Jehovah is on my side; I will not be afraid"
+      ],
+      [
+        "1 Kings 19:18",
+        "7,000 had not bowed down to Baal"
+      ],
+      [
+        "Romans 15:4",
+        "Comfort from the Scriptures"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Who sent Elijah a message saying she would have him killed?",
+        "o": [
+          "Queen Jezebel",
+          "Elijah's attendant",
+          "The angel"
+        ],
+        "a": 0,
+        "why": "Jezebel was furious that her Baal prophets had been put to death."
+      },
+      {
+        "q": "What kind of tree did Elijah sit under in the wilderness?",
+        "o": [
+          "An apple tree",
+          "A broom tree",
+          "A palm tree"
+        ],
+        "a": 1,
+        "why": "A broom tree was the only shade in that dry, empty place."
+      },
+      {
+        "q": "What food did the angel give Elijah?",
+        "o": [
+          "Fish and honey",
+          "Nothing at all",
+          "Warm bread and water"
+        ],
+        "a": 2,
+        "why": "The angel kindly set out a simple meal of fresh, warm bread and water."
+      },
+      {
+        "q": "Which of these did Elijah NOT see at the cave on Mount Horeb?",
+        "o": [
+          "A powerful wind",
+          "A flood",
+          "An earthquake"
+        ],
+        "a": 1,
+        "why": "He saw a wind, an earthquake and a fire, then heard a calm, low voice."
+      },
+      {
+        "tf": true,
+        "q": "Jehovah was inside the wind, the earthquake and the fire.",
+        "a": false,
+        "why": "Jehovah was not in them. He is the Source of all that power, but much greater than anything he made. With a God like that, Elijah had nothing to fear."
+      },
+      {
+        "q": "How many faithful people in Israel had not bowed down to Baal?",
+        "o": [
+          "7",
+          "700",
+          "7,000"
+        ],
+        "a": 2,
+        "why": "Elijah was far from alone! Thousands still served Jehovah."
+      },
+      {
+        "q": "How does Jehovah feed us today?",
+        "o": [
+          "With bread that drops from the sky",
+          "By making us never feel hungry",
+          "Spiritually, by teaching us from his Word, the Bible"
+        ],
+        "a": 2,
+        "why": "Learning from the Bible strengthens us and helps us keep going (Matthew 4:4)."
+      },
+      {
+        "tf": true,
+        "q": "Elijah told Jehovah honestly how he felt.",
+        "a": true,
+        "why": "He did not let pride or embarrassment stop him. He poured out his heart, and that is a good example for us."
+      },
+      {
+        "q": "What can be like the \"calm, low voice\" for us today?",
+        "o": [
+          "The Bible",
+          "Loud thunder",
+          "Our own wishes"
+        ],
+        "a": 0,
+        "why": "Through the Bible, Jehovah corrects us, encourages us and shows us he loves us."
+      },
+      {
+        "q": "What did Elijah do after Jehovah comforted him?",
+        "o": [
+          "He hid in the cave for good",
+          "He went back to work as a bold prophet",
+          "He moved to another country"
+        ],
+        "a": 1,
+        "why": "He accepted Jehovah's comfort and was soon back in action, standing up for true worship."
+      }
+    ],
+    "think": [
+      "What happened that made Elijah feel so low?",
+      "What feelings made Elijah discouraged?",
+      "In what ways did Jehovah comfort Elijah?"
+    ],
+    "goals": [
+      "If you feel sad or scared, tell Jehovah exactly how you feel in prayer",
+      "When something worries you, think about how powerful Jehovah is, not just about the scary thing",
+      "Read a comforting Bible verse each day this week",
+      "Remember you are not alone: think of all the others who love Jehovah too"
+    ]
+  },
+  {
+    "id": "jonah1",
+    "name": "Jonah",
+    "icon": "🐟",
+    "hue": "var(--c1)",
+    "chapter": 13,
+    "title": "He Learned From His Mistakes",
+    "url": "https://www.jw.org/en/library/books/true-faith/prophet-jonah-mistakes/",
+    "bigIdea": "Jonah made a big mistake when he ran away from his job from Jehovah. But Jehovah saved him, and Jonah learned from his mistake and obeyed.",
+    "facts": [
+      [
+        "Hometown",
+        "Gath-hepher in Galilee, just 4 km from Nazareth"
+      ],
+      [
+        "Job",
+        "A prophet of Jehovah while Jeroboam II was king of Israel"
+      ],
+      [
+        "Sent to",
+        "Nineveh, about 800 km to the east"
+      ],
+      [
+        "Ran to",
+        "A ship at Joppa, sailing west towards Tarshish"
+      ],
+      [
+        "Key verse",
+        "Jonah 2:9"
+      ]
+    ],
+    "story": [
+      "Jehovah tells Jonah to go to Nineveh and warn the people about their badness.",
+      "Jonah gets on a ship at Joppa, going the opposite way, towards Tarshish.",
+      "Jehovah sends a great wind, and Jonah goes below deck and falls fast asleep.",
+      "The sailors cast lots to find out who caused the storm, and the lot falls on Jonah.",
+      "Jonah tells the sailors to throw him into the sea, and the storm stops.",
+      "A great fish swallows Jonah, and he prays to Jehovah inside it.",
+      "After three days and three nights, the fish puts Jonah on dry land, and he goes to Nineveh."
+    ],
+    "cards": [
+      [
+        "Was Jonah a bad man?",
+        "No. Jehovah chose him as a prophet. He served faithfully at a hard time, when the king of Israel kept doing bad things."
+      ],
+      [
+        "Why was going to Nineveh so scary?",
+        "The Assyrians there were known for being very violent. Nineveh was even called \"the city of bloodshed\". Walking there would take about a month."
+      ],
+      [
+        "How far away was Tarshish?",
+        "It may have been in Spain, about 3,500 km from Nineveh. The voyage could take up to a year!"
+      ],
+      [
+        "Why did Jonah sleep in a storm?",
+        "People who are very sad can feel very sleepy. An old Greek translation even says he snored! Peter, James and John also fell asleep from sadness (Luke 22:45)."
+      ],
+      [
+        "Did the sailors throw Jonah in straight away?",
+        "No! At first they refused and tried hard to get through the storm. Only when it got worse did they ask Jehovah for mercy and throw him in."
+      ],
+      [
+        "What kind of fish swallowed Jonah?",
+        "The Bible doesn't say. Some sharks in that sea are big enough to swallow a man. The whale shark can grow to 15 m long, longer than a bus!"
+      ],
+      [
+        "What did Jonah's prayer inside the fish show?",
+        "That he knew the Scriptures well, because it often refers to the Psalms. It also shows he was thankful."
+      ],
+      [
+        "How did Jesus use Jonah's story?",
+        "Jonah's three days inside the fish were a picture of Jesus' own time in the grave (Matthew 12:40)."
+      ]
+    ],
+    "pairs": [
+      [
+        "Jonah 1:2",
+        "Go to Nineveh the great city"
+      ],
+      [
+        "Jonah 1:12",
+        "Throw me into the sea"
+      ],
+      [
+        "Jonah 1:17",
+        "Jehovah appointed a great fish"
+      ],
+      [
+        "Jonah 2:9",
+        "Salvation belongs to Jehovah"
+      ],
+      [
+        "Jonah 3:3",
+        "Jonah got up and went to Nineveh"
+      ],
+      [
+        "Mark 10:27",
+        "All things are possible with God"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Which town was Jonah from?",
+        "o": [
+          "Gath-hepher",
+          "Jerusalem",
+          "Nineveh"
+        ],
+        "a": 0,
+        "why": "Gath-hepher was in Galilee, near Nazareth, where Jesus grew up about 800 years later."
+      },
+      {
+        "q": "Which way did Jonah go instead of going to Nineveh?",
+        "o": [
+          "East, towards Nineveh",
+          "West, towards Tarshish",
+          "North, towards the mountains"
+        ],
+        "a": 1,
+        "why": "Jehovah said go east. Jonah went as far west as he could!"
+      },
+      {
+        "q": "Who sent the great storm?",
+        "o": [
+          "The sailors' gods",
+          "Nobody, it was just bad weather",
+          "Jehovah"
+        ],
+        "a": 2,
+        "why": "Jonah later wrote that Jehovah hurled a great wind at the sea."
+      },
+      {
+        "tf": true,
+        "q": "Jonah was a coward who only cared about himself.",
+        "a": false,
+        "why": "He bravely told the sailors to throw him in the sea so that they would be saved."
+      },
+      {
+        "q": "How did the sailors find out who caused the storm?",
+        "o": [
+          "They cast lots",
+          "The captain had a dream",
+          "They found Jonah's name on a map"
+        ],
+        "a": 0,
+        "why": "Jehovah guided the lots to point to Jonah."
+      },
+      {
+        "q": "How long was Jonah inside the great fish?",
+        "o": [
+          "One hour",
+          "Three days and three nights",
+          "Forty days"
+        ],
+        "a": 1,
+        "why": "Only Jehovah could keep him alive and well in there."
+      },
+      {
+        "q": "What happened to the sailors?",
+        "o": [
+          "They sank with the ship",
+          "They sailed back to look for Jonah",
+          "They began to fear Jehovah and made a sacrifice to him"
+        ],
+        "a": 2,
+        "why": "The storm stopped at once, and they worshipped Jehovah instead of their false gods."
+      },
+      {
+        "tf": true,
+        "q": "When Jehovah told Jonah a second time to go to Nineveh, he obeyed.",
+        "a": true,
+        "why": "He got up and went. He had learned from his mistake."
+      },
+      {
+        "q": "Which area did the Pharisees later say no prophet came from?",
+        "o": [
+          "Egypt",
+          "Galilee",
+          "Rome"
+        ],
+        "a": 1,
+        "why": "They forgot that Jonah himself came from Galilee!"
+      },
+      {
+        "q": "Which word best describes Jonah's prayer inside the fish?",
+        "o": [
+          "Thankful",
+          "Angry",
+          "Boastful"
+        ],
+        "a": 0,
+        "why": "He said: \"With the voice of thanksgiving I will sacrifice to you.\""
+      }
+    ],
+    "think": [
+      "Can you understand why Jonah felt scared of the job Jehovah gave him?",
+      "How was Jehovah patient and kind while he taught Jonah to obey?",
+      "How did Jonah show that he had learned from his mistakes?"
+    ],
+    "goals": [
+      "When you make a mistake, say sorry and try again instead of giving up",
+      "Do a hard job you're asked to do, remembering that all things are possible with God",
+      "Put someone else first this week and help them",
+      "Thank Jehovah in prayer for your life and every breath you take"
+    ]
+  },
+  {
+    "id": "jonah2",
+    "name": "Jonah",
+    "icon": "🌱",
+    "hue": "var(--c2)",
+    "chapter": 14,
+    "title": "He Learned a Lesson in Mercy",
+    "url": "https://www.jw.org/en/library/books/true-faith/jonah-learned-mercy-nineveh/",
+    "bigIdea": "Jehovah cares about people and loves to forgive those who change. Jonah had to learn to be merciful like Jehovah.",
+    "facts": [
+      [
+        "Journey",
+        "More than 800 km to Nineveh, about a month on foot"
+      ],
+      [
+        "Nineveh",
+        "More than 120,000 people, maybe the biggest city in the world then"
+      ],
+      [
+        "Message",
+        "\"Only forty days more, and Nineveh will be overthrown\""
+      ],
+      [
+        "Lesson",
+        "Jehovah cares about people and loves to show mercy"
+      ],
+      [
+        "Key verse",
+        "Jonah 4:11"
+      ]
+    ],
+    "story": [
+      "Jonah obeys this time and makes the long journey east to Nineveh.",
+      "Jonah walks into the city and warns that in forty days it will be overthrown.",
+      "The people believe him, stop eating and put on sackcloth.",
+      "The king takes off his royal robes, sits in ashes and orders everyone to turn from their badness.",
+      "Jehovah sees that they have changed and does not destroy the city.",
+      "Jonah is very angry, so he builds a little shelter outside the city to watch it.",
+      "Jehovah makes a plant grow for shade, then lets a worm kill it, to teach Jonah about mercy."
+    ],
+    "cards": [
+      [
+        "Why was Nineveh \"great\" to Jehovah?",
+        "It was very old, built by Nimrod after the Flood, and so big it took three days to walk across. But what really mattered to Jehovah was the people."
+      ],
+      [
+        "How big was Nineveh compared to Israel's capital?",
+        "Samaria had maybe 20,000 to 30,000 people. That's less than a quarter of Nineveh's 120,000!"
+      ],
+      [
+        "What language did Jonah preach in?",
+        "We don't know. Maybe he learned their language, or Jehovah helped him by a miracle, or he spoke Hebrew and someone translated."
+      ],
+      [
+        "Did even the animals wear sackcloth?",
+        "Yes, the king ordered it! It sounds odd, but long ago the Persians also included their animals when they were mourning."
+      ],
+      [
+        "How do we know the people really changed?",
+        "Jesus said so (Matthew 12:41), and he was alive in heaven and saw it happen. Nobody is too bad to change. Only Jehovah can read hearts."
+      ],
+      [
+        "Was Jonah's message a false prophecy?",
+        "No. It was a warning. When Nineveh later went back to its bad ways, it was destroyed, just as Zephaniah foretold."
+      ],
+      [
+        "What did Jehovah mean by people who did not know \"right hand from left\"?",
+        "Like young children, they did not know God's standards of right and wrong."
+      ],
+      [
+        "How do we know Jonah learned his lesson?",
+        "He most likely wrote the book of Jonah himself, honestly telling about his own mistakes. That shows he became humbler and learned to be merciful."
+      ]
+    ],
+    "pairs": [
+      [
+        "Jonah 3:4",
+        "Only forty days more"
+      ],
+      [
+        "Jonah 3:10",
+        "God saw they turned back from their bad way"
+      ],
+      [
+        "Jonah 4:11",
+        "Ought I not to feel sorry for Nineveh?"
+      ],
+      [
+        "Ezekiel 33:11",
+        "Jehovah wants the wicked to turn back and live"
+      ],
+      [
+        "Matthew 12:41",
+        "The people of Nineveh repented"
+      ],
+      [
+        "Matthew 5:7",
+        "Happy are the merciful"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "About how many people lived in Nineveh?",
+        "o": [
+          "About 1,200",
+          "More than 120,000",
+          "Exactly 7,000"
+        ],
+        "a": 1,
+        "why": "It was a huge city for that time, besides many animals."
+      },
+      {
+        "q": "What did the king of Nineveh do when he heard Jonah's message?",
+        "o": [
+          "He took off his royal robes and sat in the ashes",
+          "He threw Jonah in prison",
+          "He laughed and had a feast"
+        ],
+        "a": 0,
+        "why": "He humbly admitted his people had done wrong and hoped God would show mercy."
+      },
+      {
+        "q": "How long did it take to walk from one end of Nineveh to the other?",
+        "o": [
+          "One hour",
+          "Three days",
+          "Three months"
+        ],
+        "a": 1,
+        "why": "Nineveh was a huge area that included several other cities."
+      },
+      {
+        "tf": true,
+        "q": "Jehovah saw that Nineveh had changed, and he did not destroy it then.",
+        "a": true,
+        "why": "Jehovah is reasonable and merciful. He is eager for bad people to change."
+      },
+      {
+        "q": "How did Jonah feel when Nineveh was spared?",
+        "o": [
+          "Happy and thankful",
+          "Bored",
+          "Very angry"
+        ],
+        "a": 2,
+        "why": "He may have worried about looking like a false prophet, and his pride was hurt."
+      },
+      {
+        "q": "What gentle question did Jehovah ask Jonah?",
+        "o": [
+          "Why did you go to Tarshish?",
+          "Have you rightly become hot with anger?",
+          "Where are you, Jonah?"
+        ],
+        "a": 1,
+        "why": "Instead of punishing Jonah, Jehovah helped him think about his feelings."
+      },
+      {
+        "q": "What killed Jonah's shade plant?",
+        "o": [
+          "A fire",
+          "Some goats",
+          "A worm"
+        ],
+        "a": 2,
+        "why": "Jehovah sent the worm as part of his lesson."
+      },
+      {
+        "q": "After the plant died, what did Jehovah send?",
+        "o": [
+          "Heavy snow",
+          "A hot, dry east wind",
+          "A flood"
+        ],
+        "a": 1,
+        "why": "Jonah got so hot that he felt faint."
+      },
+      {
+        "tf": true,
+        "q": "When we disagree with Jehovah, he is the one who needs to change his mind.",
+        "a": false,
+        "why": "It is always our own way of thinking that needs to change, never his."
+      },
+      {
+        "q": "Why was Jonah upset that the plant died?",
+        "o": [
+          "Because he had planted it himself",
+          "Because it gave him shade",
+          "Because it had tasty fruit"
+        ],
+        "a": 1,
+        "why": "He cared because it helped him. Jehovah cared about 120,000 people he had given life to!"
+      }
+    ],
+    "think": [
+      "How did Jonah show faith and courage when he preached in Nineveh?",
+      "What can we learn from the way the people of Nineveh changed?",
+      "What can we learn from how Jonah felt when Jehovah forgave Nineveh?"
+    ],
+    "goals": [
+      "Forgive someone who says sorry to you, even if you were cross",
+      "Be kind to everyone, and don't decide that someone is too bad to change",
+      "When you are corrected, listen and try to change instead of sulking",
+      "Care more about people than about things"
+    ]
+  },
+  {
+    "id": "esther1",
+    "name": "Esther",
+    "icon": "👑",
+    "hue": "var(--c3)",
+    "chapter": 15,
+    "title": "She Stood Up for God's People",
+    "url": "https://www.jw.org/en/library/books/true-faith/queen-esther-faith/",
+    "bigIdea": "Esther stayed humble and obedient, even after she became queen. When God's people were in danger, she bravely risked her life to help them.",
+    "facts": [
+      [
+        "Name",
+        "Her Hebrew name was Hadassah, which means \"myrtle\", a bush with lovely white flowers"
+      ],
+      [
+        "Family",
+        "An orphan, raised by her much older cousin Mordecai like his own daughter"
+      ],
+      [
+        "Where",
+        "Shushan, the capital city of Persia"
+      ],
+      [
+        "Famous for",
+        "Becoming queen of Persia and standing up for the Jews"
+      ],
+      [
+        "Key verse",
+        "Esther 4:16"
+      ]
+    ],
+    "story": [
+      "Esther's parents die, and her cousin Mordecai takes her into his home.",
+      "Queen Vashti refuses to come when the king calls her, and she loses her place as queen.",
+      "Esther is taken to the palace and given a whole year of beauty treatments.",
+      "King Ahasuerus loves Esther most and makes her queen.",
+      "Mordecai refuses to bow to Haman, so Haman plans to kill all the Jews.",
+      "Esther asks the Jews to join her in a three-day fast.",
+      "Esther goes to the king without being called, and he holds out his golden scepter."
+    ],
+    "cards": [
+      [
+        "Who was the king Esther married?",
+        "Ahasuerus, king of Persia. Many think he was Xerxes I. He called himself \"the great king\"."
+      ],
+      [
+        "What job did Mordecai have?",
+        "He seems to have been some kind of official who sat in the gate of the palace with other servants of the king."
+      ],
+      [
+        "Who looked after the young women at the palace?",
+        "An official called Hegai. He liked Esther so much he gave her seven servant girls and the best place in the house."
+      ],
+      [
+        "What did Esther ask for when she went to meet the king?",
+        "Nothing more than what Hegai suggested. She was modest and knew beauty alone was not enough."
+      ],
+      [
+        "How did Esther help save the king's life?",
+        "Mordecai found out about a plot to kill the king. Esther passed his warning on, and the plotters were stopped."
+      ],
+      [
+        "Why would Mordecai not bow to Haman?",
+        "Haman was an Agagite, from the Amalekites, a nation that had made itself an enemy of Jehovah. Mordecai obeyed God first."
+      ],
+      [
+        "How much money did Haman offer the king?",
+        "10,000 silver talents, worth hundreds of millions of dollars today!"
+      ],
+      [
+        "How did Mordecai show he was very upset?",
+        "He tore his clothes, wore sackcloth, put ashes on his head and cried out loud in the city."
+      ]
+    ],
+    "pairs": [
+      [
+        "Esther 2:10",
+        "Esther did not tell anyone she was Jewish"
+      ],
+      [
+        "Esther 2:17",
+        "The king loved Esther and made her queen"
+      ],
+      [
+        "Acts 5:29",
+        "We must obey God rather than men"
+      ],
+      [
+        "Esther 4:14",
+        "Maybe she became queen for a time like this"
+      ],
+      [
+        "Proverbs 27:11",
+        "Make Jehovah's heart rejoice"
+      ],
+      [
+        "John 13:35",
+        "Jesus' followers are known by their love"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "What does Esther's Hebrew name, Hadassah, mean?",
+        "o": [
+          "Myrtle",
+          "Star",
+          "Queen"
+        ],
+        "a": 0,
+        "why": "Myrtle is a lovely bush with white flowers."
+      },
+      {
+        "q": "Who raised Esther after her parents died?",
+        "o": [
+          "Haman",
+          "Her cousin Mordecai",
+          "Hegai"
+        ],
+        "a": 1,
+        "why": "Mordecai treated her like his own daughter and taught her about Jehovah."
+      },
+      {
+        "q": "Why did Vashti stop being queen?",
+        "o": [
+          "She ran away",
+          "She became ill",
+          "She refused to come when the king called her"
+        ],
+        "a": 2,
+        "why": "The king was angry and embarrassed, so Vashti was removed as queen."
+      },
+      {
+        "q": "How long did the beauty treatment for the young women last?",
+        "o": [
+          "A week",
+          "A month",
+          "A year"
+        ],
+        "a": 2,
+        "why": "It lasted a year and included massages with sweet-smelling oils."
+      },
+      {
+        "tf": true,
+        "q": "When Esther became queen, she stopped listening to Mordecai.",
+        "a": false,
+        "why": "She stayed humble and kept obeying him, even as queen."
+      },
+      {
+        "q": "What did the king give Haman to seal his order?",
+        "o": [
+          "His own signet ring",
+          "His golden scepter",
+          "His crown"
+        ],
+        "a": 0,
+        "why": "The ring let Haman seal any order he wanted."
+      },
+      {
+        "q": "How long had it been since the king had called Esther to see him?",
+        "o": [
+          "3 days",
+          "30 days",
+          "1 year"
+        ],
+        "a": 1,
+        "why": "Esther worried she might have lost the king's favour."
+      },
+      {
+        "q": "What happened to someone who went to the king without being called?",
+        "o": [
+          "They got a gift",
+          "They could be put to death",
+          "They had to pay money"
+        ],
+        "a": 1,
+        "why": "They were only spared if the king held out his golden scepter."
+      },
+      {
+        "q": "What brave words did Esther say before going to the king?",
+        "o": [
+          "\"I will never go\"",
+          "\"The king loves me, so I am safe\"",
+          "\"If I must perish, I must perish\""
+        ],
+        "a": 2,
+        "why": "She trusted Jehovah, even though she was afraid."
+      },
+      {
+        "tf": true,
+        "q": "When Esther came in, the king held out his golden scepter to her.",
+        "a": true,
+        "why": "He was surprised, but his face softened, and her life was spared."
+      }
+    ],
+    "think": [
+      "How did Esther show that she was humble and obedient?",
+      "How did Mordecai help Esther to be faithful and brave?",
+      "What things did Esther do that show she was courageous?"
+    ],
+    "goals": [
+      "Obey your parents even when they can't see you",
+      "Be modest and kind instead of showing off about how you look",
+      "Pray to Jehovah when you feel scared about doing the right thing",
+      "Stand up for someone who is being treated unfairly"
+    ]
+  },
+  {
+    "id": "esther2",
+    "name": "Esther",
+    "icon": "📜",
+    "hue": "var(--c4)",
+    "chapter": 16,
+    "title": "She Acted Wisely, Bravely, and Selflessly",
+    "url": "https://www.jw.org/en/library/books/true-faith/queen-esther-acted-wisely/",
+    "bigIdea": "Esther waited patiently for the right time to speak, then bravely told the truth. Jehovah blessed her, and she kept working hard to save his people.",
+    "facts": [
+      [
+        "Husband",
+        "King Ahasuerus of Persia"
+      ],
+      [
+        "Tribe",
+        "Benjamin, the same as Mordecai"
+      ],
+      [
+        "Where",
+        "The palace at Shushan, with a ceiling of cedar wood from Lebanon"
+      ],
+      [
+        "Famous for",
+        "Two banquets, and exposing wicked Haman to the king"
+      ],
+      [
+        "Key verse",
+        "Ecclesiastes 3:7"
+      ]
+    ],
+    "story": [
+      "The king holds out his golden scepter, and Esther touches it.",
+      "Esther invites the king and Haman to a banquet, then asks them to a second one.",
+      "Haman sees Mordecai at the gate and has a huge stake made for him.",
+      "The king can't sleep and hears how Mordecai once saved his life.",
+      "Haman has to lead Mordecai around the city on the king's horse, praising him.",
+      "At the second banquet, Esther tells the king that Haman wants to destroy her people.",
+      "A new law lets the Jews defend themselves, and Jehovah gives them victory."
+    ],
+    "cards": [
+      [
+        "What did the king offer Esther when she came to him?",
+        "He said she could have anything she asked for, up to half of his kingdom!"
+      ],
+      [
+        "Why didn't Esther tell the king everything in front of his court?",
+        "It might have embarrassed him and given Haman time to argue. She chose a better time and place."
+      ],
+      [
+        "How tall was the stake Haman had made?",
+        "Over 22 metres tall. That's about as tall as a seven-storey building!"
+      ],
+      [
+        "How had Mordecai been rewarded for saving the king's life?",
+        "Nothing had been done for him at all, until the king found out that sleepless night."
+      ],
+      [
+        "How was Esther different from Vashti?",
+        "Vashti had embarrassed the king on purpose. Esther spoke with respect and did not criticise him."
+      ],
+      [
+        "What happened to Haman's job and his house?",
+        "Mordecai became prime minister. Haman's house and riches went to Esther, and she put Mordecai in charge of it."
+      ],
+      [
+        "Why couldn't the king just cancel Haman's law?",
+        "Laws made in the Persian king's name could not be cancelled, so a new law was made instead."
+      ],
+      [
+        "What is Purim?",
+        "A yearly Jewish festival in February or March. It is named after the lots, called Pur, that Haman threw."
+      ]
+    ],
+    "pairs": [
+      [
+        "Ecclesiastes 3:7",
+        "A time to keep quiet and a time to speak"
+      ],
+      [
+        "Proverbs 25:15",
+        "Patience and a mild tongue can win people over"
+      ],
+      [
+        "Micah 7:7",
+        "Show a waiting attitude for God"
+      ],
+      [
+        "Proverbs 21:1",
+        "Jehovah can direct a king's heart"
+      ],
+      [
+        "Genesis 49:27",
+        "Benjamin will tear like a wolf and divide the spoil"
+      ],
+      [
+        "Matthew 26:52",
+        "Jesus told his followers not to fight with swords"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "What did Esther do when the king held out his scepter?",
+        "o": [
+          "She ran away",
+          "She touched the top of it",
+          "She bowed and left"
+        ],
+        "a": 1,
+        "why": "This showed she was thankful for the king's mercy."
+      },
+      {
+        "q": "How many banquets did Esther hold before telling the king her problem?",
+        "o": [
+          "One",
+          "Two",
+          "Seven"
+        ],
+        "a": 1,
+        "why": "She patiently waited for the right moment, at the second banquet."
+      },
+      {
+        "q": "What made Haman angry as he left the first banquet?",
+        "o": [
+          "Mordecai still wouldn't bow to him",
+          "The food was bad",
+          "The king shouted at him"
+        ],
+        "a": 0,
+        "why": "Haman was happy until he saw Mordecai at the gate."
+      },
+      {
+        "q": "Why did the king have the records read to him one night?",
+        "o": [
+          "He was bored",
+          "Haman asked him to",
+          "He couldn't sleep"
+        ],
+        "a": 2,
+        "why": "Maybe Jehovah was behind the king's sleepless night."
+      },
+      {
+        "tf": true,
+        "q": "Haman thought the king wanted to honour him, but it was really Mordecai.",
+        "a": true,
+        "why": "Haman had to parade Mordecai around the city and praise him."
+      },
+      {
+        "q": "What did Haman's wife and friends say after Mordecai was honoured?",
+        "o": [
+          "He would soon win",
+          "He was going to fail against Mordecai",
+          "He should leave the city"
+        ],
+        "a": 1,
+        "why": "They saw that things were turning against Haman."
+      },
+      {
+        "q": "What did Esther call Haman in front of the king?",
+        "o": [
+          "\"The adversary and enemy\"",
+          "\"My good friend\"",
+          "\"The wise prime minister\""
+        ],
+        "a": 0,
+        "why": "She bravely told the truth about him."
+      },
+      {
+        "tf": true,
+        "q": "After Haman was gone, Esther relaxed because she was safe.",
+        "a": false,
+        "why": "She risked her life again, going to the king to plead for her people."
+      },
+      {
+        "q": "What did the new law allow the Jews to do?",
+        "o": [
+          "Leave Persia",
+          "Defend themselves",
+          "Choose a new king"
+        ],
+        "a": 1,
+        "why": "Riders took the good news across the whole empire."
+      },
+      {
+        "q": "Why did Jehovah want his people protected at that time?",
+        "o": [
+          "So they could become rich",
+          "So they could rule Persia",
+          "The promised Messiah would come from them"
+        ],
+        "a": 2,
+        "why": "The Messiah, Jesus, would bring hope to all mankind."
+      }
+    ],
+    "think": [
+      "How was Esther wise in choosing \"a time to speak\"?",
+      "What good things happened because Esther was patient?",
+      "How was Esther brave and unselfish when she defended her people?"
+    ],
+    "goals": [
+      "Wait for a good moment before asking your parents for something important",
+      "Speak calmly and politely when you need to tell someone about a problem",
+      "Tell the truth bravely, then trust Jehovah to help",
+      "Think about how to help others, not just yourself"
+    ]
+  },
+  {
+    "id": "mary1",
+    "name": "Mary",
+    "icon": "👼",
+    "hue": "var(--c5)",
+    "chapter": 17,
+    "title": "\"Look! Jehovah's Slave Girl!\"",
+    "url": "https://www.jw.org/en/library/books/true-faith/the-angel-gabriel-visits-mary/",
+    "bigIdea": "Mary humbly said yes when Jehovah gave her a huge assignment: to be the mother of his Son. She trusted that she was safe in Jehovah's hands.",
+    "facts": [
+      [
+        "Father",
+        "Heli"
+      ],
+      [
+        "Hometown",
+        "Nazareth in Galilee"
+      ],
+      [
+        "Engaged to",
+        "Joseph the carpenter, a man of faith, not of riches"
+      ],
+      [
+        "Famous for",
+        "Being chosen to be the mother of Jesus, the Messiah"
+      ],
+      [
+        "Key verse",
+        "Luke 1:38"
+      ]
+    ],
+    "story": [
+      "The angel Gabriel visits Mary in Nazareth and greets her.",
+      "Gabriel tells Mary she will have a son who will rule as king forever.",
+      "Mary says, \"Look! Jehovah's slave girl!\" and accepts the assignment.",
+      "Mary hurries to the hill country of Judah to visit Elizabeth.",
+      "Elizabeth's baby leaps for joy when she hears Mary's greeting.",
+      "Mary comes home and tells Joseph everything, and he is very troubled.",
+      "An angel speaks to Joseph in a dream, and he takes Mary as his wife."
+    ],
+    "cards": [
+      [
+        "What does the Bible tell us about how Mary looked?",
+        "Nothing at all! It tells us little about her background, but a lot about her faith."
+      ],
+      [
+        "How did Mary feel when the angel called her \"highly favoured\"?",
+        "She was deeply disturbed. She was humble and didn't assume she already had God's favour."
+      ],
+      [
+        "What promise had God made to King David?",
+        "Over 1,000 years earlier, he promised that one of David's descendants would rule forever. Mary's son would be that king."
+      ],
+      [
+        "How could Mary, who was imperfect, have a perfect son?",
+        "Jehovah moved his Son's life from heaven into Mary and used his holy spirit to protect the baby from sin."
+      ],
+      [
+        "Which faithful men were unsure about their assignments from God?",
+        "Moses said he couldn't speak well, Jeremiah said he was just a boy, and Jonah ran away!"
+      ],
+      [
+        "What was a slave girl?",
+        "The lowest of servants, whose life was in her master's hands. Mary felt that way about Jehovah, and knew she was safe."
+      ],
+      [
+        "How long was the trip to see Elizabeth?",
+        "Perhaps three or four days, to the hilly country of Judah. Mary stayed about three months."
+      ],
+      [
+        "What is special about Mary's speech in Luke 1?",
+        "It is her longest speech in the Bible, and she mentioned the Hebrew Scriptures over 20 times!"
+      ]
+    ],
+    "pairs": [
+      [
+        "Luke 1:28",
+        "\"Good day, highly favoured one, Jehovah is with you\""
+      ],
+      [
+        "James 4:6",
+        "God opposes the proud but loves the humble"
+      ],
+      [
+        "Luke 1:37",
+        "Nothing is impossible with God"
+      ],
+      [
+        "Luke 1:38",
+        "\"Look! Jehovah's slave girl!\""
+      ],
+      [
+        "John 7:16",
+        "Jesus said his teaching came from the One who sent him"
+      ],
+      [
+        "Proverbs 13:20",
+        "Walk with wise people and you will become wise"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Which angel visited Mary?",
+        "o": [
+          "Michael",
+          "Gabriel",
+          "Satan"
+        ],
+        "a": 1,
+        "why": "The angel Gabriel brought Mary a message from Jehovah."
+      },
+      {
+        "q": "Which town did Mary live in?",
+        "o": [
+          "Jerusalem",
+          "Bethlehem",
+          "Nazareth"
+        ],
+        "a": 2,
+        "why": "Nazareth was a small town in Galilee where strangers stood out."
+      },
+      {
+        "q": "What job did Joseph have?",
+        "o": [
+          "Carpenter",
+          "Fisherman",
+          "Shepherd"
+        ],
+        "a": 0,
+        "why": "Joseph was a carpenter, not rich, but a man of faith."
+      },
+      {
+        "q": "Gabriel said Mary's son would be called what?",
+        "o": [
+          "King of Egypt",
+          "Son of the Most High",
+          "Son of Joseph the Great"
+        ],
+        "a": 1,
+        "why": "Her son would be God's Son, the Messiah."
+      },
+      {
+        "q": "What did Gabriel tell Mary about her relative Elizabeth?",
+        "o": [
+          "She was going to have a baby",
+          "She had moved to Egypt",
+          "She was angry with Mary"
+        ],
+        "a": 0,
+        "why": "Elizabeth had not been able to have children, but God made it possible. This helped Mary's faith."
+      },
+      {
+        "tf": true,
+        "q": "Mary refused the assignment because she was too scared.",
+        "a": false,
+        "why": "Even though it was a big responsibility, she humbly said yes."
+      },
+      {
+        "q": "What did Elizabeth call Mary?",
+        "o": [
+          "\"The queen of heaven\"",
+          "\"My little sister\"",
+          "\"The mother of my Lord\""
+        ],
+        "a": 2,
+        "why": "Holy spirit helped Elizabeth know that Mary's son would be the Messiah."
+      },
+      {
+        "q": "Who was Elizabeth's husband?",
+        "o": [
+          "Zechariah the priest",
+          "Heli",
+          "King Herod"
+        ],
+        "a": 0,
+        "why": "Mary visited the home of Elizabeth and Zechariah."
+      },
+      {
+        "tf": true,
+        "q": "When Joseph was troubled, he wanted to avoid bringing shame on Mary.",
+        "a": true,
+        "why": "He was a kind man, and planned to end things quietly, until the angel spoke to him."
+      },
+      {
+        "q": "How did Jehovah help Joseph know what to do?",
+        "o": [
+          "He sent a letter",
+          "An angel spoke to him in a dream",
+          "Elizabeth visited him"
+        ],
+        "a": 1,
+        "why": "The angel told him the baby was a miracle, so Joseph married Mary."
+      }
+    ],
+    "think": [
+      "What can we learn from Mary about being humble?",
+      "How did Mary show she was very obedient to Jehovah?",
+      "What did Mary do that helped her faith grow stronger?"
+    ],
+    "goals": [
+      "Say yes to a job you're given, even if it feels hard",
+      "Choose a friend who loves Jehovah and spend time together",
+      "Learn a Bible verse well enough to say it in your own words",
+      "Talk openly and honestly with your family when something is on your mind"
+    ]
+  },
+  {
+    "id": "mary2",
+    "name": "Mary",
+    "icon": "⭐",
+    "hue": "var(--c6)",
+    "chapter": 18,
+    "title": "She Drew \"Conclusions in Her Heart\"",
+    "url": "https://www.jw.org/en/library/books/true-faith/mary-joseph-bethlehem-jesus-birth/",
+    "bigIdea": "Mary obeyed, made the best of what she had, and kept God's words in her heart to think about. That helped her faith keep growing.",
+    "facts": [
+      [
+        "Husband",
+        "Joseph, from the family of King David, like Mary"
+      ],
+      [
+        "Journey",
+        "About 130 km of hills from Nazareth to Bethlehem, through Samaria"
+      ],
+      [
+        "Where Jesus was born",
+        "In a stable in Bethlehem Ephrathah, laid in a manger"
+      ],
+      [
+        "Famous for",
+        "Thinking deeply about God's words and treasuring them"
+      ],
+      [
+        "Key verse",
+        "Luke 2:19"
+      ]
+    ],
+    "story": [
+      "Caesar Augustus orders everyone to register in their family's home town.",
+      "Joseph and Mary travel for several days from Nazareth to Bethlehem.",
+      "There is no room in the lodging room, so they stay in a stable.",
+      "Mary gives birth to Jesus and lays him in a manger.",
+      "Excited shepherds arrive and tell what the angels said.",
+      "On the 40th day, they take Jesus to the temple in Jerusalem with an offering of two birds.",
+      "Old Simeon and the prophetess Anna speak about baby Jesus."
+    ],
+    "cards": [
+      [
+        "Why did it matter which Bethlehem Jesus was born in?",
+        "There was a Bethlehem just 11 km from Nazareth, but the prophecy said Bethlehem Ephrathah, the one much further away."
+      ],
+      [
+        "How high up was Bethlehem?",
+        "Over 760 metres. That's more than twice as high as the Eiffel Tower!"
+      ],
+      [
+        "Who else was born in Bethlehem long before?",
+        "Boaz, Naomi and later King David, more than 1,000 years earlier."
+      ],
+      [
+        "What is a manger?",
+        "A feeding box that farm animals eat from. Not a clean or comfy place, but Mary made Jesus warm and safe."
+      ],
+      [
+        "How many children did Mary have?",
+        "At least seven! Jesus was her firstborn, and also Jehovah's \"firstborn of all creation\"."
+      ],
+      [
+        "Why do we know Jesus wasn't born in December?",
+        "The shepherds were living outdoors with their flocks, so it was probably early October."
+      ],
+      [
+        "What did the shepherds see that night?",
+        "An angel told them the Messiah was born, then a huge crowd of angels appeared praising God!"
+      ],
+      [
+        "What did Simeon warn Mary about?",
+        "One day she would feel great pain, like a long sword going through her."
+      ]
+    ],
+    "pairs": [
+      [
+        "Luke 2:5",
+        "Mary was \"heavy with child\""
+      ],
+      [
+        "Micah 5:2",
+        "The Messiah would come from Bethlehem Ephrathah"
+      ],
+      [
+        "Luke 2:7",
+        "She laid him in a manger"
+      ],
+      [
+        "Luke 2:19",
+        "Mary kept these sayings in her heart"
+      ],
+      [
+        "Colossians 1:15",
+        "Jesus is the firstborn of all creation"
+      ],
+      [
+        "2 Timothy 3:16",
+        "All Scripture is inspired by God"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Why did Joseph and Mary travel to Bethlehem?",
+        "o": [
+          "To visit Elizabeth",
+          "To get registered, as Caesar ordered",
+          "To hide from King Herod"
+        ],
+        "a": 1,
+        "why": "Caesar Augustus ordered people to register in their home town."
+      },
+      {
+        "q": "About how far was the hilly trip from Nazareth to Bethlehem?",
+        "o": [
+          "130 km",
+          "11 km",
+          "1,000 km"
+        ],
+        "a": 0,
+        "why": "It took several days, and Mary was expecting a baby."
+      },
+      {
+        "q": "What time of year was it probably?",
+        "o": [
+          "Winter",
+          "Early autumn",
+          "Spring"
+        ],
+        "a": 1,
+        "why": "The shepherds were still out with their flocks, so it was probably early October."
+      },
+      {
+        "tf": true,
+        "q": "Mary supported Joseph in his decision, even though the trip was hard.",
+        "a": true,
+        "why": "She saw him as the head of the family and humbly obeyed."
+      },
+      {
+        "q": "Where did Joseph and Mary stay in Bethlehem?",
+        "o": [
+          "In a palace",
+          "In a stable",
+          "At the temple"
+        ],
+        "a": 1,
+        "why": "The town was full, and there was no space in the lodging room."
+      },
+      {
+        "q": "Who told the shepherds the Messiah had been born?",
+        "o": [
+          "King Herod",
+          "Joseph",
+          "An angel"
+        ],
+        "a": 2,
+        "why": "Jehovah's glory shone around them, then many angels praised God."
+      },
+      {
+        "q": "What did Mary do with what the shepherds said?",
+        "o": [
+          "She kept it in her heart and thought about it",
+          "She forgot it quickly",
+          "She told them to be quiet"
+        ],
+        "a": 0,
+        "why": "This was a key to her faith all through her life."
+      },
+      {
+        "q": "What offering did Joseph and Mary bring to the temple?",
+        "o": [
+          "A ram and a turtledove",
+          "Two turtledoves or two pigeons",
+          "Gold and silver"
+        ],
+        "a": 1,
+        "why": "This was the offering the Law allowed for poorer families."
+      },
+      {
+        "tf": true,
+        "q": "The shepherds kept the good news about Jesus to themselves.",
+        "a": false,
+        "why": "They told others, and everyone who heard was amazed."
+      },
+      {
+        "q": "What did the prophetess Anna do after seeing Jesus?",
+        "o": [
+          "She went home quietly",
+          "She told everyone waiting for Jerusalem to be set free about him",
+          "She gave Mary a present"
+        ],
+        "a": 1,
+        "why": "She spoke about Jesus to those hoping for rescue."
+      }
+    ],
+    "think": [
+      "How did Mary show she was obedient and supportive?",
+      "What can we learn from how Mary coped with having little money?",
+      "How did Mary show she was a thoughtful, spiritual person?"
+    ],
+    "goals": [
+      "Read a bit of the Bible each day and think about what it means",
+      "Help out cheerfully, even when things are uncomfortable",
+      "Make the best of what you have instead of complaining",
+      "Go to meetings and say something encouraging to someone there"
+    ]
+  },
+  {
+    "id": "josephcarpenter",
+    "name": "Joseph",
+    "icon": "🪚",
+    "hue": "var(--c1)",
+    "chapter": 19,
+    "title": "He Protected, He Provided, He Persevered",
+    "url": "https://www.jw.org/en/library/books/true-faith/joseph-protected-his-family/",
+    "bigIdea": "Joseph was given a very special job by Jehovah: to look after Jesus and Mary. He kept his family safe, worked hard to care for them, taught them about Jehovah, and stayed faithful to the end.",
+    "facts": [
+      [
+        "Job",
+        "Carpenter: he worked with wood to make houses, boats, carts, wheels, yokes and farm tools"
+      ],
+      [
+        "Family",
+        "His wife Mary, Jesus, and at least six more children"
+      ],
+      [
+        "Where",
+        "Hometown Nazareth in Galilee. He also lived in Bethlehem and, for a short time, Egypt."
+      ],
+      [
+        "Famous for",
+        "Protecting, caring for and raising Jesus"
+      ],
+      [
+        "Key verse",
+        "Matthew 2:13, 14"
+      ]
+    ],
+    "story": [
+      "An angel tells Joseph in a dream that Mary's baby is from holy spirit, so Joseph takes Mary home as his wife.",
+      "Joseph and Mary go to Bethlehem to register, and Jesus is born there.",
+      "Astrologers from the East visit the little boy Jesus and give gifts of gold, frankincense and myrrh.",
+      "An angel warns Joseph that King Herod wants to kill Jesus, so the family slips away to Egypt in the dark.",
+      "After Herod dies, Joseph takes his family home to Nazareth.",
+      "When Jesus is 12, he goes missing after the Passover and is found in the temple.",
+      "Jesus is baptised at about 30, and by then Joseph has most likely died."
+    ],
+    "cards": [
+      [
+        "Who sent the \"star\" the astrologers followed?",
+        "Not God! It led them to wicked King Herod in Jerusalem first. Satan used it to try to get Jesus killed."
+      ],
+      [
+        "How did the astrologers' gifts help?",
+        "The gifts were worth a lot. They may have helped the family while they lived in Egypt."
+      ],
+      [
+        "Did Jesus do miracles on the way to Egypt?",
+        "No. Those are made-up stories. Jesus' first miracle came after his baptism. The trip was simply long and hard."
+      ],
+      [
+        "Why didn't Joseph go back to Bethlehem?",
+        "Herod's son Archelaus was cruel too. Jehovah guided Joseph north, far from Jerusalem, to Nazareth."
+      ],
+      [
+        "What tools did Joseph probably use?",
+        "A saw, hammer, mallet, chisels, an axe-like adze, a chalk line, and a drill turned by pulling a bow. Nails cost a lot!"
+      ],
+      [
+        "What did Joseph use instead of sandpaper?",
+        "Probably dried fish skin, to make rough wood smooth."
+      ],
+      [
+        "How long was the Passover trip?",
+        "About 120 km to Jerusalem, longer than 1,000 football pitches end to end! The whole trip may have taken two weeks."
+      ],
+      [
+        "Why do we think Joseph died before Jesus' preaching began?",
+        "Jesus was called \"the son of Mary\", and when he was dying he asked the apostle John to look after his mother."
+      ]
+    ],
+    "pairs": [
+      [
+        "Matthew 1:21",
+        "Mary's son would save people from their sins"
+      ],
+      [
+        "Matthew 2:13",
+        "Get up and flee into Egypt"
+      ],
+      [
+        "Matthew 2:15",
+        "God called his Son out of Egypt"
+      ],
+      [
+        "Luke 2:49",
+        "I must be in the house of my Father"
+      ],
+      [
+        "Luke 2:52",
+        "Jesus grew in wisdom and in favour with God"
+      ],
+      [
+        "Mark 6:3",
+        "Jesus was known as \"the carpenter\""
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Where did Joseph take his family to escape from King Herod?",
+        "o": [
+          "Babylon",
+          "Egypt",
+          "Rome"
+        ],
+        "a": 1,
+        "why": "An angel told Joseph to flee to Egypt, and he obeyed straight away."
+      },
+      {
+        "q": "What gifts did the astrologers bring?",
+        "o": [
+          "Gold, frankincense and myrrh",
+          "Sheep, goats and camels",
+          "Bread, fish and wine"
+        ],
+        "a": 0,
+        "why": "They were costly gifts, and they asked for nothing back."
+      },
+      {
+        "q": "About how old was Jesus when the astrologers came?",
+        "o": [
+          "A newborn baby",
+          "Perhaps over a year old",
+          "12 years old"
+        ],
+        "a": 1,
+        "why": "He was a small child by then, living in a house in Bethlehem."
+      },
+      {
+        "q": "Which kinds of wood might Joseph have taught Jesus about?",
+        "o": [
+          "Pine, birch and maple",
+          "Bamboo, palm and cedar",
+          "Sycamore fig, oak and olive"
+        ],
+        "a": 2,
+        "why": "Joseph likely taught Jesus the differences between these woods."
+      },
+      {
+        "tf": true,
+        "q": "Joseph only cared about giving his family food and a home.",
+        "a": false,
+        "why": "He knew teaching them about Jehovah came first. He took them to the synagogue and to festivals in Jerusalem."
+      },
+      {
+        "q": "How long had Joseph and Mary travelled before they noticed Jesus was missing?",
+        "o": [
+          "An hour",
+          "A full day",
+          "A week"
+        ],
+        "a": 1,
+        "why": "They thought he was with relatives in the big group going home."
+      },
+      {
+        "q": "Where did Joseph and Mary find Jesus?",
+        "o": [
+          "At the market",
+          "In the temple with the teachers",
+          "Back home in Nazareth"
+        ],
+        "a": 1,
+        "why": "He was listening and asking questions, and the teachers were amazed."
+      },
+      {
+        "tf": true,
+        "q": "Joseph and Mary found Jesus on the third day of searching.",
+        "a": true,
+        "why": "They were very worried. Mary said they had been in \"mental distress\"."
+      },
+      {
+        "q": "What did an old Jewish saying claim about workers like carpenters?",
+        "o": [
+          "They could not become truly wise",
+          "They were the wisest people of all",
+          "They should be kings"
+        ],
+        "a": 0,
+        "why": "Joseph proved it wrong. He was a humble carpenter who taught Jesus about Jehovah's justice."
+      },
+      {
+        "q": "When Jesus was dying, who did he ask to look after his mother?",
+        "o": [
+          "Joseph",
+          "Peter",
+          "The apostle John"
+        ],
+        "a": 2,
+        "why": "There would be no need for this if Joseph were still alive."
+      }
+    ],
+    "think": [
+      "How did Joseph keep his family safe?",
+      "How did Joseph look after his family's needs?",
+      "How can you tell that Joseph kept going with the job Jehovah gave him?"
+    ],
+    "goals": [
+      "Obey your parents straight away, like Joseph obeyed Jehovah quickly",
+      "Ask questions about Jehovah after the meeting or family worship, like Jesus did",
+      "Learn a useful skill from your mum or dad, like Jesus learned carpentry",
+      "Thank your parents for something they do to keep you safe or cared for"
+    ]
+  },
+  {
+    "id": "martha",
+    "name": "Martha",
+    "icon": "🍲",
+    "hue": "var(--c2)",
+    "chapter": 20,
+    "title": "\"I Have Believed\"",
+    "url": "https://www.jw.org/en/library/books/true-faith/martha-faith-rewarded/",
+    "bigIdea": "Martha was a hard-working, generous friend of Jesus. She humbly accepted his kind correction, and her strong faith was rewarded when she saw her brother Lazarus brought back to life.",
+    "facts": [
+      [
+        "Family",
+        "Sister Mary and brother Lazarus. The three grown-ups shared a home."
+      ],
+      [
+        "Where",
+        "Bethany, a small hillside town about 3 km from Jerusalem"
+      ],
+      [
+        "Known for",
+        "Working hard and caring for guests"
+      ],
+      [
+        "Famous words",
+        "\"I have believed that you are the Christ the Son of God\""
+      ],
+      [
+        "Key verse",
+        "John 11:27"
+      ]
+    ],
+    "story": [
+      "Jesus comes to visit, and Martha plans a special meal with many dishes.",
+      "Mary sits at Jesus' feet to listen, while Martha gets more and more stressed.",
+      "Martha asks Jesus to tell Mary to help, and Jesus kindly corrects her.",
+      "Lazarus becomes very ill, and the sisters send a message to Jesus.",
+      "Lazarus dies, and four days later Martha hurries out to meet Jesus.",
+      "Jesus calls, \"Lazarus, come on out!\" and Lazarus comes back to life.",
+      "In the last week of Jesus' life on earth, Martha is serving at a meal again."
+    ],
+    "cards": [
+      [
+        "Why did Jesus often stay at their home?",
+        "In Judea many people were against him. Their home in Bethany was a peaceful place where he had support."
+      ],
+      [
+        "How were guests welcomed back then?",
+        "With a kiss. Their sandals were taken off, their feet washed, and nice-smelling oil put on their head."
+      ],
+      [
+        "Why was it special that Mary sat at Jesus' feet?",
+        "Women were usually not taught like students. Jesus respected women and gladly taught them."
+      ],
+      [
+        "Was Jesus saying that cooking a nice meal is bad?",
+        "No! He knew Martha's reasons were loving. The problem was what came first. One or two dishes would have been enough."
+      ],
+      [
+        "Did Martha sulk after being corrected?",
+        "No. Months later the Bible says that Jesus loved Martha and her sister and Lazarus."
+      ],
+      [
+        "Who were the Sadducees?",
+        "Religious leaders who said nobody would ever be raised from the dead. Martha knew better!"
+      ],
+      [
+        "What did Jesus show when he saw people crying?",
+        "He was deeply moved and cried too. Death makes him sad."
+      ],
+      [
+        "Was Lazarus safe after he came back to life?",
+        "Not quite. The wicked leaders wanted to kill him too, because many people were believing in Jesus."
+      ]
+    ],
+    "pairs": [
+      [
+        "Luke 10:41",
+        "Martha, Martha, you are anxious and disturbed"
+      ],
+      [
+        "Luke 10:42",
+        "Mary chose the good portion"
+      ],
+      [
+        "John 11:5",
+        "Jesus loved Martha, Mary and Lazarus"
+      ],
+      [
+        "John 11:25",
+        "I am the resurrection and the life"
+      ],
+      [
+        "John 11:27",
+        "I have believed that you are the Christ"
+      ],
+      [
+        "John 12:2",
+        "Martha was ministering"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "What was the name of Martha's brother?",
+        "o": [
+          "Lazarus",
+          "Andrew",
+          "Simon"
+        ],
+        "a": 0,
+        "why": "Lazarus lived with his sisters, Martha and Mary."
+      },
+      {
+        "q": "What did Mary do while Martha was busy cooking?",
+        "o": [
+          "She went to the market",
+          "She sat at Jesus' feet and listened",
+          "She went to sleep"
+        ],
+        "a": 1,
+        "why": "Mary wanted to learn from Jesus, and he said she chose \"the good portion\"."
+      },
+      {
+        "q": "What did Jesus say Martha was worried about?",
+        "o": [
+          "Her brother's health",
+          "Paying her taxes",
+          "Many things"
+        ],
+        "a": 2,
+        "why": "He said she was \"anxious and disturbed about many things\"."
+      },
+      {
+        "tf": true,
+        "q": "Jesus thought it was always wrong to make a big meal for guests.",
+        "a": false,
+        "why": "He even went to a big feast at Matthew's house. The point was to put learning about God first."
+      },
+      {
+        "q": "How far away was Jesus when the sisters sent him a message?",
+        "o": [
+          "In the next room",
+          "About two days' journey away",
+          "In another country across the sea"
+        ],
+        "a": 1,
+        "why": "He was preaching some distance away."
+      },
+      {
+        "tf": true,
+        "q": "When Martha heard Jesus was coming, she rushed out to meet him without telling Mary.",
+        "a": true,
+        "why": "Martha was always a woman of action, even when she was sad."
+      },
+      {
+        "q": "How long had Lazarus been dead when Jesus arrived?",
+        "o": [
+          "Four days",
+          "One hour",
+          "One year"
+        ],
+        "a": 0,
+        "why": "That is why Martha worried about opening the tomb."
+      },
+      {
+        "q": "What did Jesus say about himself to Martha?",
+        "o": [
+          "\"I am the good shepherd\"",
+          "\"I am the resurrection and the life\"",
+          "\"I am the light of the world\""
+        ],
+        "a": 1,
+        "why": "Jehovah has given Jesus the power to raise the dead."
+      },
+      {
+        "q": "What was Lazarus' tomb like?",
+        "o": [
+          "A cave with a stone over the entrance",
+          "A tall stone tower",
+          "A hole under a tree"
+        ],
+        "a": 0,
+        "why": "Jesus told them to roll the stone away."
+      },
+      {
+        "q": "What was Martha doing the last time the Bible mentions her?",
+        "o": [
+          "Sleeping",
+          "Fishing",
+          "Serving at a meal"
+        ],
+        "a": 2,
+        "why": "John 12:2 says \"Martha was ministering\". She was still working hard for others."
+      }
+    ],
+    "think": [
+      "What can we learn from what Jesus told Martha?",
+      "How did Martha show that she was generous and hard-working?",
+      "How did Martha show that she had strong faith?"
+    ],
+    "goals": [
+      "Help get things ready when visitors come to your home",
+      "Keep your mind on what is said at the meeting or family worship, and save other jobs for later",
+      "When someone corrects you, say thank you instead of sulking",
+      "Tell someone who is sad about the hope that the dead will live again"
+    ]
+  },
+  {
+    "id": "peter1",
+    "name": "Peter",
+    "icon": "🌊",
+    "hue": "var(--c3)",
+    "chapter": 21,
+    "title": "He Fought Against Fear and Doubt",
+    "url": "https://www.jw.org/en/library/books/true-faith/peter-fought-fear-doubt/",
+    "bigIdea": "Peter sometimes gave in to fear and doubt, but he kept learning from Jesus. When he kept his eyes on Jesus, his faith stayed strong.",
+    "facts": [
+      [
+        "Job",
+        "Fisherman, in business with Andrew, James and John"
+      ],
+      [
+        "Family",
+        "His wife, his mother-in-law and his brother Andrew all lived with him"
+      ],
+      [
+        "Where",
+        "Capernaum, on the north shore of the Sea of Galilee, a freshwater lake"
+      ],
+      [
+        "Name",
+        "Also called Simon. Jesus named him Cephas, or Peter, which means \"rock\"."
+      ],
+      [
+        "Key verse",
+        "Matthew 14:31"
+      ]
+    ],
+    "story": [
+      "Andrew tells his brother, \"We have found the Messiah.\"",
+      "Peter meets Jesus, who gives him a new name: Cephas, or Peter.",
+      "After a night of catching nothing, Peter lets Jesus teach the crowd from his boat.",
+      "Peter lowers the nets again and catches so many fish that the boats start to sink.",
+      "Peter, James and John leave everything to follow Jesus.",
+      "Jesus feeds thousands of people, then sends his disciples across the sea in a boat.",
+      "Peter walks on the water towards Jesus, starts to sink, and Jesus pulls him up."
+    ],
+    "cards": [
+      [
+        "How did Andrew find out about Jesus?",
+        "Andrew was a disciple of John the Baptist. He heard John point to Jesus and say, \"See, the Lamb of God!\""
+      ],
+      [
+        "When did God first promise the Messiah?",
+        "Straight after the rebellion in Eden, about 4,000 years earlier (Genesis 3:15)."
+      ],
+      [
+        "How did they fish?",
+        "At night, they let out big nets between two boats. In the day they sorted and sold the fish and mended the nets."
+      ],
+      [
+        "Why might the name \"Rock\" seem strange for Peter?",
+        "Peter could be up and down. But Jesus saw he would become steady and strong for others."
+      ],
+      [
+        "Does Jehovah only see our faults?",
+        "No. Like Jesus, he looks for the good in us, even when we find it hard to see."
+      ],
+      [
+        "What did Peter say after the huge catch?",
+        "\"Depart from me, because I am a sinful man, Lord.\" He felt he wasn't good enough to be with Jesus."
+      ],
+      [
+        "Why did Jesus send the disciples away in the boat?",
+        "The crowd wanted to make Jesus king. He wanted nothing to do with politics."
+      ],
+      [
+        "Could Peter swim?",
+        "Yes, he was a good swimmer! But he didn't trust that. He cried out, \"Lord, save me!\""
+      ]
+    ],
+    "pairs": [
+      [
+        "John 1:41",
+        "We have found the Messiah"
+      ],
+      [
+        "John 1:42",
+        "You will be called Cephas, or Peter"
+      ],
+      [
+        "Luke 5:10",
+        "From now on you will be catching men alive"
+      ],
+      [
+        "Isaiah 55:7",
+        "God will forgive in a large way"
+      ],
+      [
+        "Matthew 14:31",
+        "Why did you give way to doubt?"
+      ],
+      [
+        "Matthew 14:33",
+        "You are really God's Son"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "Who first told Peter about the Messiah?",
+        "o": [
+          "His brother Andrew",
+          "His wife",
+          "King Herod"
+        ],
+        "a": 0,
+        "why": "Andrew said, \"We have found the Messiah.\""
+      },
+      {
+        "q": "What does the name Cephas mean?",
+        "o": [
+          "Fish",
+          "Rock or stone",
+          "Brave"
+        ],
+        "a": 1,
+        "why": "Jesus saw that Peter would become steady and strong, like a rock."
+      },
+      {
+        "tf": true,
+        "q": "Before the huge catch, Peter had caught lots of fish all night.",
+        "a": false,
+        "why": "He had worked all night and caught nothing at all."
+      },
+      {
+        "q": "What happened when Peter lowered the nets at Jesus' word?",
+        "o": [
+          "The nets tore and all the fish swam away",
+          "They caught one small fish",
+          "Both boats began to sink with fish"
+        ],
+        "a": 2,
+        "why": "There were so many fish that two boats could not hold them."
+      },
+      {
+        "q": "Jesus told Peter that from now on he would be catching what?",
+        "o": [
+          "Birds",
+          "Men alive",
+          "Bigger fish"
+        ],
+        "a": 1,
+        "why": "Peter would help people learn about God's Kingdom."
+      },
+      {
+        "q": "How long had Peter known Jesus by the night he walked on the water?",
+        "o": [
+          "About two years",
+          "About two days",
+          "About twenty years"
+        ],
+        "a": 0,
+        "why": "By then Jesus had even chosen Peter as one of the 12 apostles."
+      },
+      {
+        "q": "When did Jesus come walking on the sea?",
+        "o": [
+          "At midday",
+          "Just after sunset",
+          "Between 3 a.m. and sunrise"
+        ],
+        "a": 2,
+        "why": "This was called the fourth watch of the night."
+      },
+      {
+        "q": "Why did Peter start to sink?",
+        "o": [
+          "His boots were too heavy",
+          "He looked at the storm and got afraid",
+          "Jesus told him to go back"
+        ],
+        "a": 1,
+        "why": "As fear grew, his faith shrank. He took his eyes off Jesus."
+      },
+      {
+        "tf": true,
+        "q": "When Jesus and Peter got into the boat, the storm died down.",
+        "a": true,
+        "why": "Then the disciples said, \"You are really God's Son.\""
+      },
+      {
+        "q": "What helps us fight doubt, like Peter had to?",
+        "o": [
+          "Thinking about all the scary things",
+          "Keeping our focus on Jehovah and Jesus",
+          "Trying not to think about anything"
+        ],
+        "a": 1,
+        "why": "If we think about what they have done for us, doubts stay away."
+      }
+    ],
+    "think": [
+      "How did Peter get over his worries about following Jesus?",
+      "How did Jesus show that he saw good things in Peter?",
+      "What did Peter learn about doubt out on the Sea of Galilee?"
+    ],
+    "goals": [
+      "When something scares you, pray and think about what Jehovah has done for you",
+      "If you make a mistake, don't give up. Jehovah still sees the good in you",
+      "Share something good you have learned about Jesus, like Andrew did",
+      "Look for something good in a friend or family member and tell them"
+    ]
+  },
+  {
+    "id": "peter2",
+    "name": "Peter",
+    "icon": "⛰️",
+    "hue": "var(--c4)",
+    "chapter": 22,
+    "title": "He Was Loyal in the Face of Tests",
+    "url": "https://www.jw.org/en/library/books/true-faith/apostle-peter-loyal-to-jesus/",
+    "bigIdea": "Peter stayed loyal to Jesus when others walked away and when he himself was corrected. Jehovah rewarded his loyalty with an amazing vision.",
+    "facts": [
+      [
+        "Job",
+        "Fisherman and apostle of Jesus"
+      ],
+      [
+        "Home town",
+        "Capernaum, on the northern shore of the Sea of Galilee"
+      ],
+      [
+        "Known for",
+        "Being the most outspoken apostle, and maybe the oldest"
+      ],
+      [
+        "Famous for",
+        "Saying \"You are the Christ\" and seeing Jesus transfigured"
+      ],
+      [
+        "Key verse",
+        "John 6:68"
+      ]
+    ],
+    "story": [
+      "Jesus feeds thousands of people, and the crowd tries to make him king.",
+      "That night, Jesus walks across the stormy Sea of Galilee to his disciples.",
+      "In the synagogue in Capernaum, many disciples leave Jesus, but Peter stays.",
+      "Near Caesarea Philippi, Peter says Jesus is the Christ, the Son of God.",
+      "Peter tells Jesus he will not suffer, and Jesus corrects him.",
+      "About a week later, Jesus shines like the sun on a high mountain.",
+      "Jehovah speaks from a cloud: \"This is my Son ... Listen to him.\""
+    ],
+    "cards": [
+      [
+        "Why did the crowds follow Jesus to Capernaum?",
+        "Mostly because they wanted more free food, not because they wanted to learn about God."
+      ],
+      [
+        "What did Jesus compare himself to?",
+        "Manna, the bread from heaven in Moses' day. He meant his life and death would give people everlasting life."
+      ],
+      [
+        "Why did some disciples call Jesus' speech \"shocking\"?",
+        "He said people must eat his flesh and drink his blood to get life. They took it the wrong way and left."
+      ],
+      [
+        "How did the crowd change their minds so fast?",
+        "Just the day before, they had excitedly called Jesus a prophet of God (John 6:14)."
+      ],
+      [
+        "What were \"the keys of the kingdom\" that Peter got?",
+        "The job of opening the way into God's Kingdom to three groups: first the Jews, then the Samaritans, then the non-Jews."
+      ],
+      [
+        "Did Jesus make Peter the boss of the other apostles?",
+        "No. He gave Peter responsibilities, but not a higher rank than the others."
+      ],
+      [
+        "How far was the trip to Caesarea Philippi?",
+        "About 50 km, climbing from 210 m below sea level to 350 m above it. Further up than the height of the Eiffel Tower!"
+      ],
+      [
+        "Which mountain may the vision have been on?",
+        "Perhaps Mount Hermon, a snowy mountain about 25 km away."
+      ]
+    ],
+    "pairs": [
+      [
+        "John 6:68",
+        "Lord, whom shall we go away to?"
+      ],
+      [
+        "Matthew 16:16",
+        "You are the Christ, the Son of the living God"
+      ],
+      [
+        "Matthew 16:19",
+        "Peter gets the keys of the kingdom"
+      ],
+      [
+        "Matthew 16:23",
+        "Get behind me, think God's thoughts"
+      ],
+      [
+        "Proverbs 4:13",
+        "Hold on to discipline; don't let it go"
+      ],
+      [
+        "2 Peter 1:16",
+        "Peter was an eyewitness of Jesus' glory"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "In which town were Peter's home and fishing business?",
+        "o": [
+          "Jerusalem",
+          "Capernaum",
+          "Nazareth"
+        ],
+        "a": 1,
+        "why": "Capernaum was on the northern shore of the Sea of Galilee."
+      },
+      {
+        "q": "What did Jesus ask the 12 apostles when many disciples left?",
+        "o": [
+          "\"Are you hungry?\"",
+          "\"Shall we go home?\"",
+          "\"You do not want to go also, do you?\""
+        ],
+        "a": 2,
+        "why": "Peter answered: \"Lord, whom shall we go away to?\""
+      },
+      {
+        "tf": true,
+        "q": "Peter stayed with Jesus because he understood everything Jesus had said.",
+        "a": false,
+        "why": "Peter was puzzled too, but he knew only Jesus had the words of everlasting life."
+      },
+      {
+        "q": "Who made it clear to Peter that Jesus was the Christ?",
+        "o": [
+          "Jehovah God",
+          "The crowds",
+          "The religious leaders"
+        ],
+        "a": 0,
+        "why": "Jesus said it was Jehovah, not any man, who showed Peter this truth."
+      },
+      {
+        "q": "Why did Peter tell Jesus to \"be kind to yourself\"?",
+        "o": [
+          "Jesus was too tired to walk",
+          "Jesus said he would suffer and die in Jerusalem",
+          "Jesus wanted to go fishing in a storm"
+        ],
+        "a": 1,
+        "why": "Peter meant well, but he was thinking like a human, not like God."
+      },
+      {
+        "q": "What did Jesus mean by \"Get behind me\"?",
+        "o": [
+          "Peter should go away for ever",
+          "Peter should walk faster",
+          "Peter should stop blocking him and follow him again"
+        ],
+        "a": 2,
+        "why": "To Satan, Jesus said \"Go away\". To Peter, he said \"Get behind me\", like a helpful follower."
+      },
+      {
+        "tf": true,
+        "q": "When Jesus corrected him, Peter humbly accepted it instead of sulking.",
+        "a": true,
+        "why": "Accepting correction was another way Peter showed loyalty."
+      },
+      {
+        "q": "Which apostles went up the mountain with Jesus?",
+        "o": [
+          "Peter, James and John",
+          "Peter, Andrew and Thomas",
+          "Peter, Judas and Matthew"
+        ],
+        "a": 0,
+        "why": "Only these three saw the vision."
+      },
+      {
+        "q": "Who appeared with Jesus in the vision?",
+        "o": [
+          "Abraham and David",
+          "Moses and Elijah",
+          "Noah and Daniel"
+        ],
+        "a": 1,
+        "why": "They talked with Jesus about his coming death and resurrection."
+      },
+      {
+        "q": "What did Peter offer to build in the vision?",
+        "o": [
+          "An altar",
+          "A boat",
+          "Three tents"
+        ],
+        "a": 2,
+        "why": "Peter was so excited he wanted it to last, though the vision didn't need tents!"
+      }
+    ],
+    "think": [
+      "Why did Peter stay loyal to Jesus when lots of others walked away?",
+      "How did Peter's faith and loyalty help him when Jesus corrected him?",
+      "How did seeing Jesus shine on the mountain make Peter's faith stronger?"
+    ],
+    "goals": [
+      "Keep doing what Jesus teaches, even when it's not what you'd choose",
+      "Say thank you when someone corrects you, and try to learn from it",
+      "Speak up and tell someone what you believe about Jesus",
+      "Read about the transfiguration (Luke 9:28-36) and picture it with your mum"
+    ]
+  },
+  {
+    "id": "peter3",
+    "name": "Peter",
+    "icon": "🤝",
+    "hue": "var(--c5)",
+    "chapter": 23,
+    "title": "He Learned Forgiveness From the Master",
+    "url": "https://www.jw.org/en/library/books/true-faith/peter-learned-forgiveness-from-jesus/",
+    "bigIdea": "Peter made big mistakes, even denying Jesus three times, but Jesus forgave him. Peter learned to forgive others just as he had been forgiven.",
+    "facts": [
+      [
+        "Other names",
+        "Simon and Cephas. Jesus named him Peter, which means \"Rock\""
+      ],
+      [
+        "Big lesson",
+        "Forgive generously, with no set limit"
+      ],
+      [
+        "Worst failure",
+        "Saying three times that he didn't know Jesus"
+      ],
+      [
+        "Bible books he wrote",
+        "Two letters: 1 Peter and 2 Peter"
+      ],
+      [
+        "Key verse",
+        "Isaiah 55:7"
+      ]
+    ],
+    "story": [
+      "Peter asks Jesus if he should forgive his brother up to seven times.",
+      "On Jesus' last night, Jesus washes the apostles' feet.",
+      "In the garden of Gethsemane, Peter keeps falling asleep.",
+      "Peter swings a sword at a slave of the high priest, and Jesus heals the man.",
+      "In the high priest's courtyard, Peter denies knowing Jesus three times.",
+      "Jesus is raised up and appears to Peter on his own.",
+      "In Galilee, Jesus gives Peter three chances to say he loves him."
+    ],
+    "cards": [
+      [
+        "How many times did the religious leaders say you had to forgive?",
+        "Only three times! So Peter thought seven was being generous."
+      ],
+      [
+        "Why did Jesus say \"77 times\"?",
+        "Not so we keep count, but because love doesn't put a limit on forgiving."
+      ],
+      [
+        "What did Peter say when Jesus came to wash his feet?",
+        "First he questioned it, then refused, then asked Jesus to wash his hands and head too!"
+      ],
+      [
+        "What did the apostles argue about on Jesus' last night?",
+        "Who was the greatest. Jesus corrected them kindly and even praised them for sticking with him."
+      ],
+      [
+        "What kind words did Jesus say about the sleepy apostles?",
+        "\"The spirit ... is eager, but the flesh is weak.\" He understood they were tired."
+      ],
+      [
+        "How did Peter get into the high priest's courtyard?",
+        "John knew the high priest, so he asked the girl at the gate to let Peter in."
+      ],
+      [
+        "Who asked Peter the third time if he knew Jesus?",
+        "A relative of Malchus, the slave Peter had hurt in the garden."
+      ],
+      [
+        "What happened when Peter and John ran to the tomb?",
+        "John got there first but waited. Peter went straight in, and it was empty!"
+      ]
+    ],
+    "pairs": [
+      [
+        "Matthew 18:22",
+        "Forgive up to seventy-seven times"
+      ],
+      [
+        "Mark 14:38",
+        "The spirit is eager, but the flesh is weak"
+      ],
+      [
+        "Luke 22:61",
+        "The Lord turned and looked upon Peter"
+      ],
+      [
+        "Proverbs 24:16",
+        "A good person who falls gets up again"
+      ],
+      [
+        "Isaiah 55:7",
+        "Jehovah will forgive in a large way"
+      ],
+      [
+        "1 Peter 4:8",
+        "Love covers a lot of sins"
+      ]
+    ],
+    "quiz": [
+      {
+        "q": "How many times did Peter think he should forgive his brother?",
+        "o": [
+          "Up to three times",
+          "Up to seven times",
+          "Up to a hundred times"
+        ],
+        "a": 1,
+        "why": "Jesus told him: not seven, but seventy-seven times."
+      },
+      {
+        "q": "What did Jesus do to teach the apostles to be humble?",
+        "o": [
+          "He washed their feet",
+          "He cooked them a big feast",
+          "He gave them new clothes"
+        ],
+        "a": 0,
+        "why": "Washing feet was usually the job of the lowliest servant."
+      },
+      {
+        "tf": true,
+        "q": "Peter said he would be more faithful than all the other apostles.",
+        "a": true,
+        "why": "He boasted this, even after Jesus said he would deny him three times."
+      },
+      {
+        "q": "What did Jesus say he had prayed for Peter?",
+        "o": [
+          "That he would catch lots of fish",
+          "That he would become rich",
+          "That his faith would not give out"
+        ],
+        "a": 2,
+        "why": "Jesus also told Peter to strengthen his brothers once he came back (Luke 22:32)."
+      },
+      {
+        "q": "Before what would Peter deny Jesus three times?",
+        "o": [
+          "Before the sun set",
+          "Before a cock crowed twice",
+          "Before the rain started"
+        ],
+        "a": 1,
+        "why": "After the third denial, Peter heard the second cock crow."
+      },
+      {
+        "q": "What did Peter do when Jesus looked at him from the balcony?",
+        "o": [
+          "He went out and cried bitterly",
+          "He laughed it off",
+          "He ran home to bed"
+        ],
+        "a": 0,
+        "why": "He realised how badly he had let Jesus down."
+      },
+      {
+        "tf": true,
+        "q": "After his failure, Peter stayed away from the other disciples.",
+        "a": false,
+        "why": "He soon gathered with his spiritual brothers. That's how he heard the tomb was empty."
+      },
+      {
+        "q": "How many fish did the disciples catch when Jesus told them where to cast the net?",
+        "o": [
+          "12",
+          "77",
+          "153"
+        ],
+        "a": 2,
+        "why": "They had caught nothing all night, then 153 fish at once!"
+      },
+      {
+        "q": "What did Peter do when he knew it was Jesus on the shore?",
+        "o": [
+          "He hid in the boat",
+          "He jumped out and swam to shore",
+          "He rowed away"
+        ],
+        "a": 1,
+        "why": "Then Jesus gave them breakfast of fish cooked over charcoal."
+      },
+      {
+        "q": "What did Jesus tell Peter to do to show his love?",
+        "o": [
+          "Go back to fishing full time",
+          "Build a big temple",
+          "Feed and care for Jesus' sheep, his followers"
+        ],
+        "a": 2,
+        "why": "This showed Jesus fully forgave Peter and still trusted him."
+      }
+    ],
+    "think": [
+      "What did Peter get wrong about forgiving people at first?",
+      "In what ways did Peter need Jesus to forgive him?",
+      "How did Jesus show that he had forgiven Peter?"
+    ],
+    "goals": [
+      "Forgive someone who upsets you, even if they did it before",
+      "Say sorry to Jehovah in prayer when you make a mistake, and trust that he forgives",
+      "When you feel sad about a mistake, stay close to your family and friends at meetings",
+      "Be patient and kind with a brother, sister or friend, like Jesus was with Peter"
     ]
   }
 ];
